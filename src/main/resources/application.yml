@@ -1,0 +1,49 @@
+#----------------------server---------------------------#
+server:
+  port: 443
+  ssl:
+    key-store: classpath:keystore.p12
+    key-store-password: vuongdepzai
+    key-store-type: PKCS12
+    key-alias: spring_boot
+
+
+#----------------------spring---------------------------#
+spring:
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: passenger-transport
+
+  jackson:
+    property-naming-strategy: SNAKE_CASE #change response json from camelCase into snake_case
+
+  thymeleaf:
+    cache: false
+
+  social:
+    facebook:
+      clientId: 496376144136283
+      clientSecret: b14e29fb67817865648a45cd465018b2
+      scope: public_profile,email
+
+#  security:
+#
+#    oauth2:
+#      client:
+#        registration:
+#          google:
+#            client-id:
+
+#      app:
+#        id: 496376144136283
+#        secret: b14e29fb67817865648a45cd465018b2
+#        scope: public_profile, email
+
+
+
+#----------------------security--------------------------#
+security:
+  basic:
+    enabled: false
