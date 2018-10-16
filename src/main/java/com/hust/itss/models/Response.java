@@ -16,4 +16,10 @@ public class Response {
         this.errorCode = errorCode;
         this.errorMess = errorMess;
     }
+
+    @Override
+    public String toString(){
+        return "{\"status\": " + status + ", \"error_code\": " + errorCode + ", \"error_mess:\": \"" + errorMess + "\"}";
+    }
+
 }
