@@ -1,0 +1,57 @@
+#----------------------server---------------------------#
+server:
+  port: 443
+  ssl:
+    key-store: classpath:keystore.p12
+    key-store-password: vuongdepzai
+    key-store-type: PKCS12
+    key-alias: spring_boot
+
+
+#----------------------spring---------------------------#
+spring:
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: passenger-transport
+
+  jackson:
+    property-naming-strategy: SNAKE_CASE #change responses json from camelCase into snake_case
+
+  thymeleaf:
+    cache: false
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 514822920655-b5o4qg1la197livrq03010nr990p34ll.apps.googleusercontent.com
+            client-secret: FQ19Ws_Z9U1AILqdGWlXOVr1
+          facebook:
+            client-id: 496376144136283
+            client-secret: b14e29fb67817865648a45cd465018b2
+        provider:
+          # Google provides all the info this app needs by default. Facebook needs configuring.
+          facebook:
+            user-info-uri: https://graph.facebook.com/me?fields=name,first_name,last_name,link,picture,email
+
+#----------------------security--------------------------#
+security:
+  basic:
+    enabled: false
+  client:
+    enable-cors: true
+    logon-url: https://localhost/
+
+  jwt:
+    expiry-in-milliseconds: 86400000  # 1 day
+    secret-key: vking34
+
+  cookie:
+    path: /
+    expiry-seconds: 86400             # 1 day
+
+  oauth2:
+    cookieOverHttpsOnly: true
+
