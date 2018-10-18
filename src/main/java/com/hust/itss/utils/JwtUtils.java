@@ -32,7 +32,7 @@ public class JwtUtils {
                 .claim(AUTH_SERVICE_ID, user.getAuthenticationServiceId())
                 .claim(AUTH_PROVIDER, user.getAuthProvider())
                 .claim(NAME, user.getFullName())
-                .claim(ROLE, user.getRole())
+                .setAudience(user.getRole())
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(new Date().getTime() + expiryInMilliSeconds))
                 .signWith(SignatureAlgorithm.HS256, secretKey)

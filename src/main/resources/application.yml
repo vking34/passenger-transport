@@ -17,7 +17,7 @@ spring:
       database: passenger-transport
 
   jackson:
-    property-naming-strategy: SNAKE_CASE #change response json from camelCase into snake_case
+    property-naming-strategy: SNAKE_CASE #change responses json from camelCase into snake_case
 
   thymeleaf:
     cache: false

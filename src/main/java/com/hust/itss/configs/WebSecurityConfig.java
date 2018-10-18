@@ -60,11 +60,13 @@ class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             http.cors().and().csrf().disable();
         }
 
+        // Authentication
         http.authorizeRequests()
                 .antMatchers(HttpMethod.POST,"/login").permitAll()
                 .and()
-                .addFilter(new JWTAuthenticationFilter(authenticationManager(), sysUserRepository, jwtUtils));
+                .addFilter(new JWTAuthenticationFilter(authenticationManager(), sysUserRepository, jwtAuthenticationService));
 
+        // OAuth2
         http
                 .oauth2Login()
                 .loginPage("/login")
@@ -76,9 +78,19 @@ class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .logout()
                 .permitAll()
                 .and()
-        .httpBasic().disable()
+        .httpBasic().disable();
 
-        .authorizeRequests()
+        // filter cookies for actors
+        http.authorizeRequests()
+                .antMatchers(HttpMethod.GET, "/admin").hasRole(RoleContants.ADMIN)
+                .antMatchers(HttpMethod.GET, "/driver").hasAnyRole(RoleContants.DRIVER, RoleContants.ADMIN)
+                .antMatchers(HttpMethod.GET, "/assistant").hasAnyRole(RoleContants.ASSISTANT, RoleContants.ADMIN)
+                .antMatchers(HttpMethod.GET, "/client").hasAnyRole(RoleContants.CLIENT, RoleContants.USER, RoleContants.ADMIN)
+                .and()
+                .addFilterBefore()
+
+        // for access token for API
+        http.authorizeRequests()
 
                 .antMatchers(HttpMethod.GET,"/api/transporter").hasAnyRole(RoleContants.USER, RoleContants.ADMIN)
                 .antMatchers(HttpMethod.GET,"/api/employee").hasAnyRole(RoleContants.ADMIN)

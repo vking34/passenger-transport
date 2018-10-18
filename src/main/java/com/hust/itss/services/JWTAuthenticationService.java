@@ -16,7 +16,7 @@ import java.io.IOException;
 @Service
 public class JWTAuthenticationService {
 
-    private static final String JWT_COOKIE_NAME = "TRANSPORT-JWT";
+    public static final String JWT_COOKIE_NAME = "TRANSPORT-JWT";
 
     @Autowired
     private JwtUtils jwtUtils;
@@ -30,9 +30,9 @@ public class JWTAuthenticationService {
     @Value("${security.oauth2.cookieOverHttpsOnly}")
     private boolean cookieOverHttpsOnly;
 
-    public void setAuthenticationData(HttpServletRequest request, HttpServletResponse response, SysUser user) throws IOException {
+    public String setAuthenticationData(HttpServletRequest request, HttpServletResponse response, SysUser user) throws IOException {
         CookieUtils.deleteCookie(request, response, HttpCookieOAuth2AuthorizationRequestRepository.COOKIE_NAME, cookieOverHttpsOnly);
-//        CookieUtils.deleteCookie(request, response, "JSESSIONID" ,cookieOverHttpsOnly);
+//        CookieUtils.deleteCookie(request, responses, "JSESSIONID" ,cookieOverHttpsOnly);
         String token = jwtUtils.createTokenForUser(user);
         Cookie cookie = new Cookie(JWT_COOKIE_NAME, token);
         cookie.setPath(cookiePath);
@@ -40,6 +40,7 @@ public class JWTAuthenticationService {
 
         response.addCookie(cookie);
         System.out.println("Cookie: " + cookie);
+        return token;
     }
 
 }

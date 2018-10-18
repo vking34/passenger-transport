@@ -1,7 +1,7 @@
 package com.hust.itss.controllers.user;
 
 import com.hust.itss.constants.RequestParams;
-import com.hust.itss.models.Response;
+import com.hust.itss.models.responses.Response;
 import com.hust.itss.models.users.Client;
 import com.hust.itss.utils.PageRequestCreation;
 import com.hust.itss.repositories.ClientRepository;

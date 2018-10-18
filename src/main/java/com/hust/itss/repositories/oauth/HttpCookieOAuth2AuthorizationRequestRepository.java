@@ -61,11 +61,11 @@ public class HttpCookieOAuth2AuthorizationRequestRepository implements Authoriza
     @Override
     public OAuth2AuthorizationRequest removeAuthorizationRequest(HttpServletRequest request) {
 
-        // Question: How to remove the cookie, because we don't have access to response object here.
+        // Question: How to remove the cookie, because we don't have access to responses object here.
         // This seems to be a flaw in the design of the AuthorizationRequestRepository interface
         // as the default behaviour is to remove data from the HTTP session -
         // which will be accessed via the request object. Here we
-        // want to clear out a cookie for which we need access to the response object.
+        // want to clear out a cookie for which we need access to the responses object.
         // So, for the time being, another unrelated part of the code base clears the cookie -
         // see the JwtAuthenticationService class for details.
         // There is an issue raised on Spring Security for this and the interface may be

@@ -2,11 +2,10 @@ package com.hust.itss.services;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.hust.itss.constants.SecurityContants;
-import com.hust.itss.models.Response;
+import com.hust.itss.models.responses.Response;
+import com.hust.itss.models.responses.TokenResponse;
 import com.hust.itss.models.users.SysUser;
 import com.hust.itss.repositories.SysUserRepository;
-import com.hust.itss.utils.JwtUtils;
-import net.minidev.json.JSONObject;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -26,12 +25,12 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 
     private SysUserRepository sysUserRepository;
 
-    private JwtUtils jwtUtils;
+    private JWTAuthenticationService jwtAuthenticationService;
 
-    public JWTAuthenticationFilter(AuthenticationManager authenticationManager, SysUserRepository sysUserRepository, JwtUtils jwtUtils) {
+    public JWTAuthenticationFilter(AuthenticationManager authenticationManager, SysUserRepository sysUserRepository, JWTAuthenticationService jwtAuthenticationService) {
         this.authenticationManager = authenticationManager;
         this.sysUserRepository = sysUserRepository;
-        this.jwtUtils = jwtUtils;
+        this.jwtAuthenticationService = jwtAuthenticationService;
     }
 
     @Override
@@ -56,28 +55,22 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 
     @Override
     protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication authResult) throws IOException, ServletException {
-
         User user = (User) authResult.getPrincipal();
         String username = user.getUsername();
         System.out.println("successfulAuthentication : " + username);
 
         SysUser sysUser = sysUserRepository.findSysUserByUsername(username);
-        String token = jwtUtils.createTokenForUser(sysUser);
+        String token = jwtAuthenticationService.setAuthenticationData(request, response, sysUser);
 
-        JSONObject resp = new JSONObject();
-        resp.put("status", true);
-        resp.put("token", token);
-
-        response.getWriter().write(resp.toString());
+        TokenResponse tokenResponse = new TokenResponse(true, token);
+        response.getWriter().write(tokenResponse.toString());
         response.addHeader(SecurityContants.AUTHORIZATION, SecurityContants.TOKEN_PREFIX + token);
-
+//        responses.sendRedirect("https://localhost/");
     }
 
     @Override
     protected void unsuccessfulAuthentication(HttpServletRequest request, HttpServletResponse response, AuthenticationException failed) throws IOException, ServletException {
-        JSONObject resp = new JSONObject();
-        resp.put("status", false);
-
+        Response resp = new Response(false, 1, "username or password is incorrect...");
         response.getWriter().write(resp.toString());
     }
 }
