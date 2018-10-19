@@ -16,7 +16,7 @@ import static com.hust.itss.constants.RoleContants.*;
 @RequestMapping
 public class IndexController {
 
-    @GetMapping
+    @GetMapping("/")
     public String getIndex(@CookieValue(value = JWTAuthenticationService.JWT_COOKIE_NAME, required = false) String token, Model model){
         System.out.println("GET: index with token: " + token);
         if(token != null){
@@ -38,6 +38,7 @@ public class IndexController {
                 case ROOT:
                     return "redirect:/root";
 
+                case USER:
                 case CLIENT:
                     return "redirect:/client";
 
@@ -52,7 +53,9 @@ public class IndexController {
     }
 
     @GetMapping("/admin")
-    public String getAdminPage(HttpServletResponse response, @CookieValue(value = JWTAuthenticationService.JWT_COOKIE_NAME, required = false) String token, Model model){
+    public String getAdminPage(HttpServletResponse response,
+                               @CookieValue(value = JWTAuthenticationService.JWT_COOKIE_NAME, required = false) String token,
+                               Model model){
         System.out.println("GET: admin with token: " + token);
         if (token == null){
             response.setStatus(403);

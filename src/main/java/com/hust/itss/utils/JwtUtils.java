@@ -1,10 +1,13 @@
 package com.hust.itss.utils;
 
+import com.hust.itss.constants.SecurityContants;
 import com.hust.itss.models.users.SysUser;
+import com.hust.itss.services.CustomUserDetailService;
 import io.jsonwebtoken.Header;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
@@ -39,4 +42,24 @@ public class JwtUtils {
                 .compact();
     }
 
+    public static UsernamePasswordAuthenticationToken getAuthenticationFromToken(String token, CustomUserDetailService customUserDetailService){
+        if(token == null)
+            return null;
+
+        String username = null;
+        try {
+            System.out.println("Decode token with secret key: " + SecurityContants.SECRET_KEY);
+            username = Jwts.parser().setSigningKey(SecurityContants.SECRET_KEY)
+                    .parseClaimsJws(token.replace(SecurityContants.TOKEN_PREFIX, ""))
+                    .getBody()
+                    .getSubject();
+        }
+        catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+
+        UserDetails userDetails = customUserDetailService.loadUserByUsername(username);
+        System.out.println(userDetails);
+        return username != null ? new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities()) : null;
+    }
 }

@@ -62,6 +62,7 @@ class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
         // Authentication
         http.authorizeRequests()
+                .antMatchers("/").permitAll()
                 .antMatchers(HttpMethod.POST,"/login").permitAll()
                 .and()
                 .addFilter(new JWTAuthenticationFilter(authenticationManager(), sysUserRepository, jwtAuthenticationService));
@@ -86,8 +87,9 @@ class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.GET, "/driver").hasAnyRole(RoleContants.DRIVER, RoleContants.ADMIN)
                 .antMatchers(HttpMethod.GET, "/assistant").hasAnyRole(RoleContants.ASSISTANT, RoleContants.ADMIN)
                 .antMatchers(HttpMethod.GET, "/client").hasAnyRole(RoleContants.CLIENT, RoleContants.USER, RoleContants.ADMIN)
+
                 .and()
-                .addFilterBefore()
+                .addFilter(new CookieAuthorizationFilter(authenticationManager(),customUserDetailService));
 
         // for access token for API
         http.authorizeRequests()

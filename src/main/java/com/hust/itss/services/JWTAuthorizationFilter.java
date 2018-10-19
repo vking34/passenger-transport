@@ -1,6 +1,7 @@
 package com.hust.itss.services;
 
 import com.hust.itss.constants.SecurityContants;
+import com.hust.itss.utils.JwtUtils;
 import io.jsonwebtoken.Jwts;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -30,32 +31,10 @@ public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
             filterChain.doFilter(request, response);
             return;
         }
-        UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = getAuthenticationToken(request);
+        String token = request.getHeader(SecurityContants.AUTHORIZATION);
+        UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = JwtUtils.getAuthenticationFromToken(token, customUserDetailService);
         SecurityContextHolder.getContext().setAuthentication(usernamePasswordAuthenticationToken);
         filterChain.doFilter(request, response);
-    }
-
-
-    private UsernamePasswordAuthenticationToken getAuthenticationToken(HttpServletRequest request){
-
-        String token = request.getHeader(SecurityContants.AUTHORIZATION);
-        if(token == null)
-            return null;
-
-        String username = null;
-        try {
-            System.out.println("Decode token with secret key: " + SecurityContants.SECRET_KEY);
-            username = Jwts.parser().setSigningKey(SecurityContants.SECRET_KEY)
-                    .parseClaimsJws(token.replace(SecurityContants.TOKEN_PREFIX, ""))
-                    .getBody()
-                    .getSubject();
-        }
-        catch (Exception e){
-            System.out.println(e.getMessage());
-        }
-
-        UserDetails userDetails = customUserDetailService.loadUserByUsername(username);
-        return username != null ? new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities()) : null;
     }
 
 }
