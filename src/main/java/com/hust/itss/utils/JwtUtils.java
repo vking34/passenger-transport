@@ -3,6 +3,7 @@ package com.hust.itss.utils;
 import com.hust.itss.constants.SecurityContants;
 import com.hust.itss.models.users.SysUser;
 import com.hust.itss.services.CustomUserDetailService;
+import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Header;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -29,17 +30,31 @@ public class JwtUtils {
 
     public String createTokenForUser(SysUser user){
         System.out.println("secret key: " + secretKey);
-        return Jwts.builder()
-                .setSubject(user.getUsername())
-                .setHeaderParam(Header.TYPE, Header.JWT_TYPE)
-                .claim(AUTH_SERVICE_ID, user.getAuthenticationServiceId())
-                .claim(AUTH_PROVIDER, user.getAuthProvider())
-                .claim(NAME, user.getFullName())
-                .setAudience(user.getRole())
-                .setIssuedAt(new Date())
-                .setExpiration(new Date(new Date().getTime() + expiryInMilliSeconds))
-                .signWith(SignatureAlgorithm.HS256, secretKey)
-                .compact();
+//        System.out.println(user.getAuthProvider().toString());
+
+        return user.getAuthProvider() != null ?
+                Jwts.builder()
+                    .setSubject(user.getUsername())
+                    .setHeaderParam(Header.TYPE, Header.JWT_TYPE)
+                    .claim(AUTH_SERVICE_ID, user.getAuthenticationServiceId())
+                    .claim(NAME, user.getFullName())
+                    .setId(user.getAuthProvider().toString())
+                    .setAudience(user.getRole())
+                    .setIssuedAt(new Date())
+                    .setExpiration(new Date(new Date().getTime() + expiryInMilliSeconds))
+                    .signWith(SignatureAlgorithm.HS256, secretKey)
+                    .compact()
+                :
+                Jwts.builder()
+                    .setSubject(user.getUsername())
+                    .setHeaderParam(Header.TYPE, Header.JWT_TYPE)
+                    .claim(NAME, user.getFullName())
+                    .setAudience(user.getRole())
+                    .setIssuedAt(new Date())
+                    .setExpiration(new Date(new Date().getTime() + expiryInMilliSeconds))
+                    .signWith(SignatureAlgorithm.HS256, secretKey)
+                    .compact()
+                ;
     }
 
     public static UsernamePasswordAuthenticationToken getAuthenticationFromToken(String token, CustomUserDetailService customUserDetailService){
@@ -47,18 +62,27 @@ public class JwtUtils {
             return null;
 
         String username = null;
+        String provider = null;
         try {
             System.out.println("Decode token with secret key: " + SecurityContants.SECRET_KEY);
-            username = Jwts.parser().setSigningKey(SecurityContants.SECRET_KEY)
+             Claims claims = Jwts.parser().setSigningKey(SecurityContants.SECRET_KEY)
                     .parseClaimsJws(token.replace(SecurityContants.TOKEN_PREFIX, ""))
-                    .getBody()
-                    .getSubject();
+                    .getBody();
+             username = claims.getSubject();
+             provider = claims.getId();
+            System.out.println("user: " + username + ", provider: " + provider);
         }
         catch (Exception e){
             System.out.println(e.getMessage());
         }
+        UserDetails userDetails;
+        if(provider != null){
+            userDetails = customUserDetailService.loadUserByUsernameAndProvider(username, provider);
+        }
+        else {
+            userDetails = customUserDetailService.loadUserByUsername(username);
+        }
 
-        UserDetails userDetails = customUserDetailService.loadUserByUsername(username);
         System.out.println(userDetails);
         return username != null ? new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities()) : null;
     }
