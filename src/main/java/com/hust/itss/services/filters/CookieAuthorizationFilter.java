@@ -1,16 +1,14 @@
-package com.hust.itss.services;
+package com.hust.itss.services.filters;
 
-import com.hust.itss.constants.SecureEndpoints;
+import com.hust.itss.services.CustomUserDetailService;
+import com.hust.itss.services.JWTAuthenticationService;
 import com.hust.itss.utils.JwtUtils;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
-import org.springframework.web.bind.annotation.CookieValue;
 
 import javax.servlet.*;
-import javax.servlet.annotation.WebFilter;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;

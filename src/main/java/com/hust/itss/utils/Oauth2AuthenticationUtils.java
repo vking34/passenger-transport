@@ -1,4 +1,4 @@
-package com.hust.itss.utils.oauth;
+package com.hust.itss.utils;
 
 import com.hust.itss.models.users.SysUser;
 import com.hust.itss.repositories.SysUserRepository;

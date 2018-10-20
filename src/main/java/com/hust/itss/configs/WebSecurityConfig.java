@@ -1,17 +1,18 @@
 package com.hust.itss.configs;
 
 import com.hust.itss.constants.RoleContants;
+import com.hust.itss.constants.EntryPoints;
 import com.hust.itss.models.users.SysUser;
 import com.hust.itss.repositories.SysUserRepository;
 import com.hust.itss.repositories.oauth.HttpCookieOAuth2AuthorizationRequestRepository;
 import com.hust.itss.services.*;
-import com.hust.itss.utils.JwtUtils;
+import com.hust.itss.services.filters.CookieAuthorizationFilter;
+import com.hust.itss.services.filters.JWTAuthenticationFilter;
+import com.hust.itss.services.filters.JWTAuthorizationFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -24,9 +25,7 @@ import org.springframework.security.oauth2.client.authentication.OAuth2Authentic
 import org.springframework.security.oauth2.client.web.AuthorizationRequestRepository;
 import org.springframework.security.oauth2.core.endpoint.OAuth2AuthorizationRequest;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
-import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import javax.servlet.FilterRegistration;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -67,25 +66,6 @@ class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .addFilter(new JWTAuthenticationFilter(authenticationManager(), sysUserRepository, jwtAuthenticationService));
 
-        // filter cookies for actors
-        http.authorizeRequests()
-                .antMatchers(HttpMethod.GET, "/admin").hasRole(RoleContants.ADMIN)
-                .antMatchers(HttpMethod.GET, "/driver").hasAnyRole(RoleContants.DRIVER, RoleContants.ADMIN)
-                .antMatchers(HttpMethod.GET, "/assistant").hasAnyRole(RoleContants.ASSISTANT, RoleContants.ADMIN)
-                .antMatchers(HttpMethod.GET, "/client").hasAnyRole(RoleContants.CLIENT, RoleContants.USER, RoleContants.ADMIN)
-
-                .and()
-                .addFilter(new CookieAuthorizationFilter(authenticationManager(),customUserDetailService));
-
-        // for access token for API
-        http.authorizeRequests()
-
-                .antMatchers(HttpMethod.GET,"/api/transporter").hasAnyRole(RoleContants.USER, RoleContants.ADMIN)
-                .antMatchers(HttpMethod.GET,"/api/employee").hasAnyRole(RoleContants.ADMIN)
-                .and()
-                .addFilter(new JWTAuthorizationFilter(authenticationManager(), customUserDetailService))
-        ;
-
         // OAuth2
         http
                 .oauth2Login()
@@ -100,12 +80,28 @@ class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
         .httpBasic().disable();
 
+        // filter cookies for actors
+        http.authorizeRequests()
+                .antMatchers(HttpMethod.GET, "/admin").hasRole(RoleContants.ADMIN)
+                .antMatchers(HttpMethod.GET, "/driver").hasAnyRole(RoleContants.DRIVER, RoleContants.ADMIN)
+                .antMatchers(HttpMethod.GET, "/assistant").hasAnyRole(RoleContants.ASSISTANT, RoleContants.ADMIN)
+                .antMatchers(HttpMethod.GET, "/client").hasAnyRole(RoleContants.CLIENT, RoleContants.USER, RoleContants.ADMIN)
+                .and()
+                .addFilter(new CookieAuthorizationFilter(authenticationManager(),customUserDetailService));
 
+        // for access token for API
+        http.authorizeRequests()
+
+                .antMatchers(HttpMethod.GET,"/api/transporter").hasAnyRole(RoleContants.USER, RoleContants.ADMIN, RoleContants.DRIVER)
+                .antMatchers(HttpMethod.GET,"/api/employee").hasAnyRole(RoleContants.ADMIN)
+                .and()
+                .addFilter(new JWTAuthorizationFilter(authenticationManager(), customUserDetailService))
+        ;
     }
 
     @Override
     public void configure(WebSecurity webSecurity) throws Exception {
-        webSecurity.ignoring().antMatchers(HttpMethod.GET,"/", "/login");
+        webSecurity.ignoring().antMatchers(HttpMethod.GET, EntryPoints.UNSECURE_ENTRYPOINTS);
     }
 
     // encode password before attempt authentication (searching for db)

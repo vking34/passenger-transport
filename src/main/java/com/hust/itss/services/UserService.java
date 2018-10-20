@@ -4,13 +4,12 @@ import com.hust.itss.constants.RoleContants;
 import com.hust.itss.models.users.SysUser;
 import com.hust.itss.repositories.SysUserRepository;
 import com.hust.itss.utils.EncryptedPasswordUtils;
-import com.hust.itss.utils.oauth.Oauth2AuthenticationUtils;
+import com.hust.itss.utils.Oauth2AuthenticationUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Optional;

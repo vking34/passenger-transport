@@ -1,6 +1,7 @@
-package com.hust.itss.services;
+package com.hust.itss.services.filters;
 
 import com.hust.itss.constants.SecurityContants;
+import com.hust.itss.services.CustomUserDetailService;
 import com.hust.itss.utils.JwtUtils;
 import io.jsonwebtoken.Jwts;
 import org.springframework.security.authentication.AuthenticationManager;

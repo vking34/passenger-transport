@@ -1,4 +1,4 @@
-package com.hust.itss.services;
+package com.hust.itss.services.filters;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.hust.itss.constants.SecurityContants;
@@ -6,6 +6,7 @@ import com.hust.itss.models.responses.Response;
 import com.hust.itss.models.responses.TokenResponse;
 import com.hust.itss.models.users.SysUser;
 import com.hust.itss.repositories.SysUserRepository;
+import com.hust.itss.services.JWTAuthenticationService;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;

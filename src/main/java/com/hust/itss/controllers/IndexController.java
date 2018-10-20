@@ -15,8 +15,7 @@ import static com.hust.itss.constants.RoleContants.*;
 @Controller
 @RequestMapping
 public class IndexController {
-
-    @GetMapping("/")
+    @GetMapping
     public String getIndex(@CookieValue(value = JWTAuthenticationService.JWT_COOKIE_NAME, required = false) String token, Model model){
         System.out.println("GET: index with token: " + token);
         if(token != null){
@@ -99,8 +98,6 @@ public class IndexController {
         if (token == null){
             return "redirect:/login";
         }
-
-
 
         return "client";
     }
