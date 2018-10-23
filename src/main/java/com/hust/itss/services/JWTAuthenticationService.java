@@ -42,5 +42,4 @@ public class JWTAuthenticationService {
         System.out.println("Cookie: " + cookie);
         return token;
     }
-
 }

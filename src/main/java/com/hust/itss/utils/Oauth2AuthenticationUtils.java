@@ -85,18 +85,9 @@ public class Oauth2AuthenticationUtils {
         }
     }
 
-    public void setGoogleClientClientId(String googleClientClientId) {
-        this.googleClientClientId = googleClientClientId;
-    }
-
-    public void setFacebookClientClientId(String facebookClientClientId) {
-        this.facebookClientClientId = facebookClientClientId;
-    }
-
     private OAuth2AuthorizedClient getAuthorizedClient(OAuth2AuthenticationToken authentication) {
 
         return this.authorizedClientService.loadAuthorizedClient(
                 authentication.getAuthorizedClientRegistrationId(), authentication.getName());
     }
-
 }

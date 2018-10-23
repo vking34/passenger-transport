@@ -29,9 +29,6 @@ public class JwtUtils {
     private String secretKey;
 
     public String createTokenForUser(SysUser user){
-        System.out.println("secret key: " + secretKey);
-//        System.out.println(user.getAuthProvider().toString());
-
         return user.getAuthProvider() != null ?
                 Jwts.builder()
                     .setSubject(user.getUsername())

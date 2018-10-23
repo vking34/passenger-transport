@@ -1,7 +1,10 @@
 package com.hust.itss.models.routes;
 
+import com.hust.itss.models.schedules.TransportSchedule;
 import lombok.Data;
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
@@ -22,7 +25,7 @@ public class Route {
     @Field("stations")
     private List<String> stations;
 
-    @Field("schedule")
+    @Field("schedules")
     private List<String> schedules;
 
     public Route() { }

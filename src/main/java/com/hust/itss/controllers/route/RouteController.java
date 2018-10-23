@@ -2,14 +2,18 @@ package com.hust.itss.controllers.route;
 
 import com.hust.itss.constants.RequestParams;
 import com.hust.itss.models.routes.Route;
+import com.hust.itss.models.routes.RouteDetail;
 import com.hust.itss.utils.PageRequestCreation;
 import com.hust.itss.repositories.RouteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/route")
@@ -31,6 +35,9 @@ public class RouteController {
         return routeRepository.findAll(PageRequestCreation.getPageRequest(page, pageSize, sort, direct, RequestParams.ROUTE_PARAMS));
     }
 
-
-
+    @GetMapping("/details")
+    Page<RouteDetail> getRouteDetails(){
+        System.out.println("GET: Route details ...");
+        return routeRepository.findRouteDetails(PageRequest.of(0,10));
+    }
 }

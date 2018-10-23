@@ -47,7 +47,7 @@ public class SysUser {
     @Length(max = 100)
     private String lastName;
 
-    @Field("fullname")
+    @Field("full_name")
     @Length(max = 100)
     private String fullName;
 

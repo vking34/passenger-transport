@@ -30,6 +30,5 @@ public class TicketController {
                             @RequestParam(value = "direct", required = false) String direct){
         System.out.println("GET: tickets page " + page + ", page size: " + pageSize + ", sort by " + sort + ", direct " + direct);
         return ticketRepository.findAll(PageRequestCreation.getPageRequest(page,pageSize,sort,direct, RequestParams.TICKET_PARAMS));
-
     }
 }

@@ -14,9 +14,6 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
-import static com.hust.itss.constants.OAuthProvider.FACEBOOK;
-import static com.hust.itss.constants.OAuthProvider.GOOGLE;
-
 @Service
 public class CustomUserDetailService implements UserDetailsService {
 

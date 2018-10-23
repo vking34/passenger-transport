@@ -31,9 +31,9 @@ public class Ticket {
     @Field("price")
     private Integer price;
 
-    @Field("booking_date")
-    private Date bookingDate;
+    @Field("reservation_date")
+    private Date reservationDate;
 
-    @Field("date")
-    private Date date;
+    @Field("date_created")
+    private Date dateCreated;
 }

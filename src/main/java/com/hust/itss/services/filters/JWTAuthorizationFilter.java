@@ -3,11 +3,9 @@ package com.hust.itss.services.filters;
 import com.hust.itss.constants.SecurityContants;
 import com.hust.itss.services.CustomUserDetailService;
 import com.hust.itss.utils.JwtUtils;
-import io.jsonwebtoken.Jwts;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 
 import javax.servlet.FilterChain;
