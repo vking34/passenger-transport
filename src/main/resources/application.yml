@@ -51,7 +51,8 @@ security:
     enabled: false
   client:
     enable-cors: true
-    logon-url: https://localhost/
+    logon-url: /
+#    logon-url: https://localhost/
 
   jwt:
     expiry-in-milliseconds: 86400000  # 1 day
