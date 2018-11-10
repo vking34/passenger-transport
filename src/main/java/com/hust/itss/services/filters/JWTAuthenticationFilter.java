@@ -4,8 +4,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.hust.itss.constants.SecurityContants;
 import com.hust.itss.models.responses.Response;
 import com.hust.itss.models.responses.TokenResponse;
+import com.hust.itss.models.users.AuthRequest;
 import com.hust.itss.models.users.SysUser;
-import com.hust.itss.repositories.SysUserRepository;
+import com.hust.itss.repositories.user.SysUserRepository;
 import com.hust.itss.services.JWTAuthenticationService;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -37,9 +38,9 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
     @Override
     // {"username": "test", "password": "test"}
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException {
-        System.out.println("[attemptAuthentication]");
+//        System.out.println("[attemptAuthentication]");
         try {
-            SysUser user = new ObjectMapper().readValue(request.getInputStream(), SysUser.class);
+            AuthRequest user = new ObjectMapper().readValue(request.getInputStream(), AuthRequest.class);
 
             System.out.println("attempt Authentication: {username: " + user.getUsername() + ", password: " + user.getPassword() + "}");
             return authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword()));

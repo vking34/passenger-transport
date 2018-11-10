@@ -1,39 +1,33 @@
 package com.hust.itss.models.tickets;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.util.Date;
 
+@EqualsAndHashCode(callSuper = true)
 @Data
 @Document(collection = "Ticket")
-public class Ticket {
+@AllArgsConstructor
+public class Ticket extends TicketForm {
     @Id
+    @JsonProperty(value = "id", required = false)
     private String id;
 
-    @Field("client")
-    private String client;
-
-    @Field("route")
-    private String route;
-
-    @Field("schedule")
-    private String schedule;
-
-    @Field("transporter")
-    private String transporter;
-
-    @Field("destination")
-    private String destination;
-
     @Field("price")
+    @JsonProperty(value = "price", required = false)
     private Integer price;
 
-    @Field("reservation_date")
-    private Date reservationDate;
-
     @Field("date_created")
+    @JsonProperty(value = "date_created", required = false)
     private Date dateCreated;
+
+    public Ticket(){
+        super();
+    }
 }

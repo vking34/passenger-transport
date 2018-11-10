@@ -5,8 +5,8 @@ import com.hust.itss.models.responses.Response;
 import com.hust.itss.models.schedules.WorkSchedule;
 import com.hust.itss.models.users.Employee;
 import com.hust.itss.utils.PageRequestCreation;
-import com.hust.itss.repositories.EmployeeRepository;
-import com.hust.itss.repositories.WorkScheduleRepository;
+import com.hust.itss.repositories.user.EmployeeRepository;
+import com.hust.itss.repositories.schedule.WorkScheduleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -33,18 +33,18 @@ public class EmployeeController {
                                 @RequestParam(value = "direct", required = false) String direct){
 
         System.out.println("GET: employees page " + page + ", page size " + pageSize + ", sort by " + sort + ", direct " + direct);
-        return employeeRepository.findAll(PageRequestCreation.getPageRequest(page, pageSize, sort, direct, RequestParams.USER_PARAMS));
+        return employeeRepository.findAllEmployees(PageRequestCreation.getPageRequest(page, pageSize, sort, direct, RequestParams.USER_PARAMS));
     }
 
     @PostMapping
     Response createEmployee(@RequestBody(required = false) Employee employee){
         if (employee == null)
-            return new Response(false, 1, "empty request");
-        if(employeeRepository.findExistingEmployee(employee.getPhone(), employee.getEmail(), employee.getCitizenId()) != null){
+            return new Response(false, 1, "empty requests");
+        if(employeeRepository.findExistingEmployee(employee.getPhoneNumber(), employee.getEmail(), employee.getCitizenId()) != null){
             System.out.println("ERR: Existing employee !");
             return new Response(false, 2, "overlap field(s)");
         }
-        System.out.println("POST: create employee " + employee.getName() + ", " + employee.getPhone() + ", " + employee.getEmail() + ", " + employee.getCitizenId());
+        System.out.println("POST: create employee " + employee.getFullName() + ", " + employee.getPhoneNumber() + ", " + employee.getEmail() + ", " + employee.getCitizenId());
         employeeRepository.save(employee);
         return new Response(true, 0, null);
     }
@@ -59,17 +59,17 @@ public class EmployeeController {
     Response updateEmployee(@PathVariable String id,
                             @RequestBody(required = false) Employee employee){
         if(employee == null)
-            return new Response(false, 1, "empty request");
+            return new Response(false, 1, "empty requests");
 
         Employee updatedEmploye = employeeRepository.findEmployeeById(id);
         if(updatedEmploye == null)
             return new Response(false, 2, "wrong employee id");
-        else if(employee.getName() == null || employee.getPhone() == null || employee.getAddress() == null || employee.getCitizenId() == null)
+        else if(employee.getFullName() == null || employee.getPhoneNumber() == null || employee.getAddress() == null || employee.getCitizenId() == null)
             return new Response(false, 3, "missing field(s)");
 
-        System.out.println("PUT: update employee " + employee.getName());
-        updatedEmploye.setName(employee.getName());
-        updatedEmploye.setAddress(employee.getPhone());
+        System.out.println("PUT: update employee " + employee.getFullName());
+        updatedEmploye.setFullName(employee.getFullName());
+        updatedEmploye.setAddress(employee.getPhoneNumber());
         updatedEmploye.setEmail(employee.getEmail());
         updatedEmploye.setCitizenId(employee.getCitizenId());
         updatedEmploye.setAddress(employee.getAddress());

@@ -1,7 +1,7 @@
 package com.hust.itss.services;
 
 import com.hust.itss.models.users.SysUser;
-import com.hust.itss.repositories.SysUserRepository;
+import com.hust.itss.repositories.user.SysUserRepository;
 import com.hust.itss.utils.Oauth2AuthenticationUtils;
 import com.hust.itss.utils.SocialAuthUtils;
 import org.springframework.beans.factory.annotation.Autowired;

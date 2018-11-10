@@ -1,4 +1,4 @@
-package com.hust.itss.repositories;
+package com.hust.itss.repositories.route;
 
 import com.hust.itss.models.routes.RouteDetail;
 import org.springframework.data.domain.Page;

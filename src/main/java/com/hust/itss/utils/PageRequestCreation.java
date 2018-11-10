@@ -28,4 +28,25 @@ public class PageRequestCreation {
 
         return pageRequest;
     }
+
+    public static PageRequest getBasicPageRequest(Integer page, Integer pageSize, String sort, String direct)
+    {
+        PageRequest pageRequest;
+        if(page == null)
+            page = 1;
+        if(pageSize == null)
+            pageSize = 10;
+        if (direct != null)
+        {
+            if( direct.equals("DESC"))
+                pageRequest = PageRequest.of(page - 1, pageSize, Sort.by(sort).descending());
+            else {
+                pageRequest = PageRequest.of(page - 1, pageSize, Sort.by(sort).ascending());
+            }
+        }
+        else {
+            pageRequest = PageRequest.of(page-1, pageSize);
+        }
+        return pageRequest;
+    }
 }

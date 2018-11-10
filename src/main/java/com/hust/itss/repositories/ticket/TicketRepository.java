@@ -1,4 +1,4 @@
-package com.hust.itss.repositories;
+package com.hust.itss.repositories.ticket;
 
 import com.hust.itss.models.tickets.Ticket;
 import org.springframework.data.mongodb.repository.MongoRepository;

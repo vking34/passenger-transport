@@ -32,14 +32,14 @@ public class JWTAuthenticationService {
 
     public String setAuthenticationData(HttpServletRequest request, HttpServletResponse response, SysUser user) throws IOException {
         CookieUtils.deleteCookie(request, response, HttpCookieOAuth2AuthorizationRequestRepository.COOKIE_NAME, cookieOverHttpsOnly);
-//        CookieUtils.deleteCookie(request, responses, "JSESSIONID" ,cookieOverHttpsOnly);
+//        CookieUtils.deleteCookie(requests, responses, "JSESSIONID" ,cookieOverHttpsOnly);
         String token = jwtUtils.createTokenForUser(user);
         Cookie cookie = new Cookie(JWT_COOKIE_NAME, token);
         cookie.setPath(cookiePath);
         cookie.setMaxAge(cookieExpirySeconnds);
 
         response.addCookie(cookie);
-        System.out.println("Cookie: " + cookie);
+//        System.out.println("Cookie: " + cookie);
         return token;
     }
 }

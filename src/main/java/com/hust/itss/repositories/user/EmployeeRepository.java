@@ -1,4 +1,4 @@
-package com.hust.itss.repositories;
+package com.hust.itss.repositories.user;
 
 import com.hust.itss.models.users.Employee;
 import org.springframework.data.domain.Page;
@@ -9,6 +9,10 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface EmployeeRepository extends MongoRepository<Employee, String> {
+
+    @Query("{ $or : [ { role : \"DRIVER\"}, { role : \"ASSISTANT\"} ] }")
+    public Page<Employee> findAllEmployees(Pageable pageable);
+
     public Employee findEmployeeById(String id);
 
     @Query("{ '$or' : [ { phone : ?0 }, { email : ?1 }, { citizen_id : ?2 } ] }")

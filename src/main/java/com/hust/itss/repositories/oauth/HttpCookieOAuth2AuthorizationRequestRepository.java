@@ -41,7 +41,7 @@ public class HttpCookieOAuth2AuthorizationRequestRepository implements Authoriza
             CookieUtils.deleteCookie(request, response, COOKIE_NAME, cookieOverHttpsOnly);
             return;
         }
-        System.out.println("Save authorization request and create cookie : " + authorizationRequest);
+        System.out.println("Save authorization requests and create cookie : " + authorizationRequest);
 
         Cookie cookie = new Cookie(COOKIE_NAME, fromAuthorizationRequest(authorizationRequest));
         cookie.setPath("/");

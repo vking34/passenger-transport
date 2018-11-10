@@ -1,30 +1,37 @@
 package com.hust.itss.controllers.route;
 
+import com.hust.itss.constants.CommonResponse;
 import com.hust.itss.constants.RequestParams;
+import com.hust.itss.models.requests.IdentForm;
+import com.hust.itss.models.responses.Response;
 import com.hust.itss.models.routes.Route;
 import com.hust.itss.models.routes.RouteDetail;
+import com.hust.itss.repositories.schedule.TransportScheduleRepository;
 import com.hust.itss.utils.PageRequestCreation;
-import com.hust.itss.repositories.RouteRepository;
+import com.hust.itss.repositories.route.RouteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import java.util.ArrayList;
 
 @RestController
 @RequestMapping("/api/route")
 public class RouteController {
 
-    private final RouteRepository routeRepository;
+    private static final Response ROUTE_NOT_FOUND_RESPONSE = new Response(false, 1, "Route not found");
+    private static final Response MISSING_FIELDS_RESPONSE = new Response(false, 2, "Departure/Destination field is missing");
+    private static final Response SCHEDULE_NOT_FOUND_RESPONSE = new Response(false, 2, "Schedule not found");
 
     @Autowired
-    public RouteController(RouteRepository routeRepository) {
-        this.routeRepository = routeRepository;
-    }
+    private RouteRepository routeRepository;
+
+    @Autowired
+    private TransportScheduleRepository transportScheduleRepository;
+
+    @Autowired
+    private RouteAsyncTasks asyncTasks;
 
     @GetMapping
     Page<Route> getRoutes(@RequestParam(value = "page", required = false) Integer page,
@@ -36,8 +43,70 @@ public class RouteController {
     }
 
     @GetMapping("/details")
-    Page<RouteDetail> getRouteDetails(){
+    Page<RouteDetail> getRouteDetails(@RequestParam(value = "page", required = false) Integer page,
+                                      @RequestParam(value = "page_size", required = false) Integer pageSize){
         System.out.println("GET: Route details ...");
-        return routeRepository.findRouteDetails(PageRequest.of(0,10));
+        if (page == null)
+            page = 1;
+        if (pageSize == null)
+            pageSize = 10;
+        return routeRepository.findRouteDetails(PageRequest.of(page - 1,pageSize));
+    }
+
+    @GetMapping("/{id}")
+    Route getRoute(@PathVariable String id){
+        System.out.println("GET: get route " + id);
+        return routeRepository.findRouteById(id);
+    }
+
+    @PostMapping
+    Response createRoute(@RequestBody Route route){
+        if(route.getDeparture() == null || route.getDestination() == null){
+            return MISSING_FIELDS_RESPONSE;
+        }
+
+        if(route.getSchedules() == null){
+            route.setSchedules(new ArrayList<>());
+        }
+        asyncTasks.insertRoute(route);
+        return CommonResponse.SUCCESS_RESPONSE;
+    }
+
+    @PostMapping("/{id}")
+    Response updateRoute(@PathVariable String id, @RequestBody Route route){
+        System.out.println("POST: update route");
+        Route target = routeRepository.findRouteById(id);
+        if (target == null)
+            return ROUTE_NOT_FOUND_RESPONSE;
+        if (route.getDeparture() == null || route.getDestination() == null)
+            return MISSING_FIELDS_RESPONSE;
+        asyncTasks.updateRoute(target, route);
+        return CommonResponse.SUCCESS_RESPONSE;
+    }
+
+    @PostMapping("/{routeId}/schedules")
+    Response addScheduleToRoute(@PathVariable String routeId, @RequestBody IdentForm identForm){
+        System.out.println("POST: add schedules");
+
+        Route route = routeRepository.findRouteById(routeId);
+        if(route == null)
+            return ROUTE_NOT_FOUND_RESPONSE;
+
+        String scheduleId = identForm.getId();
+        if(scheduleId == null || transportScheduleRepository.findTransportScheduleById(scheduleId) == null){
+            return SCHEDULE_NOT_FOUND_RESPONSE;
+        }
+        asyncTasks.addScheduleToRoute(scheduleId, route);
+        return CommonResponse.SUCCESS_RESPONSE;
+    }
+
+    @DeleteMapping("/{id}")
+    Response deleteRoute(@PathVariable String id){
+        System.out.println("DELETE: delete route " + id);
+        Route route = routeRepository.findRouteById(id);
+        if (route == null)
+            return ROUTE_NOT_FOUND_RESPONSE;
+        asyncTasks.deleteRoute(id);
+        return CommonResponse.SUCCESS_RESPONSE;
     }
 }

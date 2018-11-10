@@ -1,5 +1,9 @@
 package com.hust.itss.models.transporters;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.hust.itss.models.routes.Route;
+import com.hust.itss.models.schedules.TransportSchedule;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -7,6 +11,7 @@ import org.springframework.data.mongodb.core.mapping.Field;
 
 @Data
 @Document(collection = "Transporter")
+@AllArgsConstructor
 public class Transporter {
     @Id
     private String id;
@@ -26,23 +31,20 @@ public class Transporter {
     @Field("status")
     private Integer status;
 
-    @Field("schedule")
-    private String schedule;
+    @Field("schedule_ref")
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)  // not in the response json
+    private String scheduleRef;
 
-    @Field("route")
-    private String route;
+    @Field("route_ref")
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    private String routeRef;
+
+//    @Transient
+    private Route route;
+
+//    @Transient
+    private TransportSchedule schedule;
 
     public Transporter() {
-    }
-
-    public Transporter(String id, String licensePlate, Integer seaters, String model, String branch, Integer status, String schedule, String route) {
-        this.id = id;
-        this.licensePlate = licensePlate;
-        this.seaters = seaters;
-        this.model = model;
-        this.branch = branch;
-        this.status = status;
-        this.schedule = schedule;
-        this.route = route;
     }
 }

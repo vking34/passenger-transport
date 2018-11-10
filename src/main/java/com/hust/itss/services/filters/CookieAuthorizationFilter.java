@@ -26,7 +26,7 @@ public class CookieAuthorizationFilter extends BasicAuthenticationFilter {
 
     @Override
     public void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws IOException, ServletException{
-        System.out.println("[CookieAuthorizationFilter]");
+//        System.out.println("[CookieAuthorizationFilter]");
         String token;
         try {
              token = WebUtils.getCookie(request, JWTAuthenticationService.JWT_COOKIE_NAME).getValue();
@@ -36,7 +36,7 @@ public class CookieAuthorizationFilter extends BasicAuthenticationFilter {
             return;
         }
 
-        System.out.println("[CookieAuthorizationFilter] token: " + token);
+//        System.out.println("[CookieAuthorizationFilter] token: " + token);
         if(token == null){
             filterChain.doFilter(request, response);
             return;

@@ -2,13 +2,13 @@ package com.hust.itss.configs;
 
 import com.hust.itss.constants.RoleContants;
 import com.hust.itss.constants.EntryPoints;
+import com.hust.itss.controllers.auth.CustomLogoutHandler;
 import com.hust.itss.models.users.SysUser;
-import com.hust.itss.repositories.SysUserRepository;
+import com.hust.itss.repositories.user.SysUserRepository;
 import com.hust.itss.repositories.oauth.HttpCookieOAuth2AuthorizationRequestRepository;
 import com.hust.itss.services.*;
 import com.hust.itss.services.filters.CookieAuthorizationFilter;
 import com.hust.itss.services.filters.JWTAuthenticationFilter;
-import com.hust.itss.services.filters.JWTAuthorizationFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -25,6 +25,7 @@ import org.springframework.security.oauth2.client.authentication.OAuth2Authentic
 import org.springframework.security.oauth2.client.web.AuthorizationRequestRepository;
 import org.springframework.security.oauth2.core.endpoint.OAuth2AuthorizationRequest;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -76,6 +77,9 @@ class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         .successHandler(new Oauth2AuthenticationSuccessHandler())
         .and()
                 .logout()
+                .logoutRequestMatcher(new AntPathRequestMatcher("/logout" ))
+                .addLogoutHandler(new CustomLogoutHandler())
+                .logoutSuccessUrl("/")
                 .permitAll()
                 .and()
         .httpBasic().disable();
@@ -90,13 +94,13 @@ class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .addFilter(new CookieAuthorizationFilter(authenticationManager(),customUserDetailService));
 
         // for access token for API
-        http.authorizeRequests()
-
-                .antMatchers(HttpMethod.GET,"/api/transporter").hasAnyRole(RoleContants.USER, RoleContants.ADMIN, RoleContants.DRIVER)
-                .antMatchers(HttpMethod.GET,"/api/employee").hasAnyRole(RoleContants.ADMIN)
-                .and()
-                .addFilter(new JWTAuthorizationFilter(authenticationManager(), customUserDetailService))
-        ;
+//        http.authorizeRequests()
+//
+//                .antMatchers(HttpMethod.GET,"/api/transporter").hasAnyRole(RoleContants.USER, RoleContants.ADMIN, RoleContants.DRIVER)
+//                .antMatchers(HttpMethod.GET,"/api/employee").hasAnyRole(RoleContants.ADMIN)
+//                .and()
+//                .addFilter(new JWTAuthorizationFilter(authenticationManager(), customUserDetailService))
+//        ;
     }
 
     @Override

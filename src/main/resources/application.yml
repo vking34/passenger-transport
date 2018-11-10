@@ -12,12 +12,19 @@ server:
 spring:
   data:
     mongodb:
-      host: localhost
-      port: 27017
+#      host: localhost
+#      port: 27017
+      host: ds030827.mlab.com
+      port: 30827
       database: passenger-transport
+      password: vking34
+      username: vking34
+
+
 
   jackson:
-    property-naming-strategy: SNAKE_CASE #change responses json from camelCase into snake_case
+    property-naming-strategy: SNAKE_CASE    # change responses json from camelCase into snake_case
+    default-property-inclusion: non_null    # in returning json, not include any null fields
 
   thymeleaf:
     cache: false

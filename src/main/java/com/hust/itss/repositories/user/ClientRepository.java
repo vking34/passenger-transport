@@ -1,4 +1,4 @@
-package com.hust.itss.repositories;
+package com.hust.itss.repositories.user;
 
 import com.hust.itss.models.users.Client;
 import org.springframework.data.domain.Page;
@@ -9,6 +9,10 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ClientRepository extends MongoRepository<Client, String> {
+
+    @Query("{ role : \"USER\" }")
+    public Page<Client> findAllClients(Pageable pageable);
+
     public Client findClientById(String id);
 
     @Query("{ '$or' : [ { phone : ?0 }, { email : ?1 } ] }")

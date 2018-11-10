@@ -1,7 +1,7 @@
 package com.hust.itss.utils;
 
 import com.hust.itss.models.users.SysUser;
-import com.hust.itss.repositories.SysUserRepository;
+import com.hust.itss.repositories.user.SysUserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

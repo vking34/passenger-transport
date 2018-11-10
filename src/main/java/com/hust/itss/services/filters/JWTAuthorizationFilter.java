@@ -25,7 +25,7 @@ public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
 
     @Override
     public void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws IOException, ServletException{
-        System.out.println("[JWTAuthorizationFilter]");
+//        System.out.println("[JWTAuthorizationFilter]");
         String authorization = request.getHeader(SecurityContants.AUTHORIZATION);
         if(authorization == null || !authorization.startsWith(SecurityContants.TOKEN_PREFIX)){
             filterChain.doFilter(request, response);

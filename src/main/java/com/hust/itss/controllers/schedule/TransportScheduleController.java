@@ -1,21 +1,29 @@
 package com.hust.itss.controllers.schedule;
 
+import com.hust.itss.constants.CommonResponse;
 import com.hust.itss.constants.RequestParams;
+import com.hust.itss.models.responses.Response;
 import com.hust.itss.models.schedules.TransportSchedule;
 import com.hust.itss.utils.PageRequestCreation;
-import com.hust.itss.repositories.TransportScheduleRepository;
+import com.hust.itss.repositories.schedule.TransportScheduleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/transport-schedule")
 public class TransportScheduleController {
+
+    private static final Response INVALID_RESPONSE = new Response(false, 1, "Missing/Invalid field(s)");
+    private static final Response EXISTING_RESPONSE = new Response(false, 2, "The schedule exists");
+    private static final Response NOT_FOUND_RESPONSE = new Response(false, 3, "Transport Schedule not found");
+
+
     @Autowired
-    TransportScheduleRepository transportScheduleRepository;
+    private TransportScheduleRepository scheduleRepository;
+
+    @Autowired
+    private TransportScheduleAsyncTasks asyncTasks;
 
     @GetMapping
     Page<TransportSchedule> getTransportSchedules(@RequestParam(value = "page", required = false) Integer page,
@@ -23,6 +31,58 @@ public class TransportScheduleController {
                                                   @RequestParam(value = "sort", required = false) String sort,
                                                   @RequestParam(value = "direct", required = false) String direct){
         System.out.println("GET: work schedules page " + page + ", page size: " + pageSize + ", sort by " + sort + ", direct " + direct);
-        return transportScheduleRepository.findAll(PageRequestCreation.getPageRequest(page,pageSize, sort, direct, RequestParams.TRANSPORT_SCHEDULE_PARAMS));
+        return scheduleRepository.findAll(PageRequestCreation.getPageRequest(page,pageSize, sort, direct, RequestParams.TRANSPORT_SCHEDULE_PARAMS));
     }
+
+    @GetMapping("/{id}")
+    TransportSchedule getTransportSchedule(@PathVariable String id){
+        System.out.println("GET: one transport schedule " + id);
+        return scheduleRepository.findDetailOne(id);
+    }
+
+
+    @PostMapping
+    Response createTransportSchedule(@RequestBody TransportSchedule schedule){
+        System.out.println("POST: create a new transport schedule");
+        if (schedule.getPrice() == null ||
+                schedule.getPrice() < 0 ||
+                schedule.getStartingTime() == null ||
+                schedule.getEndingTime() == null)
+            return INVALID_RESPONSE;
+        TransportSchedule target = scheduleRepository.findOneExists(schedule.getPrice(), schedule.getStartingTime(), schedule.getEndingTime());
+        if (target != null)
+            return EXISTING_RESPONSE;
+
+        asyncTasks.insertTransportSchedule(schedule);
+        return CommonResponse.SUCCESS_RESPONSE;
+    }
+
+    @PostMapping("/{id}")
+    Response updateTransportSchedule(@PathVariable String id, @RequestBody TransportSchedule schedule){
+        System.out.println("POST: update transporter schedule" + id);
+        TransportSchedule target = scheduleRepository.findTransportScheduleById(id);
+        if (target == null)
+            return NOT_FOUND_RESPONSE;
+        if (schedule.getPrice() == null ||
+                schedule.getPrice() < 0 ||
+                schedule.getStartingTime() == null ||
+                schedule.getEndingTime() == null)
+            return INVALID_RESPONSE;
+
+        asyncTasks.updateTransportSchedule(target, schedule);
+        return CommonResponse.SUCCESS_RESPONSE;
+    }
+
+    @DeleteMapping
+    Response deleteTransportSchedule(@PathVariable String id){
+        System.out.println("DELETE: delete transporter schedule " + id);
+        TransportSchedule target = scheduleRepository.findTransportScheduleById(id);
+        if (target == null)
+            return NOT_FOUND_RESPONSE;
+        asyncTasks.deleteTransporter(id);
+        return CommonResponse.SUCCESS_RESPONSE;
+    }
+
+
+
 }

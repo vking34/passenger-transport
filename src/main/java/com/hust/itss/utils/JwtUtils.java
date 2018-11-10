@@ -61,13 +61,13 @@ public class JwtUtils {
         String username = null;
         String provider = null;
         try {
-            System.out.println("Decode token with secret key: " + SecurityContants.SECRET_KEY);
+//            System.out.println("Decode token with secret key: " + SecurityContants.SECRET_KEY);
              Claims claims = Jwts.parser().setSigningKey(SecurityContants.SECRET_KEY)
                     .parseClaimsJws(token.replace(SecurityContants.TOKEN_PREFIX, ""))
                     .getBody();
              username = claims.getSubject();
              provider = claims.getId();
-            System.out.println("user: " + username + ", provider: " + provider);
+//            System.out.println("user: " + username + ", provider: " + provider);
         }
         catch (Exception e){
             System.out.println(e.getMessage());

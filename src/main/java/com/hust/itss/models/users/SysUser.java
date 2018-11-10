@@ -1,5 +1,6 @@
 package com.hust.itss.models.users;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;
@@ -23,12 +24,13 @@ public class SysUser {
     @Length(max = 100)
     private String username;
 
+    @Field("password")
+    @JsonIgnore
+    private String password;
+
     @Field("email")
     @Length(max = 500)
     private String email;
-
-    @Field("password")
-    private String password;
 
     @Field("role")
     private String role;
@@ -36,8 +38,9 @@ public class SysUser {
     @Field("active")
     private boolean active;
 
-    @Field("info_ref")
-    private String infoRef;
+//    @Field("info_ref")
+//    @JsonIgnore
+//    private String infoRef;
 
     @Field("first_name")
     @Length(max = 100)
@@ -62,9 +65,11 @@ public class SysUser {
 
     @Length(min = 1, max = 255)
     @Field("authentication_service_id")
+    @JsonIgnore
     private String authenticationServiceId;
 
     @Field("authentication_provider")
+    @JsonIgnore
     private AuthenticationProvider authProvider;
 
     @Field("first_logon")
@@ -102,5 +107,13 @@ public class SysUser {
         this.authenticationServiceId = authenticationServiceId;
         this.authProvider = authProvider;
         this.firstLogon = firstLogon;
+    }
+
+    public SysUser(@Length(max = 100) String username, @Length(max = 500) String email, String password, String role, @Length(max = 100) String fullName) {
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        this.role = role;
+        this.fullName = fullName;
     }
 }
