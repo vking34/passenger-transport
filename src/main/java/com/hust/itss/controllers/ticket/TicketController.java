@@ -24,6 +24,8 @@ public class TicketController {
     @Autowired
     private TransportScheduleRepository transportScheduleRepository;
 
+    @Autowired
+    private TicketAsyncTasks asyncTasks;
 
     @GetMapping
     Page<Ticket> getTickets(@RequestParam(value = "page", required = false) Integer page,
@@ -41,7 +43,8 @@ public class TicketController {
         ticket.setDateCreated(new Date());
         TransportSchedule transportSchedule = transportScheduleRepository.findTransportScheduleById(ticket.getSchedule());
         ticket.setPrice(transportSchedule.getPrice());
-        ticketRepository.insert(ticket);
+        asyncTasks.insertRoute(ticket);
         return new Response(true, 0, "Created the ticket successful");
     }
+
 }

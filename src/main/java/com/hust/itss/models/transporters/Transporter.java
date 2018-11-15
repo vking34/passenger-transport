@@ -5,6 +5,7 @@ import com.hust.itss.models.routes.Route;
 import com.hust.itss.models.schedules.TransportSchedule;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NonNull;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
@@ -17,12 +18,14 @@ public class Transporter {
     private String id;
 
     @Field("license_plate")
+    @NonNull
     private String licensePlate;
 
     @Field("seaters")
     private Integer seaters;
 
     @Field("model")
+    @NonNull
     private String model;
 
     @Field("branch")

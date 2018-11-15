@@ -3,6 +3,7 @@ package com.hust.itss.models.users;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NonNull;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 import org.springframework.data.annotation.Id;
@@ -22,6 +23,7 @@ public class SysUser {
 
     @Field("username")
     @Length(max = 100)
+    @NonNull
     private String username;
 
     @Field("password")

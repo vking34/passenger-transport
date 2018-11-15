@@ -7,6 +7,7 @@ import com.hust.itss.utils.ListObjectIdSerializer;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NonNull;
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
@@ -21,6 +22,7 @@ public class TransportSchedule extends Schedule {
 
     @Field("price")
     @JsonProperty(value = "price")
+    @NonNull
     private Integer price;
 
     @Field("transporter_refs")
