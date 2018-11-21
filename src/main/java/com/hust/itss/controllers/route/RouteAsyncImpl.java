@@ -1,6 +1,6 @@
 package com.hust.itss.controllers.route;
 
-import com.hust.itss.models.routes.Route;
+import com.hust.itss.models.route.Route;
 import com.hust.itss.repositories.route.RouteRepository;
 import com.hust.itss.repositories.schedule.TransportScheduleRepository;
 import org.springframework.beans.factory.annotation.Autowired;

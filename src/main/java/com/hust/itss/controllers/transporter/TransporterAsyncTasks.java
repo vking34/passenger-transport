@@ -1,6 +1,6 @@
 package com.hust.itss.controllers.transporter;
 
-import com.hust.itss.models.transporters.Transporter;
+import com.hust.itss.models.transporter.Transporter;
 import org.springframework.stereotype.Component;
 
 @Component

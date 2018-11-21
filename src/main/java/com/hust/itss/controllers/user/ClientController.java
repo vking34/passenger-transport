@@ -1,9 +1,9 @@
 package com.hust.itss.controllers.user;
 
-import com.hust.itss.constants.RequestParams;
-import com.hust.itss.models.responses.Response;
-import com.hust.itss.models.users.Client;
-import com.hust.itss.utils.PageRequestCreation;
+import com.hust.itss.constants.request.RequestParams;
+import com.hust.itss.models.response.Response;
+import com.hust.itss.models.user.Client;
+import com.hust.itss.utils.request.PageRequestCreation;
 import com.hust.itss.repositories.user.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -29,7 +29,7 @@ public class ClientController {
 //    @PostMapping
 //    Response createClient(@RequestBody(required = false) Client client){
 //        if(client == null)
-//            return new Response(false, 1, "empty requests");
+//            return new Response(false, 1, "empty request");
 //        if()
 //    }
 
@@ -43,7 +43,7 @@ public class ClientController {
     Response updateClient(@PathVariable String id,
                           @RequestBody(required = false) Client client){
         if(client == null)
-            return new Response(false, 1, "empty requests body");
+            return new Response(false, 1, "empty request body");
 
         Client updatedClient = clientRepository.findClientById(id);
         if(updatedClient == null){

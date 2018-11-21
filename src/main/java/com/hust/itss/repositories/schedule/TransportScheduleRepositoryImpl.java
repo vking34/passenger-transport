@@ -1,7 +1,6 @@
 package com.hust.itss.repositories.schedule;
 
-import com.hust.itss.models.schedules.TransportSchedule;
-import org.bson.types.ObjectId;
+import com.hust.itss.models.schedule.TransportSchedule;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.aggregation.Aggregation;
@@ -26,7 +25,7 @@ public class TransportScheduleRepositoryImpl implements TransportScheduleReposit
                 .from("Transporter")
                 .localField("transporter_refs")
                 .foreignField("_id")
-                .as("transporters");
+                .as("transporter");
 
         Aggregation aggregation = Aggregation.newAggregation(Aggregation.match(Criteria.where("_id").is(id)), lookupOperation);
         return mongoTemplate.aggregate(aggregation, TRANSPORT_SCHEDULE , TransportSchedule.class).getUniqueMappedResult();

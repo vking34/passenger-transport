@@ -1,6 +1,6 @@
 package com.hust.itss.controllers.schedule;
 
-import com.hust.itss.models.schedules.TransportSchedule;
+import com.hust.itss.models.schedule.TransportSchedule;
 import com.hust.itss.repositories.schedule.TransportScheduleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;

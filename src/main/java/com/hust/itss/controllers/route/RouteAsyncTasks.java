@@ -1,6 +1,6 @@
 package com.hust.itss.controllers.route;
 
-import com.hust.itss.models.routes.Route;
+import com.hust.itss.models.route.Route;
 import org.springframework.stereotype.Component;
 
 @Component

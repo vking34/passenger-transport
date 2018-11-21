@@ -1,7 +1,7 @@
 package com.hust.itss.controllers.auth;
 
-import com.hust.itss.services.JWTAuthenticationService;
-import com.hust.itss.utils.CookieUtils;
+import com.hust.itss.services.auth.JWTAuthenticationService;
+import com.hust.itss.utils.auth.CookieUtils;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.logout.LogoutHandler;
 

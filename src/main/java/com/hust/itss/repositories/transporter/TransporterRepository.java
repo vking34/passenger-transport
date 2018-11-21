@@ -1,6 +1,6 @@
 package com.hust.itss.repositories.transporter;
 
-import com.hust.itss.models.transporters.Transporter;
+import com.hust.itss.models.transporter.Transporter;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,6 +1,6 @@
 package com.hust.itss.controllers.ticket;
 
-import com.hust.itss.models.tickets.Ticket;
+import com.hust.itss.models.ticket.Ticket;
 import org.springframework.stereotype.Component;
 
 @Component

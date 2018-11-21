@@ -1,6 +1,6 @@
 package com.hust.itss.repositories.route;
 
-import com.hust.itss.models.routes.RouteDetail;
+import com.hust.itss.models.route.RouteDetail;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -27,7 +27,7 @@ public class RouteRepositoryImpl implements RouteRepositoryCustom {
 
         LookupOperation lookupOperation = LookupOperation.newLookup()
                 .from("TransportSchedule")
-                .localField("schedules")
+                .localField("schedule")
                 .foreignField("_id")
                 .as("transport_schedules");
 

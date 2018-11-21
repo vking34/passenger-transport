@@ -1,6 +1,6 @@
 package com.hust.itss.repositories.user;
 
-import com.hust.itss.models.users.Client;
+import com.hust.itss.models.user.Client;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.mongodb.repository.MongoRepository;

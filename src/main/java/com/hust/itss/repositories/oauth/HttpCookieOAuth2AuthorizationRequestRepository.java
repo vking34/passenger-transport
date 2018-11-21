@@ -1,8 +1,8 @@
 package com.hust.itss.repositories.oauth;
 
-import com.hust.itss.services.JWTAuthenticationService;
-import com.hust.itss.services.UserService;
-import com.hust.itss.utils.CookieUtils;
+import com.hust.itss.services.auth.JWTAuthenticationService;
+import com.hust.itss.services.user.UserService;
+import com.hust.itss.utils.auth.CookieUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.oauth2.client.web.AuthorizationRequestRepository;
@@ -41,7 +41,7 @@ public class HttpCookieOAuth2AuthorizationRequestRepository implements Authoriza
             CookieUtils.deleteCookie(request, response, COOKIE_NAME, cookieOverHttpsOnly);
             return;
         }
-        System.out.println("Save authorization requests and create cookie : " + authorizationRequest);
+        System.out.println("Save authorization request and create cookie : " + authorizationRequest);
 
         Cookie cookie = new Cookie(COOKIE_NAME, fromAuthorizationRequest(authorizationRequest));
         cookie.setPath("/");

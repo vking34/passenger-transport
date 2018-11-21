@@ -1,6 +1,6 @@
 package com.hust.itss.repositories.user;
 
-import com.hust.itss.models.users.SysUser;
+import com.hust.itss.models.user.SysUser;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 import org.springframework.stereotype.Repository;

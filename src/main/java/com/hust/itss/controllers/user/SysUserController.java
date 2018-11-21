@@ -1,6 +1,6 @@
 package com.hust.itss.controllers.user;
 
-import com.hust.itss.models.users.SysUser;
+import com.hust.itss.models.user.SysUser;
 import com.hust.itss.repositories.user.SysUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

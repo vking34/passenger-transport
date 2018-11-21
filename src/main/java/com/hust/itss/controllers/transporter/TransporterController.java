@@ -1,12 +1,12 @@
 package com.hust.itss.controllers.transporter;
 
-import com.hust.itss.constants.CommonResponse;
-import com.hust.itss.constants.RequestParams;
-import com.hust.itss.models.responses.Response;
-import com.hust.itss.models.transporters.Transporter;
+import com.hust.itss.constants.response.CommonResponse;
+import com.hust.itss.constants.request.RequestParams;
+import com.hust.itss.models.response.Response;
+import com.hust.itss.models.transporter.Transporter;
 import com.hust.itss.repositories.route.RouteRepository;
 import com.hust.itss.repositories.schedule.TransportScheduleRepository;
-import com.hust.itss.utils.PageRequestCreation;
+import com.hust.itss.utils.request.PageRequestCreation;
 import com.hust.itss.repositories.transporter.TransporterRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

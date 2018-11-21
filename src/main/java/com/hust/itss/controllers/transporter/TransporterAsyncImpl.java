@@ -1,8 +1,8 @@
 package com.hust.itss.controllers.transporter;
 
-import com.hust.itss.models.routes.Route;
-import com.hust.itss.models.schedules.TransportSchedule;
-import com.hust.itss.models.transporters.Transporter;
+import com.hust.itss.models.route.Route;
+import com.hust.itss.models.schedule.TransportSchedule;
+import com.hust.itss.models.transporter.Transporter;
 import com.hust.itss.repositories.route.RouteRepository;
 import com.hust.itss.repositories.schedule.TransportScheduleRepository;
 import com.hust.itss.repositories.transporter.TransporterRepository;

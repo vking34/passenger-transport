@@ -1,6 +1,6 @@
 package com.hust.itss.repositories.transporter;
 
-import com.hust.itss.models.transporters.SeatAvailability;
+import com.hust.itss.models.transporter.SeatAvailability;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.mongodb.repository.MongoRepository;

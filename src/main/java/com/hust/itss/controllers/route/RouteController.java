@@ -1,13 +1,13 @@
 package com.hust.itss.controllers.route;
 
-import com.hust.itss.constants.CommonResponse;
-import com.hust.itss.constants.RequestParams;
-import com.hust.itss.models.requests.IdentForm;
-import com.hust.itss.models.responses.Response;
-import com.hust.itss.models.routes.Route;
-import com.hust.itss.models.routes.RouteDetail;
+import com.hust.itss.constants.response.CommonResponse;
+import com.hust.itss.constants.request.RequestParams;
+import com.hust.itss.models.request.IdentForm;
+import com.hust.itss.models.response.Response;
+import com.hust.itss.models.route.Route;
+import com.hust.itss.models.route.RouteDetail;
 import com.hust.itss.repositories.schedule.TransportScheduleRepository;
-import com.hust.itss.utils.PageRequestCreation;
+import com.hust.itss.utils.request.PageRequestCreation;
 import com.hust.itss.repositories.route.RouteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -38,7 +38,7 @@ public class RouteController {
                           @RequestParam(value = "page_size", required = false) Integer pageSize,
                           @RequestParam(value = "sort", required = false) String sort,
                           @RequestParam(value = "direct", required = false) String direct){
-        System.out.println("GET: routes page " + page + ", page size: " + pageSize + ", sort by " + sort + ", direct " + direct);
+        System.out.println("GET: route page " + page + ", page size: " + pageSize + ", sort by " + sort + ", direct " + direct);
         return routeRepository.findAll(PageRequestCreation.getPageRequest(page, pageSize, sort, direct, RequestParams.ROUTE_PARAMS));
     }
 
@@ -84,9 +84,9 @@ public class RouteController {
         return CommonResponse.SUCCESS_RESPONSE;
     }
 
-    @PostMapping("/{routeId}/schedules")
+    @PostMapping("/{routeId}/schedule")
     Response addScheduleToRoute(@PathVariable String routeId, @RequestBody IdentForm identForm){
-        System.out.println("POST: add schedules");
+        System.out.println("POST: add schedule");
 
         Route route = routeRepository.findRouteById(routeId);
         if(route == null)

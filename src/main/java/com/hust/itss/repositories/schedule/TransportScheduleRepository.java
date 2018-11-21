@@ -1,6 +1,6 @@
 package com.hust.itss.repositories.schedule;
 
-import com.hust.itss.models.schedules.TransportSchedule;
+import com.hust.itss.models.schedule.TransportSchedule;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 import org.springframework.stereotype.Repository;

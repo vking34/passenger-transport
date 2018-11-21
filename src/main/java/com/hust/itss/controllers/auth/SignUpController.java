@@ -1,11 +1,11 @@
 package com.hust.itss.controllers.auth;
 
-import com.hust.itss.constants.RoleContants;
-import com.hust.itss.models.responses.Response;
-import com.hust.itss.models.users.Client;
-import com.hust.itss.models.users.UserRegisterForm;
+import com.hust.itss.constants.security.RoleContants;
+import com.hust.itss.models.response.Response;
+import com.hust.itss.models.user.Client;
+import com.hust.itss.models.user.RegisterForm;
 import com.hust.itss.repositories.user.SysUserRepository;
-import com.hust.itss.utils.EncryptedPasswordUtils;
+import com.hust.itss.utils.auth.EncryptedPasswordUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -19,16 +19,16 @@ public class SignUpController {
     private SysUserRepository sysUserRepository;
 
     @PostMapping
-    public Response createUser(@RequestBody UserRegisterForm  userRegisterForm){
-        System.out.println("POST: create user: " + userRegisterForm.getFullName());
+    public Response createUser(@RequestBody RegisterForm registerForm){
+        System.out.println("POST: create user: " + registerForm.getFullName());
         Client client = new Client(
-                userRegisterForm.getUsername(),
-                userRegisterForm.getEmail(),
-                EncryptedPasswordUtils.encryptPassword(userRegisterForm.getPassword()),
+                registerForm.getUsername(),
+                registerForm.getEmail(),
+                EncryptedPasswordUtils.encryptPassword(registerForm.getPassword()),
                 RoleContants.CLIENT,
-                userRegisterForm.getFullName(),
-                userRegisterForm.getPhoneNumber(),
-                userRegisterForm.getAddress(),
+                registerForm.getFullName(),
+                registerForm.getPhoneNumber(),
+                registerForm.getAddress(),
                 1
                 );
         sysUserRepository.insert(client);

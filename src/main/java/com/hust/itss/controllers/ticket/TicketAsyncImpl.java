@@ -1,6 +1,6 @@
 package com.hust.itss.controllers.ticket;
 
-import com.hust.itss.models.tickets.Ticket;
+import com.hust.itss.models.ticket.Ticket;
 import com.hust.itss.repositories.ticket.TicketRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;

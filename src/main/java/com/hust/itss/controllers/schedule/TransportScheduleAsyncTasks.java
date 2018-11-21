@@ -1,6 +1,6 @@
 package com.hust.itss.controllers.schedule;
 
-import com.hust.itss.models.schedules.TransportSchedule;
+import com.hust.itss.models.schedule.TransportSchedule;
 import org.springframework.stereotype.Component;
 
 @Component

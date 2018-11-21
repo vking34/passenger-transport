@@ -1,9 +1,9 @@
 package com.hust.itss.controllers.transporter;
 
-import com.hust.itss.constants.DateForm;
-import com.hust.itss.models.transporters.SeatAvailability;
+import com.hust.itss.constants.format.DateForm;
+import com.hust.itss.models.transporter.SeatAvailability;
 import com.hust.itss.repositories.transporter.SeatRepository;
-import com.hust.itss.utils.PageRequestCreation;
+import com.hust.itss.utils.request.PageRequestCreation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.*;

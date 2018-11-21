@@ -1,8 +1,8 @@
 package com.hust.itss.controllers;
 
 
-import com.hust.itss.constants.SecurityContants;
-import com.hust.itss.services.JWTAuthenticationService;
+import com.hust.itss.constants.security.SecurityContants;
+import com.hust.itss.services.auth.JWTAuthenticationService;
 import io.jsonwebtoken.Jwts;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
 
-import static com.hust.itss.constants.RoleContants.*;
+import static com.hust.itss.constants.security.RoleContants.*;
 
 @Controller
 @RequestMapping

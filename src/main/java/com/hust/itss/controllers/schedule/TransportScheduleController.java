@@ -1,10 +1,10 @@
 package com.hust.itss.controllers.schedule;
 
-import com.hust.itss.constants.CommonResponse;
-import com.hust.itss.constants.RequestParams;
-import com.hust.itss.models.responses.Response;
-import com.hust.itss.models.schedules.TransportSchedule;
-import com.hust.itss.utils.PageRequestCreation;
+import com.hust.itss.constants.response.CommonResponse;
+import com.hust.itss.constants.request.RequestParams;
+import com.hust.itss.models.response.Response;
+import com.hust.itss.models.schedule.TransportSchedule;
+import com.hust.itss.utils.request.PageRequestCreation;
 import com.hust.itss.repositories.schedule.TransportScheduleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -30,7 +30,7 @@ public class TransportScheduleController {
                                                   @RequestParam(value = "page_size", required = false) Integer pageSize,
                                                   @RequestParam(value = "sort", required = false) String sort,
                                                   @RequestParam(value = "direct", required = false) String direct){
-        System.out.println("GET: work schedules page " + page + ", page size: " + pageSize + ", sort by " + sort + ", direct " + direct);
+        System.out.println("GET: work schedule page " + page + ", page size: " + pageSize + ", sort by " + sort + ", direct " + direct);
         return scheduleRepository.findAll(PageRequestCreation.getPageRequest(page,pageSize, sort, direct, RequestParams.TRANSPORT_SCHEDULE_PARAMS));
     }
 

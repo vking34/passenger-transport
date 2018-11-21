@@ -1,10 +1,10 @@
 package com.hust.itss.controllers.user;
 
-import com.hust.itss.constants.RequestParams;
-import com.hust.itss.models.responses.Response;
-import com.hust.itss.models.schedules.WorkSchedule;
-import com.hust.itss.models.users.Employee;
-import com.hust.itss.utils.PageRequestCreation;
+import com.hust.itss.constants.request.RequestParams;
+import com.hust.itss.models.response.Response;
+import com.hust.itss.models.schedule.WorkSchedule;
+import com.hust.itss.models.user.Employee;
+import com.hust.itss.utils.request.PageRequestCreation;
 import com.hust.itss.repositories.user.EmployeeRepository;
 import com.hust.itss.repositories.schedule.WorkScheduleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,7 +39,7 @@ public class EmployeeController {
     @PostMapping
     Response createEmployee(@RequestBody(required = false) Employee employee){
         if (employee == null)
-            return new Response(false, 1, "empty requests");
+            return new Response(false, 1, "empty request");
         if(employeeRepository.findExistingEmployee(employee.getPhoneNumber(), employee.getEmail(), employee.getCitizenId()) != null){
             System.out.println("ERR: Existing employee !");
             return new Response(false, 2, "overlap field(s)");
@@ -59,7 +59,7 @@ public class EmployeeController {
     Response updateEmployee(@PathVariable String id,
                             @RequestBody(required = false) Employee employee){
         if(employee == null)
-            return new Response(false, 1, "empty requests");
+            return new Response(false, 1, "empty request");
 
         Employee updatedEmploye = employeeRepository.findEmployeeById(id);
         if(updatedEmploye == null)

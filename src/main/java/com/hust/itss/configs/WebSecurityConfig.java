@@ -1,14 +1,16 @@
 package com.hust.itss.configs;
 
-import com.hust.itss.constants.RoleContants;
-import com.hust.itss.constants.EntryPoints;
+import com.hust.itss.constants.security.RoleContants;
+import com.hust.itss.constants.request.EntryPoints;
 import com.hust.itss.controllers.auth.CustomLogoutHandler;
-import com.hust.itss.models.users.SysUser;
+import com.hust.itss.models.user.SysUser;
 import com.hust.itss.repositories.user.SysUserRepository;
 import com.hust.itss.repositories.oauth.HttpCookieOAuth2AuthorizationRequestRepository;
-import com.hust.itss.services.*;
-import com.hust.itss.services.filters.CookieAuthorizationFilter;
-import com.hust.itss.services.filters.JWTAuthenticationFilter;
+import com.hust.itss.services.auth.JWTAuthenticationService;
+import com.hust.itss.services.filter.CookieAuthorizationFilter;
+import com.hust.itss.services.filter.JWTAuthenticationFilter;
+import com.hust.itss.services.user.CustomUserDetailService;
+import com.hust.itss.services.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;

@@ -1,6 +1,6 @@
 package com.hust.itss.repositories.schedule;
 
-import com.hust.itss.models.schedules.WorkSchedule;
+import com.hust.itss.models.schedule.WorkSchedule;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
