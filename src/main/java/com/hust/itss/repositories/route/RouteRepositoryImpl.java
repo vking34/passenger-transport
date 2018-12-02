@@ -27,7 +27,7 @@ public class RouteRepositoryImpl implements RouteRepositoryCustom {
 
         LookupOperation lookupOperation = LookupOperation.newLookup()
                 .from("TransportSchedule")
-                .localField("schedule")
+                .localField("schedules")
                 .foreignField("_id")
                 .as("transport_schedules");
 
