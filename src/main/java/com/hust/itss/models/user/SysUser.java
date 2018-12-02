@@ -11,6 +11,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
 
@@ -34,6 +35,7 @@ public class SysUser {
     @Field("email")
     @Length(max = 500)
     @NotBlank
+    @Email
     private String email;
 
     @Field("role")

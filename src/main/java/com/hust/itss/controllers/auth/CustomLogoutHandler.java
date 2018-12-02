@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 public class CustomLogoutHandler implements LogoutHandler {
     @Override
     public void logout(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Authentication authentication) {
-        System.out.println("LOGOUT");
         CookieUtils.deleteCookie(httpServletRequest, httpServletResponse, JWTAuthenticationService.JWT_COOKIE_NAME, true);
         httpServletResponse.setHeader("", "");
     }

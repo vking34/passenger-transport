@@ -10,13 +10,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import static com.hust.itss.constants.response.RegistResponse.INVALID_EMAIL_RESPONSE;
+import static com.hust.itss.constants.response.RegistResponse.INVALID_PHONE_NUMBER_RESPONSE;
+import static com.hust.itss.constants.response.RegistResponse.INVALID_USERNAME_RESPONSE;
+import static com.hust.itss.constants.response.RegistResponse.SUCCESS_RESPONSE;
+
 @RestController
 @RequestMapping("/signup")
 public class SignUpController {
-    static final Response INVALID_USERNAME_RESPONSE = new Response(false, 1, "username exists");
-    static final Response INVALID_PHONE_NUMBER_RESPONSE = new Response(false, 2, "phone number exists");
-    static final Response INVALID_EMAIL_RESPONSE = new Response(false, 3, "email exists");
-    static final Response SUCCESS_RESPONSE = new Response(true, null, "/");
 
     @Autowired
     private ClientRepository clientRepository;
