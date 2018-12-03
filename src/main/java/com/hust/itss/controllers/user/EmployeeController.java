@@ -1,6 +1,8 @@
 package com.hust.itss.controllers.user;
 
 import com.hust.itss.constants.request.RequestParams;
+import com.hust.itss.constants.response.CommonResponse;
+import com.hust.itss.constants.response.ErrorResponse;
 import com.hust.itss.models.response.Response;
 import com.hust.itss.models.schedule.WorkSchedule;
 import com.hust.itss.models.user.Employee;
@@ -31,27 +33,39 @@ public class EmployeeController {
                                 @RequestParam(value = "page_size", required = false) Integer pageSize,
                                 @RequestParam(value = "sort", required = false) String sort,
                                 @RequestParam(value = "direct", required = false) String direct){
-
-        System.out.println("GET: employees page " + page + ", page size " + pageSize + ", sort by " + sort + ", direct " + direct);
         return employeeRepository.findAllEmployees(PageRequestCreation.getPageRequest(page, pageSize, sort, direct, RequestParams.USER_PARAMS));
     }
 
     @PostMapping
     Response createEmployee(@RequestBody(required = false) Employee employee){
         if (employee == null)
-            return new Response(false, 1, "empty request");
+            return ErrorResponse.EMPTY_BODY;
         if(employeeRepository.findExistingEmployee(employee.getPhoneNumber(), employee.getEmail(), employee.getCitizenId()) != null){
-            System.out.println("ERR: Existing employee !");
-            return new Response(false, 2, "overlap field(s)");
+            return ErrorResponse.EXISTING_ENTITY;
         }
-        System.out.println("POST: create employee " + employee.getFullName() + ", " + employee.getPhoneNumber() + ", " + employee.getEmail() + ", " + employee.getCitizenId());
+
         employeeRepository.save(employee);
-        return new Response(true, 0, null);
+        return CommonResponse.SUCCESS_RESPONSE;
+    }
+
+    @GetMapping("/driver")
+    Page<Employee> getDrivers(@RequestParam(value = "page", required = false) Integer page,
+                              @RequestParam(value = "page_size", required = false) Integer pageSize,
+                              @RequestParam(value = "sort", required = false) String sort,
+                              @RequestParam(value = "direct", required = false) String direct){
+        return employeeRepository.findAllDrivers(PageRequestCreation.getBasicPageRequest(page, pageSize, sort, direct));
+    }
+
+    @GetMapping("/assistant")
+    Page<Employee> getAssistants(@RequestParam(value = "page", required = false) Integer page,
+                              @RequestParam(value = "page_size", required = false) Integer pageSize,
+                              @RequestParam(value = "sort", required = false) String sort,
+                              @RequestParam(value = "direct", required = false) String direct){
+        return employeeRepository.findAllAssistants(PageRequestCreation.getBasicPageRequest(page, pageSize, sort, direct));
     }
 
     @GetMapping("/{id}")
     Employee getEmployee(@PathVariable String id){
-        System.out.println("GET: one employee " + id);
         return employeeRepository.findEmployeeById(id);
     }
 
@@ -59,15 +73,14 @@ public class EmployeeController {
     Response updateEmployee(@PathVariable String id,
                             @RequestBody(required = false) Employee employee){
         if(employee == null)
-            return new Response(false, 1, "empty request");
+            return ErrorResponse.EMPTY_BODY;
 
         Employee updatedEmploye = employeeRepository.findEmployeeById(id);
         if(updatedEmploye == null)
-            return new Response(false, 2, "wrong employee id");
+            return ErrorResponse.WRONG_ID;
         else if(employee.getFullName() == null || employee.getPhoneNumber() == null || employee.getAddress() == null || employee.getCitizenId() == null)
-            return new Response(false, 3, "missing field(s)");
+            return ErrorResponse.MISSING_FIELDS;
 
-        System.out.println("PUT: update employee " + employee.getFullName());
         updatedEmploye.setFullName(employee.getFullName());
         updatedEmploye.setAddress(employee.getPhoneNumber());
         updatedEmploye.setEmail(employee.getEmail());
@@ -75,18 +88,17 @@ public class EmployeeController {
         updatedEmploye.setAddress(employee.getAddress());
 
         employeeRepository.save(updatedEmploye);
-        return new Response(true, 0, "");
+        return CommonResponse.SUCCESS_RESPONSE;
     }
 
     @DeleteMapping("/{id}")
     Response deleteEmployee(@PathVariable String id){
-        System.out.println("DELETE: delete employee " + id);
         Employee employee = employeeRepository.findEmployeeById(id);
         if(employee == null){
-            return new Response(false, 1, "ID not found");
+            return ErrorResponse.WRONG_ID;
         }
         employeeRepository.delete(employee);
-        return new Response(true, 0, null);
+        return CommonResponse.SUCCESS_RESPONSE;
     }
 
     @GetMapping("/filter")
@@ -95,7 +107,6 @@ public class EmployeeController {
                                    @RequestParam(value = "page", required = false) Integer page,
                                    @RequestParam(value = "citizen_id", required = false) String citizenId,
                                    @RequestParam(value = "page_size", required = false) Integer pageSize){
-        System.out.println("GET: Filter employees by name: " + name + ", phone: " + phone);
         if(page == null) page = 1;
         if(pageSize == null) pageSize = 10;
         if(name == null) name = "";
@@ -106,7 +117,6 @@ public class EmployeeController {
 
     @GetMapping("/{id}/work-schedule")
     WorkSchedule getWorkSchedule(@PathVariable String id){
-        System.out.println("GET: Work Schedule of employee " + id);
         Employee employee = employeeRepository.findEmployeeById(id);
         if(employee == null) return null;
         return workScheduleRepository.findWorkScheduleById(employee.getWorkSchedule());

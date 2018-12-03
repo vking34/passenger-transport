@@ -27,9 +27,6 @@ public class SignUpController {
 
     @PostMapping
     Response createUser(@RequestBody RegisterForm registerForm){
-
-        System.out.println("POST: create user: " + registerForm.getFullName());
-
         Client user =  clientRepository.findExistingUser(registerForm.getUsername(), registerForm.getPhoneNumber(), registerForm.getEmail());
         if (user != null){
             if (user.getUsername().equals(registerForm.getUsername()))

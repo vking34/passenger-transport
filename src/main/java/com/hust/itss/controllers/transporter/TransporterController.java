@@ -37,13 +37,11 @@ public class TransporterController {
                                       @RequestParam(value = "page_size", required = false) Integer pageSize,
                                       @RequestParam(value = "sort", required = false) String sort,
                                       @RequestParam(value = "direct", required = false) String direct){
-        System.out.println("GET: transporter page " + page + ", page size " + pageSize + ", sort by " + sort + ", direct " + direct);
         return transporterRepository.findAll(PageRequestCreation.getPageRequest(page,pageSize, sort, direct, RequestParams.TRANSPORTER_PARAMS));
     }
 
     @GetMapping("/{id}")
     Transporter getOneTransporter(@PathVariable String id){
-        System.out.println("GET: one transporter");
         Transporter transporter = transporterRepository.findTransporterById(id);
         if (transporter == null){
             return null;
@@ -55,7 +53,6 @@ public class TransporterController {
 
     @PostMapping
     Response createTransporter(@RequestBody Transporter transporter){
-        System.out.println("POST: create transporter");
         String licensePlate = transporter.getLicensePlate();
         if (licensePlate == null
                 || transporter.getModel() == null
@@ -71,7 +68,6 @@ public class TransporterController {
 
     @PostMapping("/{id}")
     Response updateTransporter(@PathVariable String id, @RequestBody Transporter transporter){
-        System.out.println("POST: update transporter");
         Transporter target = transporterRepository.findTransporterById(id);
         if (target == null)
             return TRANSPORTER_NOT_FOUND_RESPONSE;
@@ -80,15 +76,12 @@ public class TransporterController {
                 || transporter.getBranch() == null
                 || transporter.getSeaters() == null)
             return MISSING_FIELDS_RESPONSE;
-        System.out.println("saving...");
         transporterAsyncTasks.updateTransporter(target, transporter);
-        System.out.println("return resp");
         return CommonResponse.SUCCESS_RESPONSE;
     }
 
     @DeleteMapping("/{id}")
     Response deleteTransporter(@PathVariable String id){
-        System.out.println("DELETE: delete transporter " + id);
         if (transporterRepository.findTransporterById(id) == null)
             return TRANSPORTER_NOT_FOUND_RESPONSE;
         transporterAsyncTasks.deleteTransporter(id);

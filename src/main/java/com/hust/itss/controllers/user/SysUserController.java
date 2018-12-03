@@ -12,14 +12,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/user")
 public class SysUserController {
+    private static final PageRequest DEFAULT_PAGE_REQUEST = new PageRequest(0, 10);
 
     @Autowired
     private SysUserRepository sysUserRepository;
 
     @GetMapping
     protected Page<SysUser> getAllUser(){
-        System.out.println("GET: All user");
-        PageRequest pageRequest = new PageRequest(0, 10);
-        return sysUserRepository.findAll(pageRequest);
+        return sysUserRepository.findAll(DEFAULT_PAGE_REQUEST);
     }
 }

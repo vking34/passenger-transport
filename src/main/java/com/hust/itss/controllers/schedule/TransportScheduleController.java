@@ -30,20 +30,17 @@ public class TransportScheduleController {
                                                   @RequestParam(value = "page_size", required = false) Integer pageSize,
                                                   @RequestParam(value = "sort", required = false) String sort,
                                                   @RequestParam(value = "direct", required = false) String direct){
-        System.out.println("GET: work schedule page " + page + ", page size: " + pageSize + ", sort by " + sort + ", direct " + direct);
         return scheduleRepository.findAll(PageRequestCreation.getPageRequest(page,pageSize, sort, direct, RequestParams.TRANSPORT_SCHEDULE_PARAMS));
     }
 
     @GetMapping("/{id}")
     TransportSchedule getTransportSchedule(@PathVariable String id){
-        System.out.println("GET: one transport schedule " + id);
         return scheduleRepository.findDetailOne(id);
     }
 
 
     @PostMapping
     Response createTransportSchedule(@RequestBody TransportSchedule schedule){
-        System.out.println("POST: create a new transport schedule");
         if (schedule.getPrice() == null ||
                 schedule.getPrice() < 0 ||
                 schedule.getStartingTime() == null ||
@@ -59,7 +56,6 @@ public class TransportScheduleController {
 
     @PostMapping("/{id}")
     Response updateTransportSchedule(@PathVariable String id, @RequestBody TransportSchedule schedule){
-        System.out.println("POST: update transporter schedule" + id);
         TransportSchedule target = scheduleRepository.findTransportScheduleById(id);
         if (target == null)
             return NOT_FOUND_RESPONSE;
@@ -75,14 +71,10 @@ public class TransportScheduleController {
 
     @DeleteMapping
     Response deleteTransportSchedule(@PathVariable String id){
-        System.out.println("DELETE: delete transporter schedule " + id);
-        TransportSchedule target = scheduleRepository.findTransportScheduleById(id);
+         TransportSchedule target = scheduleRepository.findTransportScheduleById(id);
         if (target == null)
             return NOT_FOUND_RESPONSE;
         asyncTasks.deleteTransporter(id);
         return CommonResponse.SUCCESS_RESPONSE;
     }
-
-
-
 }

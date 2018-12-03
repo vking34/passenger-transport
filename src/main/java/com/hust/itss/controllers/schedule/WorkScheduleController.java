@@ -20,16 +20,12 @@ public class WorkScheduleController {
                                         @RequestParam(value = "page_size", required = false) Integer pageSize,
                                         @RequestParam(value = "sort", required = false) String sort,
                                         @RequestParam(value = "direct", required = false) String direct){
-        System.out.println("GET: work schedule page " + page + ", page size: " + pageSize + ", sort by " + sort + ", direct " + direct);
         return workScheduleRepository.findAll(PageRequestCreation.getPageRequest(page,pageSize, sort, direct, RequestParams.WORK_SCHEDULE_PARAMS));
     }
 
     @GetMapping("/{id}")
     WorkSchedule getWorkSchedule(@PathVariable String id){
-        System.out.println("GET: Work schedule + " + id);
-        return workScheduleRepository.findDetailOne(id);
+         return workScheduleRepository.findDetailOne(id);
     }
 
-//    @PostMapping
-//    Response createWorkSchedule(@RequestBody Wo)
 }

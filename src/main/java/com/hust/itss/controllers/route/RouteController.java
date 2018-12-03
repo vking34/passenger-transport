@@ -38,15 +38,13 @@ public class RouteController {
                           @RequestParam(value = "page_size", required = false) Integer pageSize,
                           @RequestParam(value = "sort", required = false) String sort,
                           @RequestParam(value = "direct", required = false) String direct){
-        System.out.println("GET: route page " + page + ", page size: " + pageSize + ", sort by " + sort + ", direct " + direct);
-        return routeRepository.findAll(PageRequestCreation.getPageRequest(page, pageSize, sort, direct, RequestParams.ROUTE_PARAMS));
+         return routeRepository.findAll(PageRequestCreation.getPageRequest(page, pageSize, sort, direct, RequestParams.ROUTE_PARAMS));
     }
 
     @GetMapping("/details")
     Page<RouteDetail> getRouteDetails(@RequestParam(value = "page", required = false) Integer page,
                                       @RequestParam(value = "page_size", required = false) Integer pageSize){
-        System.out.println("GET: Route details ...");
-        if (page == null)
+          if (page == null)
             page = 1;
         if (pageSize == null)
             pageSize = 10;
@@ -55,7 +53,6 @@ public class RouteController {
 
     @GetMapping("/{id}")
     Route getRoute(@PathVariable String id){
-        System.out.println("GET: get route " + id);
         return routeRepository.findRouteById(id);
     }
 
@@ -74,7 +71,6 @@ public class RouteController {
 
     @PostMapping("/{id}")
     Response updateRoute(@PathVariable String id, @RequestBody Route route){
-        System.out.println("POST: update route");
         Route target = routeRepository.findRouteById(id);
         if (target == null)
             return ROUTE_NOT_FOUND_RESPONSE;
@@ -86,8 +82,6 @@ public class RouteController {
 
     @PostMapping("/{routeId}/schedule")
     Response addScheduleToRoute(@PathVariable String routeId, @RequestBody IdentForm identForm){
-        System.out.println("POST: add schedule");
-
         Route route = routeRepository.findRouteById(routeId);
         if(route == null)
             return ROUTE_NOT_FOUND_RESPONSE;
@@ -102,7 +96,6 @@ public class RouteController {
 
     @DeleteMapping("/{id}")
     Response deleteRoute(@PathVariable String id){
-        System.out.println("DELETE: delete route " + id);
         Route route = routeRepository.findRouteById(id);
         if (route == null)
             return ROUTE_NOT_FOUND_RESPONSE;

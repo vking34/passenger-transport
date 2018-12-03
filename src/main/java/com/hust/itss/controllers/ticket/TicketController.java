@@ -2,6 +2,7 @@ package com.hust.itss.controllers.ticket;
 
 
 import com.hust.itss.constants.request.RequestParams;
+import com.hust.itss.constants.response.CommonResponse;
 import com.hust.itss.models.response.Response;
 import com.hust.itss.models.schedule.TransportSchedule;
 import com.hust.itss.models.ticket.Ticket;
@@ -28,20 +29,17 @@ public class TicketController {
     private TicketAsyncTasks asyncTasks;
 
     private static final Response NOT_FOUND_TICKET = new Response(false, 1, "ticket not found");
-    private static final Response DELETE_SUCCESS = new Response(true, null, null);
 
     @GetMapping
     Page<Ticket> getTickets(@RequestParam(value = "page", required = false) Integer page,
                             @RequestParam(value = "page_size", required = false) Integer pageSize,
                             @RequestParam(value = "sort", required = false) String sort,
                             @RequestParam(value = "direct", required = false) String direct){
-        System.out.println("GET: ticket page " + page + ", page size: " + pageSize + ", sort by " + sort + ", direct " + direct);
         return ticketRepository.findAll(PageRequestCreation.getPageRequest(page,pageSize,sort,direct, RequestParams.TICKET_PARAMS));
     }
 
     @PostMapping
     Response requestTicket(@RequestBody Ticket ticket){
-        System.out.println("POST: request ticket " + ticket.getClientName());
 //        Ticket ticket = (Ticket) ticketForm;
         ticket.setDateCreated(new Date());
         TransportSchedule transportSchedule = transportScheduleRepository.findTransportScheduleById(ticket.getSchedule());
@@ -56,7 +54,7 @@ public class TicketController {
         if (ticket == null)
             return NOT_FOUND_TICKET;
         asyncTasks.deleteRoute(id);
-        return DELETE_SUCCESS;
+        return CommonResponse.SUCCESS_RESPONSE;
     }
 
 }

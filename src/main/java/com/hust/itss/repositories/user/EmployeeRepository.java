@@ -13,6 +13,12 @@ public interface EmployeeRepository extends MongoRepository<Employee, String> {
     @Query("{ $or : [ { role : \"DRIVER\"}, { role : \"ASSISTANT\"} ] }")
     public Page<Employee> findAllEmployees(Pageable pageable);
 
+    @Query("{ role : \"DRIVER\"}")
+    public Page<Employee> findAllDrivers(Pageable pageable);
+
+    @Query("{ role : \"ASSISTANT\"}")
+    public Page<Employee> findAllAssistants(Pageable pageable);
+
     public Employee findEmployeeById(String id);
 
     @Query("{ '$or' : [ { phone : ?0 }, { email : ?1 }, { citizen_id : ?2 } ] }")
@@ -26,4 +32,6 @@ public interface EmployeeRepository extends MongoRepository<Employee, String> {
 
     @Query("{ name: { '$regex': ?0, '$options': 'i'}, phone : { '$regex' : ?1, '$options' : 'i'}}")
     public Page<Employee> findEmployeesByNameAndPhoneNumber(String name, String phoneNumber, Pageable pageable);
+
+
 }
