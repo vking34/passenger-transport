@@ -1,8 +1,10 @@
 package com.hust.itss.models.response;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 
 @Data
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Response {
     private Boolean status;
     private Integer code;
@@ -16,10 +18,4 @@ public class Response {
         this.code = code;
         this.mess = mess;
     }
-
-    @Override
-    public String toString(){
-        return "{\"status\": " + status + ", \"code\": " + code + ", \"mess\": \"" + mess + "\"}";
-    }
-
 }

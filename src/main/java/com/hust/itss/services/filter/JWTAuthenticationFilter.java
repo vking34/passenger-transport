@@ -67,13 +67,14 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 
         TokenResponse tokenResponse = new TokenResponse(true, token, sysUser);
 
-        response.getWriter().write(OBJECT_MAPPER.writeValueAsString(tokenResponse));
         response.addHeader(ResponseHeader.CONTENT_TYPE, ResponseHeader.APP_JSON);
+        response.getWriter().write(OBJECT_MAPPER.writeValueAsString(tokenResponse));
         response.addHeader(SecurityContants.AUTHORIZATION, SecurityContants.TOKEN_PREFIX + token);
     }
 
     @Override
     protected void unsuccessfulAuthentication(HttpServletRequest request, HttpServletResponse response, AuthenticationException failed) throws IOException, ServletException {
+        response.addHeader(ResponseHeader.CONTENT_TYPE, ResponseHeader.APP_JSON);
         response.getWriter().write(OBJECT_MAPPER.writeValueAsString(FAIL_AUTH));
     }
 }
