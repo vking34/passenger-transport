@@ -5,15 +5,18 @@ import com.hust.itss.models.route.Route;
 import com.hust.itss.models.schedule.TransportSchedule;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NonNull;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
+
 @Data
 @Document(collection = "Transporter")
 @AllArgsConstructor
 public class Transporter {
+
     @Id
     private String id;
 

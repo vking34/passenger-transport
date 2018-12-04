@@ -17,8 +17,7 @@ public class TokenResponse {
     @JsonProperty(value = "user")
     private SysUser sysUser;
 
-    @Override
-    public String toString(){
-        return "{\"status\": " + status + ", \"token\": \"" + token + "\"}";
+    public TokenResponse(Boolean status){
+        this.status = status;
     }
 }

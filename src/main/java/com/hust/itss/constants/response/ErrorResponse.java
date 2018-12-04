@@ -7,4 +7,5 @@ public class ErrorResponse {
     public static final Response WRONG_ID = new Response(false, 102, null);
     public static final Response MISSING_FIELDS = new Response(false, 103, null);
     public static final Response EXISTING_ENTITY = new Response(false, 104, null);
+    public static final Response REQUIRED_JSON = new Response(false, 301, null);
 }

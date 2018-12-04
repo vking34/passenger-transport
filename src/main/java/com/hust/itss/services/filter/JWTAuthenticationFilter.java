@@ -1,9 +1,9 @@
 package com.hust.itss.services.filter;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.hust.itss.constants.response.ErrorResponse;
 import com.hust.itss.constants.response.ResponseHeader;
 import com.hust.itss.constants.security.SecurityContants;
-import com.hust.itss.models.response.Response;
 import com.hust.itss.models.response.TokenResponse;
 import com.hust.itss.models.user.AuthRequest;
 import com.hust.itss.models.user.SysUser;
@@ -25,6 +25,7 @@ import java.io.IOException;
 
 public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
     private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
+    private static final TokenResponse SUCCESS_RESPONSE = new TokenResponse(true);
 
     private AuthenticationManager authenticationManager;
     private SysUserRepository sysUserRepository;
@@ -41,14 +42,12 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException {
         try {
             AuthRequest user = new ObjectMapper().readValue(request.getInputStream(), AuthRequest.class);
-
-            System.out.println("attempt Authentication: {username: " + user.getUsername() + ", password: " + user.getPassword() + "}");
             return authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword()));
         } catch (IOException e) {
             e.printStackTrace();
-            Response resp = new Response(false, 1, "Require JSON format");
             try {
-                response.getWriter().write(resp.toString());
+                response.addHeader(ResponseHeader.CONTENT_TYPE, ResponseHeader.APP_JSON);
+                response.getWriter().write(OBJECT_MAPPER.writeValueAsString(ErrorResponse.REQUIRED_JSON));
             } catch (IOException e1) {
                 e1.printStackTrace();
             }
@@ -60,15 +59,14 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
     protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication authResult) throws IOException, ServletException {
         User user = (User) authResult.getPrincipal();
         String username = user.getUsername();
-        System.out.println("successfulAuthentication : " + username);
 
         SysUser sysUser = sysUserRepository.findSysUserByUsername(username);
         String token = jwtAuthenticationService.setAuthenticationData(request, response, sysUser);
 
-        TokenResponse tokenResponse = new TokenResponse(true, token, sysUser);
-
+        SUCCESS_RESPONSE.setToken(token);
+        SUCCESS_RESPONSE.setSysUser(sysUser);
         response.addHeader(ResponseHeader.CONTENT_TYPE, ResponseHeader.APP_JSON);
-        response.getWriter().write(OBJECT_MAPPER.writeValueAsString(tokenResponse));
+        response.getWriter().write(OBJECT_MAPPER.writeValueAsString(SUCCESS_RESPONSE));
         response.addHeader(SecurityContants.AUTHORIZATION, SecurityContants.TOKEN_PREFIX + token);
     }
 

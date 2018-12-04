@@ -11,7 +11,9 @@ import java.util.Date;
 
 
 @Repository
-public interface SeatRepository extends MongoRepository<SeatAvailability, String> {
+public interface SeatRepository extends MongoRepository<SeatAvailability, String>, SeatRepositoryCustom {
+    SeatAvailability findSeatAvailabilityById(String id);
+
     Page<SeatAvailability> findSeatAvailabilityByRouteRefAndScheduleRef(String routeRef, String scheduleRef, Pageable pageable);
 
     @Query("{ route_ref : ?0, schedule_ref : ?1, date : { $gte : ?2 } }")

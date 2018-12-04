@@ -38,6 +38,7 @@ public class RouteController {
                           @RequestParam(value = "page_size", required = false) Integer pageSize,
                           @RequestParam(value = "sort", required = false) String sort,
                           @RequestParam(value = "direct", required = false) String direct){
+        System.out.println("GET routes");
          return routeRepository.findAll(PageRequestCreation.getPageRequest(page, pageSize, sort, direct, RequestParams.ROUTE_PARAMS));
     }
 

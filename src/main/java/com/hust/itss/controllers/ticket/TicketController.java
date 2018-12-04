@@ -45,7 +45,7 @@ public class TicketController {
         TransportSchedule transportSchedule = transportScheduleRepository.findTransportScheduleById(ticket.getSchedule());
         ticket.setPrice(transportSchedule.getPrice());
         asyncTasks.insertRoute(ticket);
-        return new Response(true, 0, "Created the ticket successful");
+        return CommonResponse.SUCCESS_RESPONSE;
     }
 
     @DeleteMapping
