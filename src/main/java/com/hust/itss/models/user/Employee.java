@@ -12,6 +12,9 @@ import org.springframework.data.mongodb.core.mapping.Field;
 @AllArgsConstructor
 @Document(collection = "SystemUser")
 public class Employee extends User {
+    public Employee(){
+        super();
+    }
 
     @Field("citizen_id")
     private String citizenId;

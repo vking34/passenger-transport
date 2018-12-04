@@ -5,6 +5,7 @@ import com.hust.itss.constants.response.CommonResponse;
 import com.hust.itss.constants.response.ErrorResponse;
 import com.hust.itss.models.response.Response;
 import com.hust.itss.models.schedule.WorkSchedule;
+import com.hust.itss.models.user.Driver;
 import com.hust.itss.models.user.Employee;
 import com.hust.itss.utils.request.PageRequestCreation;
 import com.hust.itss.repositories.user.EmployeeRepository;
@@ -49,10 +50,10 @@ public class EmployeeController {
     }
 
     @GetMapping("/driver")
-    Page<Employee> getDrivers(@RequestParam(value = "page", required = false) Integer page,
-                              @RequestParam(value = "page_size", required = false) Integer pageSize,
-                              @RequestParam(value = "sort", required = false) String sort,
-                              @RequestParam(value = "direct", required = false) String direct){
+    Page<Driver> getDrivers(@RequestParam(value = "page", required = false) Integer page,
+                            @RequestParam(value = "page_size", required = false) Integer pageSize,
+                            @RequestParam(value = "sort", required = false) String sort,
+                            @RequestParam(value = "direct", required = false) String direct){
         return employeeRepository.findAllDrivers(PageRequestCreation.getBasicPageRequest(page, pageSize, sort, direct));
     }
 

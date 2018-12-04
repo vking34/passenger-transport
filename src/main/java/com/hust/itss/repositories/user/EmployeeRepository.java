@@ -1,5 +1,6 @@
 package com.hust.itss.repositories.user;
 
+import com.hust.itss.models.user.Driver;
 import com.hust.itss.models.user.Employee;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -14,7 +15,7 @@ public interface EmployeeRepository extends MongoRepository<Employee, String> {
     public Page<Employee> findAllEmployees(Pageable pageable);
 
     @Query("{ role : \"DRIVER\"}")
-    public Page<Employee> findAllDrivers(Pageable pageable);
+    public Page<Driver> findAllDrivers(Pageable pageable);
 
     @Query("{ role : \"ASSISTANT\"}")
     public Page<Employee> findAllAssistants(Pageable pageable);
