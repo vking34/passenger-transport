@@ -3,16 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="480b1060-755d-401b-8103-c7b27278b53b" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hust/itss/constants/response/ErrorResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hust/itss/constants/response/ErrorResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/route/RouteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/route/RouteController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/ticket/TicketController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/ticket/TicketController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/transporter/SeatController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/transporter/SeatController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hust/itss/models/response/TokenResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hust/itss/models/response/TokenResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hust/itss/models/transporter/SeatAvailability.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hust/itss/models/transporter/SeatAvailability.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hust/itss/models/transporter/Transporter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hust/itss/models/transporter/Transporter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hust/itss/repositories/route/RouteRepositoryCustom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hust/itss/repositories/route/RouteRepositoryCustom.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hust/itss/repositories/transporter/SeatRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hust/itss/repositories/transporter/SeatRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hust/itss/services/filter/JWTAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hust/itss/services/filter/JWTAuthenticationFilter.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -67,8 +57,8 @@
       <file leaf-file-name="TicketController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/ticket/TicketController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="54" column="35" selection-start-line="54" selection-start-column="19" selection-end-line="54" selection-end-column="35" />
+            <state relative-caret-position="380">
+              <caret line="58" lean-forward="true" selection-start-line="58" selection-end-line="58" />
             </state>
           </provider>
         </entry>
@@ -974,7 +964,7 @@
       <workItem from="1543815617624" duration="1599000" />
       <workItem from="1543846494313" duration="2718000" />
       <workItem from="1543894282424" duration="6654000" />
-      <workItem from="1543905054428" duration="13576000" />
+      <workItem from="1543905054428" duration="13751000" />
     </task>
     <servers />
   </component>
@@ -1011,7 +1001,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="440635000" />
+    <option name="totallyTimeSpent" value="440810000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1044,11 +1034,11 @@
       <window_info anchor="bottom" id="Java Enterprise" order="8" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3504929" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3504929" />
       <window_info anchor="bottom" id="Spring" order="7" weight="0.32968238" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info anchor="bottom" id="Problems" order="8" weight="0.32968238" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4972737" visible="true" weight="0.1875" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4972737" visible="true" weight="0.1875" />
       <window_info anchor="right" id="Bean Validation" order="4" />
       <window_info id="Web" order="6" side_tool="true" />
       <window_info anchor="right" id="Theme Preview" order="3" />
@@ -1520,8 +1510,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/ticket/TicketController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="54" column="35" selection-start-line="54" selection-start-column="19" selection-end-line="54" selection-end-column="35" />
+        <state relative-caret-position="380">
+          <caret line="58" lean-forward="true" selection-start-line="58" selection-end-line="58" />
         </state>
       </provider>
     </entry>
