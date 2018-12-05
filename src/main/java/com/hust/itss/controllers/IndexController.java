@@ -39,7 +39,7 @@ public class IndexController {
 
                 case USER:
                 case CLIENT:
-                    return "redirect:/client";
+                    return "client";
 
                 default:
                     return "redirect:/login";

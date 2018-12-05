@@ -3,8 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Client</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
 </head>
 <body>
     <h2>Client</h2>
+    <span id="name" ></span>
+<script>
+    var user = JSON.parse(sessionStorage.getItem("user"));
+    console.log(user.full_name);
+</script>
 </body>
 </html>

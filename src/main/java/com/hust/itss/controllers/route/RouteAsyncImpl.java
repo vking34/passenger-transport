@@ -3,6 +3,7 @@ package com.hust.itss.controllers.route;
 import com.hust.itss.models.route.Route;
 import com.hust.itss.repositories.route.RouteRepository;
 import com.hust.itss.repositories.schedule.TransportScheduleRepository;
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
@@ -33,7 +34,7 @@ public class RouteAsyncImpl implements RouteAsyncTasks {
         if (stations != null){
             target.setStations(stations);
         }
-        List<String> schedules = route.getSchedules();
+        List<ObjectId> schedules = route.getSchedules();
         if (schedules != null){
             target.setSchedules(schedules);
         }
@@ -49,7 +50,7 @@ public class RouteAsyncImpl implements RouteAsyncTasks {
     @Async
     public void addScheduleToRoute(String scheduleId, Route route){
         System.out.println(scheduleId);
-        route.getSchedules().add(scheduleId);
+        route.getSchedules().add(new ObjectId(scheduleId));
         routeRepository.save(route);
     }
 }

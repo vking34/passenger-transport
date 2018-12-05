@@ -21,4 +21,7 @@ public interface SeatRepository extends MongoRepository<SeatAvailability, String
 
     @Query("{ route_ref : ?0, schedule_ref : ?1, transporter_ref : ?2, date : { $gte : ?3 } }")
     Page<SeatAvailability> findSeatAvailabilityByDateAndTransporter(String routeRef, String scheduleRef, String transporterRef, Date date, Pageable pageable);
+
+    @Query("{ route_ref : ?0, schedule_ref : ?1, date : { $gte : ?2 , $lt : ?3 }}")
+    SeatAvailability findOne(String routeRef, String scheduleRef, Date fromDate, Date toDate);
 }

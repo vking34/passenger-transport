@@ -4,6 +4,7 @@ import com.hust.itss.constants.format.DateForm;
 import com.hust.itss.models.transporter.SeatAvailability;
 import com.hust.itss.models.transporter.SeatDetail;
 import com.hust.itss.repositories.transporter.SeatRepository;
+import com.hust.itss.services.entity.SeatSearch;
 import com.hust.itss.utils.request.PageRequestCreation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
@@ -13,8 +14,8 @@ import org.springframework.data.domain.Page;
 
 import java.text.ParseException;
 import java.util.Date;
-import java.util.List;
 
+import static com.hust.itss.constants.request.RequestParams.*;
 
 @RestController
 @RequestMapping("/api/seat-availability")
@@ -23,6 +24,9 @@ public class SeatController {
 
     @Autowired
     private SeatRepository seatRepository;
+
+    @Autowired
+    private SeatSearch seatSearch;
 
     @GetMapping
     Page<SeatDetail> getSeatDetails(@RequestParam(value = "route") String routeRef,
@@ -48,6 +52,15 @@ public class SeatController {
         Date date = seatAvailability.getDate();
         System.out.println(date.getYear() + ", " + date.getMonth() + ", " + date.getDate());
         return seatAvailability;
+    }
+
+    @GetMapping("/one")
+    SeatAvailability findByTransporterAndDate(@RequestParam(value = ROUTE) String routeRef,
+                                              @RequestParam(value = SCHEDULE) String scheduleRef,
+                                              @RequestParam(value = DATE) String dateString) throws ParseException {
+        Date date = DateForm.SIMPLE_DATE_FORMAT.parse(dateString);
+        System.out.println(date);
+        return seatSearch.searchByDate(routeRef, scheduleRef, date);
     }
 
 //    @GetMapping

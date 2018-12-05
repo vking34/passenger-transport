@@ -20,6 +20,8 @@ ClientController {
     @Autowired
     ClientRepository clientRepository;
 
+
+
     @GetMapping
     protected Page<Client> getClients(@RequestParam(value = "page", required = false) Integer page,
                                       @RequestParam(value = "page_size", required = false) Integer pageSize,

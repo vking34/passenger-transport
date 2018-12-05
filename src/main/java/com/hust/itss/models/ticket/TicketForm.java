@@ -1,5 +1,8 @@
 package com.hust.itss.models.ticket;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.hust.itss.utils.deserializer.DateDeserializer;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.springframework.data.mongodb.core.mapping.Field;
@@ -29,6 +32,8 @@ public class TicketForm {
     private String transporter;
 
     @Field("reservation_date")
+    @JsonProperty("reservation_date")
+    @JsonDeserialize(using = DateDeserializer.class)
     private Date reservationDate;
 
     @Field("specific_departure")

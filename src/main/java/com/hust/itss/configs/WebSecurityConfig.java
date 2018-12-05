@@ -9,6 +9,7 @@ import com.hust.itss.repositories.oauth.HttpCookieOAuth2AuthorizationRequestRepo
 import com.hust.itss.services.auth.JWTAuthenticationService;
 import com.hust.itss.services.filter.CookieAuthorizationFilter;
 import com.hust.itss.services.filter.JWTAuthenticationFilter;
+import com.hust.itss.services.filter.JWTAuthorizationFilter;
 import com.hust.itss.services.user.CustomUserDetailService;
 import com.hust.itss.services.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -90,21 +91,22 @@ class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
         // filter cookies for actors
         http.authorizeRequests()
+
                 .antMatchers(HttpMethod.GET, "/admin").hasRole(RoleContants.ADMIN)
                 .antMatchers(HttpMethod.GET, "/driver").hasAnyRole(RoleContants.DRIVER, RoleContants.ADMIN)
                 .antMatchers(HttpMethod.GET, "/assistant").hasAnyRole(RoleContants.ASSISTANT, RoleContants.ADMIN)
                 .antMatchers(HttpMethod.GET, "/client").hasAnyRole(RoleContants.CLIENT, RoleContants.USER, RoleContants.ADMIN)
                 .and()
-                .addFilter(new CookieAuthorizationFilter(authenticationManager(),customUserDetailService));
+                .addFilter(new CookieAuthorizationFilter(authenticationManager(), customUserDetailService));
 
         // for access token for API
-//        http.authorizeRequests()
-//
+        http.authorizeRequests()
+                .antMatchers(HttpMethod.GET, "/me").hasAnyRole(RoleContants.USER, RoleContants.CLIENT, RoleContants.DRIVER, RoleContants.ASSISTANT, RoleContants.ADMIN)
 //                .antMatchers(HttpMethod.GET,"/api/transporter").hasAnyRole(RoleContants.USER, RoleContants.ADMIN, RoleContants.DRIVER)
 //                .antMatchers(HttpMethod.GET,"/api/employee").hasAnyRole(RoleContants.ADMIN)
-//                .and()
-//                .addFilter(new JWTAuthorizationFilter(authenticationManager(), customUserDetailService))
-//        ;
+                .and()
+                .addFilter(new JWTAuthorizationFilter(authenticationManager(), customUserDetailService))
+        ;
     }
 
     @Override

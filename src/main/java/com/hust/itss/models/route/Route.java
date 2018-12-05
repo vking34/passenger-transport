@@ -1,6 +1,10 @@
 package com.hust.itss.models.route;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.hust.itss.utils.serializer.ListObjectIdSerializer;
 import lombok.Data;
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
@@ -26,12 +30,14 @@ public class Route {
     @Field("stations")
     private List<String> stations;
 
-    @Field("schedule")
-    private List<String> schedules;
+    @Field("schedules")
+    @JsonProperty(value = "schedules")
+    @JsonSerialize(using = ListObjectIdSerializer.class)
+    private List<ObjectId> schedules;
 
     public Route() { }
 
-    public Route(String id, String departure, String destination, List<String> stations, List<String> schedules) {
+    public Route(@NotNull String id, @NotNull String departure, @NotNull String destination, List<String> stations, List<ObjectId> schedules) {
         this.id = id;
         this.departure = departure;
         this.destination = destination;

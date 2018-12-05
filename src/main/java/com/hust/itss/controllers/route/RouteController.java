@@ -54,7 +54,9 @@ public class RouteController {
 
     @GetMapping("/{id}")
     Route getRoute(@PathVariable String id){
-        return routeRepository.findRouteById(id);
+        Route route = routeRepository.findRouteById(id);
+        System.out.println(route.getSchedules());
+        return route;
     }
 
     @PostMapping

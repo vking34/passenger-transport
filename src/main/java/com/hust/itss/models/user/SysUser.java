@@ -2,6 +2,7 @@ package com.hust.itss.models.user;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NonNull;
@@ -54,6 +55,7 @@ public class SysUser {
 
     @Field("full_name")
     @Length(max = 100)
+    @JsonProperty("full_name")
     private String fullName;
 
     @URL
