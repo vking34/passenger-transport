@@ -45,7 +45,8 @@ public class RouteController {
     @GetMapping("/details")
     Page<RouteDetail> getRouteDetails(@RequestParam(value = "page", required = false) Integer page,
                                       @RequestParam(value = "page_size", required = false) Integer pageSize){
-          if (page == null)
+        System.out.println("GET ROUTE");
+        if (page == null)
             page = 1;
         if (pageSize == null)
             pageSize = 10;

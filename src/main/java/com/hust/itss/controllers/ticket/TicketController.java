@@ -6,8 +6,11 @@ import com.hust.itss.models.response.Response;
 import com.hust.itss.models.route.Route;
 import com.hust.itss.models.schedule.TransportSchedule;
 import com.hust.itss.models.ticket.Ticket;
+import com.hust.itss.models.transporter.SeatAvailability;
 import com.hust.itss.repositories.route.RouteRepository;
 import com.hust.itss.repositories.schedule.TransportScheduleRepository;
+import com.hust.itss.repositories.transporter.SeatRepository;
+import com.hust.itss.services.entity.SeatSearch;
 import com.hust.itss.utils.comparer.DateComparer;
 import com.hust.itss.utils.request.PageRequestCreation;
 import com.hust.itss.repositories.ticket.TicketRepository;
@@ -35,6 +38,9 @@ public class TicketController {
 
     @Autowired
     private TransportScheduleRepository transportScheduleRepository;
+
+    @Autowired
+    private SeatSearch seatSearch;
 
     @Autowired
     private TicketAsyncTasks asyncTasks;
@@ -85,7 +91,11 @@ public class TicketController {
         if (!DateComparer.afterNow(reservationDate, schedule.getStartingTime()))
             return INVALID_TIME;
 
-        asyncTasks.insertRoute(routeRef, schedule, transporterRef ,ticket);
+        SeatAvailability seatAvailability = seatSearch.searchByDate(routeRef,scheduleRef, reservationDate);
+        if (seatAvailability.getAvailableSeats() < 1)
+            return FULL_TRANSPORTER;
+
+        asyncTasks.insertRoute(routeRef, schedule, transporterRef,ticket, seatAvailability);
         return CommonResponse.SUCCESS_RESPONSE;
     }
 

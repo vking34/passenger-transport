@@ -53,8 +53,9 @@ public class SeatController {
     @Autowired
     private TransporterRepository transporterRepository;
 
-    private Page<SeatDetail> seatDetailPage;
-    private SeatDetail seatDetail = new SeatDetail();
+    @Autowired
+    private SeatAsyncTasks asyncTasks;
+
 
     @GetMapping
     Page<SeatDetail> getSeatDetails(@RequestParam(value = "route") String routeRef,
@@ -62,6 +63,9 @@ public class SeatController {
                                     @RequestParam(value = "date") String dateString,
                                     @RequestParam(value = "page", required = false) Integer page,
                                     @RequestParam(value = "page_size", required = false) Integer pageSize){
+        System.out.println("GET SEAT");
+        Page<SeatDetail> seatDetailPage;
+        SeatDetail seatDetail = new SeatDetail();
         Route route = routeRepository.findRouteById(routeRef);
         if (route == null)
             return EMPTY_PAGE;
@@ -84,13 +88,15 @@ public class SeatController {
                 return EMPTY_PAGE;
             }
         }
+
+        System.out.println(date);
 //        if (!DateComparer.afterNow(date, LATE_TIME));
 //            return EMPTY_PAGE;
 
         seatDetailPage = seatRepository.findSeatDetailsByDate(routeRef, scheduleRef, date ,pageRequest);
         if (seatDetailPage.getTotalElements() == 0){
             TransportSchedule schedule = scheduleRepository.findDetailOne(scheduleRef);
-            System.out.println(schedule.getPrice());
+
             List<Transporter> transporters = schedule.getTransporters();
 
             Transporter transporter = transporters.get(0);
@@ -99,6 +105,7 @@ public class SeatController {
             seatDetail.setAvailableSeats(transporter.getSeaters());
             seatDetail.setTransporter(transporters);
             seatDetailPage = new PageImpl<>(new ArrayList<>(Arrays.asList(seatDetail)));
+            asyncTasks.insertSeatAvailability(routeRef, scheduleRef, date, transporters, seatDetail);
         }
 
         return seatDetailPage;

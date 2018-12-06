@@ -1,7 +1,10 @@
 package com.hust.itss.models.transporter;
 
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.hust.itss.utils.serializer.ListObjectIdSerializer;
 import lombok.Data;
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
@@ -27,7 +30,8 @@ public class SeatAvailability {
     private Date date;
 
     @Field("transporter_ref")
-    private List<String> transporterRef;
+    @JsonSerialize(using = ListObjectIdSerializer.class)
+    private List<ObjectId> transporterRef;
 
     @Field("max")
     private Integer max;
@@ -35,7 +39,7 @@ public class SeatAvailability {
     @Field("available_seats")
     private Integer availableSeats;
 
-    public SeatAvailability(String id, String routeRef, String scheduleRef, Date date, List<String> transporterRef, Integer max, Integer availableSeats) {
+    public SeatAvailability(String id, String routeRef, String scheduleRef, Date date, List<ObjectId> transporterRef, Integer max, Integer availableSeats) {
         this.id = id;
         this.routeRef = routeRef;
         this.scheduleRef = scheduleRef;

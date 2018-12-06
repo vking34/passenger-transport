@@ -24,18 +24,15 @@ public class TicketAsyncImpl implements TicketAsyncTasks {
     private SeatRepository seatRepository;
 
     @Autowired
-    private TransporterRepository transporterRepository;
-
-    @Autowired
     private SeatSearch seatSearch;
 
     @Override
-    public void insertRoute(String routeRef, TransportSchedule schedule, String transporterRef, Ticket ticket) {
+    public void insertRoute(String routeRef, TransportSchedule schedule, String transporterRef, Ticket ticket, SeatAvailability seatAvailability) {
         ticket.setDateCreated(new Date());
         ticket.setPrice(schedule.getPrice());
         ticketRepository.insert(ticket);
-//        SeatAvailability seatAvailability = seatRepository.find
-//        Transporter transporter = transporterRepository.findTransporterById(transporterRef);
+        seatAvailability.setAvailableSeats(seatAvailability.getAvailableSeats() - 1);
+        seatRepository.save(seatAvailability);
     }
 
     @Async
