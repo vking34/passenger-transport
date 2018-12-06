@@ -6,7 +6,8 @@ import com.hust.itss.models.response.Response;
 import com.hust.itss.models.route.Route;
 import com.hust.itss.models.schedule.TransportSchedule;
 import com.hust.itss.models.ticket.Ticket;
-import com.hust.itss.models.transporter.SeatAvailability;
+//import com.hust.itss.models.transporter.SeatAvailability;
+import com.hust.itss.models.transporter.SeatDetail;
 import com.hust.itss.repositories.route.RouteRepository;
 import com.hust.itss.repositories.schedule.TransportScheduleRepository;
 import com.hust.itss.repositories.transporter.SeatRepository;
@@ -91,11 +92,11 @@ public class TicketController {
         if (!DateComparer.afterNow(reservationDate, schedule.getStartingTime()))
             return INVALID_TIME;
 
-        SeatAvailability seatAvailability = seatSearch.searchByDate(routeRef,scheduleRef, reservationDate);
-        if (seatAvailability.getAvailableSeats() < 1)
+        SeatDetail seatDetail = seatSearch.searchByDate(routeRef,scheduleRef, reservationDate);
+        if (seatDetail.getAvailableSeats() < 1)
             return FULL_TRANSPORTER;
 
-        asyncTasks.insertRoute(routeRef, schedule, transporterRef,ticket, seatAvailability);
+        asyncTasks.insertTicket(routeRef, schedule, transporterRef,ticket, seatDetail);
         return CommonResponse.SUCCESS_RESPONSE;
     }
 
@@ -104,7 +105,7 @@ public class TicketController {
         Ticket ticket = ticketRepository.findTicketById(id);
         if (ticket == null)
             return TICKET_NOT_FOUND;
-        asyncTasks.deleteRoute(id);
+        asyncTasks.deleteTicket(id);
         return CommonResponse.SUCCESS_RESPONSE;
     }
 

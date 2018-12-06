@@ -1,8 +1,11 @@
 package com.hust.itss.services.entity;
 
-import com.hust.itss.models.transporter.SeatAvailability;
+//import com.hust.itss.models.transporter.SeatAvailability;
+import com.hust.itss.models.transporter.SeatDetail;
 import com.hust.itss.repositories.transporter.SeatRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.text.DateFormat;
@@ -13,14 +16,20 @@ import java.util.Date;
 public class SeatSearch {
 
     private static final DateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd'T00:00:00.000Z'");
+    private static final PageRequest PAGE_REQUEST = PageRequest.of(0,10);
 
     @Autowired
     private SeatRepository seatRepository;
 
-    public SeatAvailability searchByDate(String routeRef, String scheduleRef, Date date){
-//        String fromDate = DATE_FORMAT.format(date);
-//        String toDate = DATE_FORMAT.format();
-        Date date2 = new Date(date.getYear(), date.getMonth(), date.getDate() + 1);
-        return seatRepository.findOne(routeRef, scheduleRef, date, date2);
+    public SeatDetail searchByDate(String routeRef, String scheduleRef, Date date){
+        System.out.println("route :" + routeRef);
+        System.out.println("shedule: " + scheduleRef);
+        Date toDate = new Date(date.getYear(), date.getMonth(), date.getDate() + 1);
+        return seatRepository.findOne(routeRef, scheduleRef, date, toDate);
+    }
+
+    public Page<SeatDetail> searchSeatDetailsByDate(String routeRef, String scheduleRef, Date date){
+        Date toDate = new Date(date.getYear(), date.getMonth(), date.getDate() + 1);
+        return seatRepository.findSeatDetailsByDate(routeRef, scheduleRef, date, toDate, PAGE_REQUEST);
     }
 }

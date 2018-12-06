@@ -2,7 +2,8 @@ package com.hust.itss.controllers.ticket;
 
 import com.hust.itss.models.schedule.TransportSchedule;
 import com.hust.itss.models.ticket.Ticket;
-import com.hust.itss.models.transporter.SeatAvailability;
+//import com.hust.itss.models.transporter.SeatAvailability;
+import com.hust.itss.models.transporter.SeatDetail;
 import com.hust.itss.models.transporter.Transporter;
 import com.hust.itss.repositories.ticket.TicketRepository;
 import com.hust.itss.repositories.transporter.SeatRepository;
@@ -26,18 +27,19 @@ public class TicketAsyncImpl implements TicketAsyncTasks {
     @Autowired
     private SeatSearch seatSearch;
 
+    @Async
     @Override
-    public void insertRoute(String routeRef, TransportSchedule schedule, String transporterRef, Ticket ticket, SeatAvailability seatAvailability) {
+    public void insertTicket(String routeRef, TransportSchedule schedule, String transporterRef, Ticket ticket, SeatDetail seatDetail) {
         ticket.setDateCreated(new Date());
         ticket.setPrice(schedule.getPrice());
         ticketRepository.insert(ticket);
-        seatAvailability.setAvailableSeats(seatAvailability.getAvailableSeats() - 1);
-        seatRepository.save(seatAvailability);
+        seatDetail.setAvailableSeats(seatDetail.getAvailableSeats() - 1);
+        seatRepository.save(seatDetail);
     }
 
     @Async
     @Override
-    public void deleteRoute(String id) {
+    public void deleteTicket(String id) {
         ticketRepository.deleteById(id);
     }
 }

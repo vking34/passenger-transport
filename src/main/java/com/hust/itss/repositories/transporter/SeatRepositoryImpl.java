@@ -38,14 +38,18 @@ public class SeatRepositoryImpl implements  SeatRepositoryCustom {
                 .foreignField("_id")
                 .as("transporter");
 
-        Date fromDate = new Date(date.getYear(), date.getMonth(), date.getDate());
+        Date fromDate = new Date(date.getYear(), date.getMonth(), date.getDate()-1);
         Date toDate = new Date(date.getYear(), date.getMonth(), date.getDate() + 1);
+        System.out.println(fromDate);
+        System.out.println(toDate);
 
         MatchOperation match1 = Aggregation.match(Criteria.where(DATE).gte(fromDate).lt(toDate).and(ROUTE_REF).is(routeRef).and(SCHEDULE_REF).is(scheduleRef));
 
-        Aggregation aggregation = Aggregation.newAggregation(match1,lookupOperation, Aggregation.skip(pageable.getPageNumber() * pageable.getPageSize()), Aggregation.limit(pageable.getPageSize()));
+//        Aggregation aggregation = Aggregation.newAggregation(match1,lookupOperation, Aggregation.skip(pageable.getPageNumber() * pageable.getPageSize()), Aggregation.limit(pageable.getPageSize()));
+        Aggregation aggregation = Aggregation.newAggregation(match1,lookupOperation);
 
         List<SeatDetail> seatDetails = mongoTemplate.aggregate(aggregation, "SeatAvailability", SeatDetail.class).getMappedResults();
-        return new PageImpl<>(seatDetails, pageable, seatDetails.size());
+        System.out.println(seatDetails);
+        return new PageImpl<>(seatDetails);
     }
 }

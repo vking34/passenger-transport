@@ -20,7 +20,7 @@ public class TransportScheduleRepositoryImpl implements TransportScheduleReposit
 
     @Override
     public TransportSchedule findDetailOne(String id) {
-        System.out.println("ID: " + id);
+//        System.out.println("ID: " + id);
         LookupOperation lookupOperation = LookupOperation.newLookup()
                 .from("Transporter")
                 .localField("transporter_refs")

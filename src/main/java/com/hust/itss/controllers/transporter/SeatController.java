@@ -3,7 +3,7 @@ package com.hust.itss.controllers.transporter;
 import com.hust.itss.constants.format.DateForm;
 import com.hust.itss.models.route.Route;
 import com.hust.itss.models.schedule.TransportSchedule;
-import com.hust.itss.models.transporter.SeatAvailability;
+//import com.hust.itss.models.transporter.SeatAvailability;
 import com.hust.itss.models.transporter.SeatDetail;
 import com.hust.itss.models.transporter.Transporter;
 import com.hust.itss.models.user.Employee;
@@ -60,67 +60,60 @@ public class SeatController {
     @GetMapping
     Page<SeatDetail> getSeatDetails(@RequestParam(value = "route") String routeRef,
                                     @RequestParam(value = "schedule") String scheduleRef,
-                                    @RequestParam(value = "date") String dateString,
-                                    @RequestParam(value = "page", required = false) Integer page,
-                                    @RequestParam(value = "page_size", required = false) Integer pageSize){
+                                    @RequestParam(value = "date") String dateString) throws ParseException {
         System.out.println("GET SEAT");
         Page<SeatDetail> seatDetailPage;
-        SeatDetail seatDetail = new SeatDetail();
-        Route route = routeRepository.findRouteById(routeRef);
-        if (route == null)
-            return EMPTY_PAGE;
 
-        boolean isFound = false;
-
-        for(ObjectId schedule : route.getSchedules()){
-            if (schedule.toHexString().equals(scheduleRef))
-                isFound = true;
-        }
-        if (!isFound)
-            return EMPTY_PAGE;
-
-        PageRequest pageRequest = PageRequestCreation.getBasicPageRequest(page, pageSize, null, null);
+//        Route route = routeRepository.findRouteById(routeRef);
+//        if (route == null)
+//            return EMPTY_PAGE;
+//
+//        boolean isFound = false;
+//
+//        for(ObjectId schedule : route.getSchedules()){
+//            if (schedule.toHexString().equals(scheduleRef))
+//                isFound = true;
+//        }
+//        if (!isFound)
+//            return EMPTY_PAGE;
+//
         Date date = null;
-        if (dateString != null) {
-            try {
-                date = DateForm.SIMPLE_DATE_FORMAT.parse(dateString);
-            } catch (ParseException e) {
-                return EMPTY_PAGE;
-            }
-        }
+        date = DateForm.SIMPLE_DATE_FORMAT.parse(dateString);
 
         System.out.println(date);
 //        if (!DateComparer.afterNow(date, LATE_TIME));
 //            return EMPTY_PAGE;
 
-        seatDetailPage = seatRepository.findSeatDetailsByDate(routeRef, scheduleRef, date ,pageRequest);
+        seatDetailPage = seatSearch.searchSeatDetailsByDate(routeRef, scheduleRef, date);
         if (seatDetailPage.getTotalElements() == 0){
+            System.out.println("0");
             TransportSchedule schedule = scheduleRepository.findDetailOne(scheduleRef);
-
+            List<SeatDetail> seatDetails = new ArrayList<>();
             List<Transporter> transporters = schedule.getTransporters();
+            for(Transporter transporter : transporters){
+                SeatDetail seatDetail = new SeatDetail();
+                seatDetail.setDate(date);
+                seatDetail.setMax(transporter.getSeaters());
+                seatDetail.setAvailableSeats(transporter.getSeaters());
+                seatDetail.setTransporter(transporter);
+                seatDetails.add(seatDetail);
+            }
 
-            Transporter transporter = transporters.get(0);
-
-            seatDetail.setMax(transporter.getSeaters());
-            seatDetail.setAvailableSeats(transporter.getSeaters());
-            seatDetail.setTransporter(transporters);
-            seatDetailPage = new PageImpl<>(new ArrayList<>(Arrays.asList(seatDetail)));
-            asyncTasks.insertSeatAvailability(routeRef, scheduleRef, date, transporters, seatDetail);
+            seatDetailPage = new PageImpl<>(seatDetails);
+            asyncTasks.insertSeatAvailability(routeRef, scheduleRef, date, seatDetails);
         }
 
         return seatDetailPage;
     }
 
     @GetMapping("/{id}")
-    SeatAvailability getSeatAvailability(@PathVariable String id){
-        SeatAvailability seatAvailability = seatRepository.findSeatAvailabilityById(id);
-        Date date = seatAvailability.getDate();
-        System.out.println(date.getYear() + ", " + date.getMonth() + ", " + date.getDate());
-        return seatAvailability;
+    SeatDetail getSeatAvailability(@PathVariable String id){
+        SeatDetail seatDetail = seatRepository.findSeatDetailById(id);
+        return seatDetail;
     }
 
     @GetMapping("/one")
-    SeatAvailability findByTransporterAndDate(@RequestParam(value = ROUTE) String routeRef,
+    SeatDetail findByTransporterAndDate(@RequestParam(value = ROUTE) String routeRef,
                                               @RequestParam(value = SCHEDULE) String scheduleRef,
                                               @RequestParam(value = DATE) String dateString) throws ParseException {
         Date date = DateForm.SIMPLE_DATE_FORMAT.parse(dateString);
@@ -128,27 +121,13 @@ public class SeatController {
         return seatSearch.searchByDate(routeRef, scheduleRef, date);
     }
 
-//    @GetMapping
-//    Page<SeatAvailability> getSeatAvailability(@RequestParam(value = "route") String routeRef,
-//                                         @RequestParam(value = "schedule") String scheduleRef,
-//                                         @RequestParam(value = "date", required = false) String dateString,
-//                                         @RequestParam(value = "transporter", required = false) String transporterRef,
-//                                         @RequestParam(value = "page", required = false) Integer page,
-//                                         @RequestParam(value = "page_size", required = false) Integer pageSize,
-//                                         @RequestParam(value = "sort", required = false) String direct
-//                                               ) throws ParseException {
-//        System.out.println("GET seats");
-//        PageRequest pageRequest;
-//        pageRequest = PageRequestCreation.getBasicPageRequest(page, pageSize, SEAT, direct);
-//        if (dateString == null){
-//            return seatRepository.findSeatAvailabilityByRouteRefAndScheduleRef(routeRef, scheduleRef, pageRequest);
-//        }
-//        Date date = DateForm.SIMPLE_DATE_FORMAT.parse(dateString);
-//        if (transporterRef == null)
-//        {
-//            return seatRepository.findSeatAvailabilityByDate(routeRef, scheduleRef, date, pageRequest);
-//        }
-//        Page<SeatAvailability> seatAvailabilities = seatRepository.findSeatAvailabilityByDateAndTransporter(routeRef, scheduleRef, transporterRef, date, pageRequest);
-//        return seatAvailabilities;
-//    }
+    @GetMapping("/many")
+    Page<SeatDetail> seatDetailPage (@RequestParam(value = ROUTE) String routeRef,
+                                        @RequestParam(value = SCHEDULE) String scheduleRef,
+                                        @RequestParam(value = DATE) String dateString) throws ParseException {
+        Date date = DateForm.SIMPLE_DATE_FORMAT.parse(dateString);
+        System.out.println(date);
+        return seatSearch.searchSeatDetailsByDate(routeRef, scheduleRef, date);
+    }
+
 }

@@ -3,6 +3,18 @@
   <component name="ChangeListManager">
     <list default="true" id="480b1060-755d-401b-8103-c7b27278b53b" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/ticket/TicketAsyncImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/ticket/TicketAsyncImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/ticket/TicketAsyncTasks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/ticket/TicketAsyncTasks.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/ticket/TicketController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/ticket/TicketController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/transporter/SeatAsyncImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/transporter/SeatAsyncImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/transporter/SeatAsyncTasks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/transporter/SeatAsyncTasks.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/transporter/SeatController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/transporter/SeatController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hust/itss/models/transporter/SeatAvailability.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hust/itss/models/transporter/SeatAvailability.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hust/itss/models/transporter/SeatDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hust/itss/models/transporter/SeatDetail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hust/itss/repositories/schedule/TransportScheduleRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hust/itss/repositories/schedule/TransportScheduleRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hust/itss/repositories/transporter/SeatRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hust/itss/repositories/transporter/SeatRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hust/itss/repositories/transporter/SeatRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hust/itss/repositories/transporter/SeatRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hust/itss/services/entity/SeatSearch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hust/itss/services/entity/SeatSearch.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -30,165 +42,121 @@
     <expand />
     <select />
   </component>
+  <component name="DockManager">
+    <window id="1">
+      <content type="file-editors">
+        <state>
+          <leaf>
+            <file leaf-file-name="SeatRepositoryImpl.java" pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/repositories/transporter/SeatRepositoryImpl.java">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="720">
+                    <caret line="52" column="43" selection-start-line="52" selection-start-column="43" selection-end-line="52" selection-end-column="43" />
+                  </state>
+                </provider>
+              </entry>
+            </file>
+            <file leaf-file-name="SeatSearch.java" pinned="false" current-in-tab="false">
+              <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/services/entity/SeatSearch.java">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="640">
+                    <caret line="32" column="103" selection-start-line="32" selection-start-column="103" selection-end-line="32" selection-end-column="103" />
+                    <folding>
+                      <element signature="imports" expanded="true" />
+                    </folding>
+                  </state>
+                </provider>
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
+  </component>
   <component name="FavoritesManager">
     <favorites_list name="itss" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.45435828">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="TicketForm.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/models/ticket/TicketForm.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="560">
-                  <caret line="35" column="52" selection-start-line="35" selection-start-column="52" selection-end-line="35" selection-end-column="52" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="DateDeserializer.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/utils/deserializer/DateDeserializer.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="440">
-                  <caret line="34" column="5" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="TicketController.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/ticket/TicketController.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1460">
-                  <caret line="97" column="90" selection-start-line="97" selection-start-column="90" selection-end-line="97" selection-end-column="90" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="TicketAsyncTasks.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/ticket/TicketAsyncTasks.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="120">
-                  <caret line="9" column="137" selection-start-line="9" selection-start-column="137" selection-end-line="9" selection-end-column="137" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="TicketAsyncImpl.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/ticket/TicketAsyncImpl.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="600">
-                  <caret line="42" column="1" lean-forward="true" selection-start-line="42" selection-start-column="1" selection-end-line="42" selection-end-column="1" />
-                  <folding>
-                    <element signature="e#1425#1426#0" expanded="true" />
-                    <element signature="e#1472#1473#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="JWTAuthenticationFilter.java" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/services/filter/JWTAuthenticationFilter.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="440">
-                  <caret line="43" column="105" selection-start-line="43" selection-start-column="105" selection-end-line="43" selection-end-column="105" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="SeatController.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/transporter/SeatController.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="560">
-                  <caret line="56" column="26" selection-start-line="56" selection-start-column="12" selection-end-line="56" selection-end-column="26" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="SeatAsyncTasks.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/transporter/SeatAsyncTasks.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="160">
-                  <caret line="13" selection-start-line="13" selection-end-line="13" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="SeatAsyncImpl.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/transporter/SeatAsyncImpl.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="200">
-                  <caret line="21" column="10" selection-start-line="21" selection-start-column="10" selection-end-line="21" selection-end-column="10" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="SeatRepository.java" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/repositories/transporter/SeatRepository.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="400">
-                  <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="SeatSearch.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/services/entity/SeatSearch.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="320">
-                  <caret line="23" column="30" selection-start-line="23" selection-start-column="30" selection-end-line="23" selection-end-column="30" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="ErrorResponse.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/constants/response/ErrorResponse.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="400">
-                  <caret line="20" selection-start-line="20" selection-end-line="20" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="SeatRepositoryImpl.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/repositories/transporter/SeatRepositoryImpl.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="340">
-                  <caret line="33" column="49" selection-start-line="33" selection-start-column="49" selection-end-line="33" selection-end-column="49" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="SeatRepositoryCustom.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/repositories/transporter/SeatRepositoryCustom.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="100">
-                  <caret line="10" column="39" selection-start-line="10" selection-start-column="39" selection-end-line="10" selection-end-column="39" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="SeatRepository.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/repositories/transporter/SeatRepository.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="497">
+              <caret line="29" column="84" lean-forward="true" selection-start-line="29" selection-start-column="84" selection-end-line="29" selection-end-column="84" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SeatDetail.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/models/transporter/SeatDetail.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="283">
+              <caret line="23" column="36" selection-start-line="23" selection-start-column="36" selection-end-line="23" selection-end-column="36" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SeatAsyncImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/transporter/SeatAsyncImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="27" column="46" lean-forward="true" selection-start-line="27" selection-start-column="46" selection-end-line="27" selection-end-column="46" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SeatAsyncTasks.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/transporter/SeatAsyncTasks.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="40">
+              <caret line="2" column="51" selection-start-line="2" selection-start-column="51" selection-end-line="2" selection-end-column="51" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SeatController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/transporter/SeatController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="410">
+              <caret line="100" lean-forward="true" selection-start-line="100" selection-end-line="100" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Transporter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/models/transporter/Transporter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-3">
+              <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SeatSearch.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/services/entity/SeatSearch.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="480">
+              <caret line="27" column="35" selection-start-line="27" selection-start-column="35" selection-end-line="27" selection-end-column="35" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -209,6 +177,8 @@
       <find>cors</find>
       <find>System</find>
       <find>FAIL_AUTH</find>
+      <find>System.out.println</find>
+      <find>SeatAvailability</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/src/main/java/com/hust/itss/models</dir>
@@ -249,8 +219,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/repositories/route/RouteRepositoryCustom.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/models/response/TokenResponse.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/constants/request/RequestParams.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/repositories/transporter/SeatRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/services/entity/SeatSearch.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/user/ClientController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/IndexController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/configs/WebSecurityConfig.java" />
@@ -264,21 +232,23 @@
         <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/models/ticket/TicketForm.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/utils/deserializer/DateDeserializer.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/utils/comparer/DateComparer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/models/transporter/SeatDetail.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/repositories/transporter/SeatRepositoryImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/repositories/transporter/SeatRepositoryCustom.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/repositories/schedule/TransportScheduleRepositoryImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/models/schedule/TransportSchedule.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/transporter/SeatAsyncTasks.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/route/RouteController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/transporter/SeatController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/models/transporter/SeatAvailability.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/transporter/SeatAsyncImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/constants/response/ErrorResponse.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/ticket/TicketAsyncTasks.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/ticket/TicketController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/ticket/TicketAsyncImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/services/filter/JWTAuthenticationFilter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/repositories/schedule/TransportScheduleRepositoryImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/repositories/transporter/SeatRepositoryImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/models/transporter/SeatAvailability.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/ticket/TicketController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/ticket/TicketAsyncTasks.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/ticket/TicketAsyncImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/services/entity/SeatSearch.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/transporter/SeatAsyncTasks.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/transporter/SeatAsyncImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/transporter/SeatController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/models/transporter/SeatDetail.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/repositories/transporter/SeatRepository.java" />
       </list>
     </option>
   </component>
@@ -311,9 +281,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="AndroidView" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -529,6 +497,16 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="itss" type="462c0819:PsiDirectoryNode" />
               <item name="services" type="462c0819:PsiDirectoryNode" />
+              <item name="entity" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="itss" type="b2602c69:ProjectViewProjectNode" />
+              <item name="itss" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="itss" type="462c0819:PsiDirectoryNode" />
+              <item name="services" type="462c0819:PsiDirectoryNode" />
               <item name="filter" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -607,6 +585,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -952,7 +932,8 @@
       <workItem from="1543998406991" duration="6669000" />
       <workItem from="1544020449817" duration="6749000" />
       <workItem from="1544061067973" duration="9513000" />
-      <workItem from="1544073434517" duration="2053000" />
+      <workItem from="1544073434517" duration="6043000" />
+      <workItem from="1544087275445" duration="5178000" />
     </task>
     <servers />
   </component>
@@ -989,7 +970,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="477803000" />
+    <option name="totallyTimeSpent" value="486971000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1016,16 +997,17 @@
       <window_info id="UI Designer" order="5" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39937758" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32968238" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.2694414" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="bottom" id="Java Enterprise" order="8" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.30120483" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3143483" />
       <window_info anchor="bottom" id="Spring" order="7" weight="0.32968238" />
       <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49625188" visible="true" weight="0.17948718" />
       <window_info anchor="bottom" id="Problems" order="8" weight="0.32968238" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49625188" visible="true" weight="0.22168803" />
       <window_info anchor="right" id="Bean Validation" order="4" weight="0.32959402" />
       <window_info id="Web" order="6" side_tool="true" />
       <window_info anchor="right" id="Theme Preview" order="3" />
@@ -1033,7 +1015,6 @@
       <window_info anchor="bottom" id="Thumbnails" order="8" weight="0.32968238" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.2694414" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -1096,13 +1077,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/5.0.9.RELEASE/spring-beans-5.0.9.RELEASE.jar!/org/springframework/beans/factory/support/AbstractAutowireCapableBeanFactory.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="620">
-          <caret line="1145" column="76" selection-start-line="1145" selection-start-column="76" selection-end-line="1145" selection-end-column="76" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/user/OauthUserController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
@@ -1218,13 +1192,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/models/transporter/Transporter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/models/route/Route.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="580">
@@ -1236,16 +1203,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="106" column="11" selection-start-line="106" selection-start-column="11" selection-end-line="106" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/utils/deserializer/DateDeserializer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="34" column="5" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1291,52 +1248,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/repositories/schedule/TransportScheduleRepositoryImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="27" column="33" selection-start-line="27" selection-start-column="33" selection-end-line="27" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/repositories/schedule/TransportScheduleRepositoryCustom.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/models/ticket/TicketForm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="560">
-          <caret line="35" column="52" selection-start-line="35" selection-start-column="52" selection-end-line="35" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/models/schedule/TransportSchedule.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
           <caret line="33" column="24" selection-start-line="33" selection-start-column="24" selection-end-line="33" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/models/transporter/SeatAvailability.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="32" column="55" selection-start-line="32" selection-start-column="55" selection-end-line="32" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/models/transporter/SeatDetail.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="11" column="35" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/route/RouteAsyncTasks.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" column="34" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="34" />
         </state>
       </provider>
     </entry>
@@ -1361,16 +1276,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/transporter/SeatAsyncImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="21" column="10" selection-start-line="21" selection-start-column="10" selection-end-line="21" selection-end-column="10" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/transporter/TransporterAsyncImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="500">
@@ -1381,44 +1286,73 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/transporter/TransporterController.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/repositories/transporter/SeatRepositoryImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/services/filter/JWTAuthenticationFilter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="33" column="49" selection-start-line="33" selection-start-column="49" selection-end-line="33" selection-end-column="49" />
+        <state relative-caret-position="720">
+          <caret line="57" column="13" lean-forward="true" selection-start-line="57" selection-start-column="13" selection-end-line="57" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/repositories/schedule/TransportScheduleRepositoryImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="23" column="42" lean-forward="true" selection-start-line="23" selection-start-column="42" selection-end-line="23" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/repositories/schedule/TransportScheduleRepositoryCustom.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="5" column="29" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/repositories/transporter/SeatRepositoryCustom.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
-          <caret line="10" column="39" selection-start-line="10" selection-start-column="39" selection-end-line="10" selection-end-column="39" />
+          <caret line="10" column="28" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/transporter/SeatController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/route/RouteAsyncTasks.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="560">
-          <caret line="56" column="26" selection-start-line="56" selection-start-column="12" selection-end-line="56" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="180">
+          <caret line="10" column="34" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="34" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/transporter/SeatAsyncTasks.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/ticket/TicketAsyncImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="408">
+          <caret line="41" column="27" selection-start-line="41" selection-start-column="27" selection-end-line="41" selection-end-column="27" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/services/entity/SeatSearch.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/ticket/TicketAsyncTasks.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="23" column="30" selection-start-line="23" selection-start-column="30" selection-end-line="23" selection-end-column="30" />
+        <state relative-caret-position="100">
+          <caret line="5" column="51" lean-forward="true" selection-start-line="5" selection-start-column="51" selection-end-line="5" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/ticket/TicketController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-352">
+          <caret line="9" column="51" lean-forward="true" selection-start-line="9" selection-start-column="51" selection-end-line="9" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/utils/deserializer/DateDeserializer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="34" column="5" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/models/ticket/TicketForm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="35" column="52" selection-start-line="35" selection-start-column="52" selection-end-line="35" selection-end-column="52" />
         </state>
       </provider>
     </entry>
@@ -1429,45 +1363,92 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/ticket/TicketAsyncTasks.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/models/transporter/SeatAvailability.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="9" column="137" selection-start-line="9" selection-start-column="137" selection-end-line="9" selection-end-column="137" />
+        <state relative-caret-position="240">
+          <caret line="24" column="2" lean-forward="true" selection-start-line="24" selection-start-column="2" selection-end-line="24" selection-end-column="2" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/ticket/TicketController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/models/transporter/Transporter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1460">
-          <caret line="97" column="90" selection-start-line="97" selection-start-column="90" selection-end-line="97" selection-end-column="90" />
+        <state relative-caret-position="-3">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/repositories/transporter/SeatRepositoryImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="720">
+          <caret line="52" column="43" selection-start-line="52" selection-start-column="43" selection-end-line="52" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/transporter/SeatAsyncTasks.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="2" column="51" selection-start-line="2" selection-start-column="51" selection-end-line="2" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/services/entity/SeatSearch.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="27" column="35" selection-start-line="27" selection-start-column="35" selection-end-line="27" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/ticket/TicketAsyncImpl.java">
+    <entry file="jar:///usr/lib/jvm/jdk1.8.0_191/src.zip!/java/util/Date.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="42" column="1" lean-forward="true" selection-start-line="42" selection-start-column="1" selection-end-line="42" selection-end-column="1" />
+        <state relative-caret-position="256">
+          <caret line="242" column="73" selection-start-line="242" selection-start-column="51" selection-end-line="242" selection-end-column="73" />
           <folding>
-            <element signature="e#1425#1426#0" expanded="true" />
-            <element signature="e#1472#1473#0" expanded="true" />
+            <element signature="e#6390#6391#0" expanded="true" />
+            <element signature="e#6438#6439#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/services/filter/JWTAuthenticationFilter.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/transporter/SeatAsyncImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="43" column="105" selection-start-line="43" selection-start-column="105" selection-end-line="43" selection-end-column="105" />
+        <state relative-caret-position="360">
+          <caret line="27" column="46" lean-forward="true" selection-start-line="27" selection-start-column="46" selection-end-line="27" selection-end-column="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/models/transporter/SeatDetail.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="283">
+          <caret line="23" column="36" selection-start-line="23" selection-start-column="36" selection-end-line="23" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/transporter/SeatController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="410">
+          <caret line="100" lean-forward="true" selection-start-line="100" selection-end-line="100" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/repositories/transporter/SeatRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
+        <state relative-caret-position="497">
+          <caret line="29" column="84" lean-forward="true" selection-start-line="29" selection-start-column="84" selection-end-line="29" selection-end-column="84" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
