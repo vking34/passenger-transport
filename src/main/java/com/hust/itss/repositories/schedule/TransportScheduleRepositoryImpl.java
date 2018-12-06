@@ -25,7 +25,7 @@ public class TransportScheduleRepositoryImpl implements TransportScheduleReposit
                 .from("Transporter")
                 .localField("transporter_refs")
                 .foreignField("_id")
-                .as("transporter");
+                .as("transporters");
 
         Aggregation aggregation = Aggregation.newAggregation(Aggregation.match(Criteria.where("_id").is(id)), lookupOperation);
         return mongoTemplate.aggregate(aggregation, TRANSPORT_SCHEDULE , TransportSchedule.class).getUniqueMappedResult();

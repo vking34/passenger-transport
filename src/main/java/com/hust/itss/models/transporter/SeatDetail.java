@@ -10,6 +10,9 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 public class SeatDetail extends SeatAvailability {
+    public SeatDetail(){
+        super();
+    }
 
     @Field("transporter")
     private List<Transporter> transporter;

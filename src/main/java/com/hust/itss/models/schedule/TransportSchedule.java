@@ -30,6 +30,9 @@ public class TransportSchedule extends Schedule {
     @JsonSerialize(using = ListObjectIdSerializer.class)    // custom writing json property
     private List<ObjectId> transporterRefs;
 
+
+    @Field("transporters")
+    @JsonProperty("transporters")
     private List<Transporter> transporters;
 
     public TransportSchedule(){

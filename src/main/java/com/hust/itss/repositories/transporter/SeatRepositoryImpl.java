@@ -31,7 +31,7 @@ public class SeatRepositoryImpl implements  SeatRepositoryCustom {
     }
 
     @Override
-    public Page<SeatDetail> findSeatDetails(String routeRef, String scheduleRef, Date date, Pageable pageable) {
+    public Page<SeatDetail> findSeatDetailsByDate(String routeRef, String scheduleRef, Date date, Pageable pageable) {
         LookupOperation lookupOperation = LookupOperation.newLookup()
                 .from("Transporter")
                 .localField("transporter_ref")
