@@ -30,10 +30,12 @@ public class TicketAsyncImpl implements TicketAsyncTasks {
     @Async
     @Override
     public void insertTicket(String routeRef, TransportSchedule schedule, String transporterRef, Ticket ticket, SeatDetail seatDetail) {
+        Date reservationDate = ticket.getReservationDate();
+        ticket.setReservationDate(new Date(reservationDate.getYear(), reservationDate.getMonth(), reservationDate.getDate() + 1));
         ticket.setDateCreated(new Date());
         ticket.setPrice(schedule.getPrice());
         ticketRepository.insert(ticket);
-        seatDetail.setAvailableSeats(seatDetail.getAvailableSeats() - 1);
+        seatDetail.setAvailableSeats(seatDetail.getAvailableSeats() - ticket.getTicketQuantity());
         seatRepository.save(seatDetail);
     }
 

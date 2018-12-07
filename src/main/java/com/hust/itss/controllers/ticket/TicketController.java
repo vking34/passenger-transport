@@ -93,10 +93,10 @@ public class TicketController {
             return INVALID_TIME;
 
         SeatDetail seatDetail = seatSearch.searchByDate(routeRef,scheduleRef, reservationDate);
-        if (seatDetail.getAvailableSeats() < 1)
-            return FULL_TRANSPORTER;
+        if (seatDetail.getAvailableSeats() < ticket.getTicketQuantity())
+            return NOT_ENOUGH_SEATS;
 
-        asyncTasks.insertTicket(routeRef, schedule, transporterRef,ticket, seatDetail);
+        asyncTasks.insertTicket(routeRef, schedule, transporterRef, ticket, seatDetail);
         return CommonResponse.SUCCESS_RESPONSE;
     }
 

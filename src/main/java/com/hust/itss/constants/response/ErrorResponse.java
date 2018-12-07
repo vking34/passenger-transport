@@ -15,6 +15,6 @@ public class ErrorResponse {
     public static final Response SCHEDULE_NOT_FOUND = new Response(false, 504, "Schedule not found");
     public static final Response TRANSPORTER_NOT_FOUND = new Response(false, 505, "Transporter not found");
     public static final Response INVALID_TIME = new Response(false, 506, "Invalid booking time");
-    public static final Response FULL_TRANSPORTER = new Response(false, 507, "The transporter is full");
+    public static final Response NOT_ENOUGH_SEATS = new Response(false, 507, "Not enough seats");
 
 }

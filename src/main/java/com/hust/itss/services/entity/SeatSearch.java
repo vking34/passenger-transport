@@ -17,19 +17,21 @@ public class SeatSearch {
 
     private static final DateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd'T00:00:00.000Z'");
     private static final PageRequest PAGE_REQUEST = PageRequest.of(0,10);
+    private Date fromDate;
+    private Date toDate;
 
     @Autowired
     private SeatRepository seatRepository;
 
     public SeatDetail searchByDate(String routeRef, String scheduleRef, Date date){
-        System.out.println("route :" + routeRef);
-        System.out.println("shedule: " + scheduleRef);
-        Date toDate = new Date(date.getYear(), date.getMonth(), date.getDate() + 1);
-        return seatRepository.findOne(routeRef, scheduleRef, date, toDate);
+        fromDate = new Date(date.getYear(), date.getMonth(), date.getDate(), 0, 0,0);
+        toDate = new Date(date.getYear(), date.getMonth(), date.getDate() + 1, 0, 0,0);
+        return seatRepository.findOne(routeRef, scheduleRef, fromDate, toDate);
     }
 
     public Page<SeatDetail> searchSeatDetailsByDate(String routeRef, String scheduleRef, Date date){
-        Date toDate = new Date(date.getYear(), date.getMonth(), date.getDate() + 1);
-        return seatRepository.findSeatDetailsByDate(routeRef, scheduleRef, date, toDate, PAGE_REQUEST);
+        fromDate = new Date(date.getYear(), date.getMonth(), date.getDate(), 0, 0,0);
+        toDate = new Date(date.getYear(), date.getMonth(), date.getDate() + 1, 0, 0,0);
+        return seatRepository.findSeatDetailsByDate(routeRef, scheduleRef, fromDate, toDate, PAGE_REQUEST);
     }
 }

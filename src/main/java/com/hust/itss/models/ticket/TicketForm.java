@@ -13,12 +13,6 @@ import java.util.Date;
 @AllArgsConstructor
 public class TicketForm {
 
-    @Field("client")
-    private String client;
-
-    @Field("client_name")
-    private String clientName;
-
     @Field("phone_number")
     private String phoneNumber;
 
@@ -36,11 +30,26 @@ public class TicketForm {
     @JsonDeserialize(using = DateDeserializer.class)
     private Date reservationDate;
 
+    @Field("ticket_quantity")
+    private Integer ticketQuantity;
+
+    @Field("client_name")
+    private String clientName;
+
+    @Field("age")
+    private Integer age;
+
+    @Field("gender")
+    private String gender;
+
     @Field("specific_departure")
     private String specificDeparture;
 
     @Field("specific_destination")
     private String specificDestination;
+
+    @Field("client_id")
+    private String clientId;
 
     public TicketForm() {
     }
