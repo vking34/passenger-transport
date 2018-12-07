@@ -33,7 +33,7 @@ public class TicketAsyncImpl implements TicketAsyncTasks {
         Date reservationDate = ticket.getReservationDate();
         ticket.setReservationDate(new Date(reservationDate.getYear(), reservationDate.getMonth(), reservationDate.getDate() + 1));
         ticket.setDateCreated(new Date());
-        ticket.setPrice(schedule.getPrice());
+        ticket.setPrice(schedule.getPrice() * ticket.getTicketQuantity());
         ticketRepository.insert(ticket);
         seatDetail.setAvailableSeats(seatDetail.getAvailableSeats() - ticket.getTicketQuantity());
         seatRepository.save(seatDetail);
