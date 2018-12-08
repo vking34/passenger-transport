@@ -47,7 +47,7 @@ public class JWTAuthenticationService {
         response.addCookie(cookie);
 
         if (isOAuth){
-            Cookie nameCookie = new Cookie(FULL_NAME, user.getFullName());
+            Cookie nameCookie = new Cookie(FULL_NAME, user.getFirstName() + "_" + user.getLastName());
             nameCookie.setPath(cookiePath);
             nameCookie.setMaxAge(cookieExpirySeconnds);
 
