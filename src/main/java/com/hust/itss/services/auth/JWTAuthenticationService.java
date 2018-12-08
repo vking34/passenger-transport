@@ -48,14 +48,14 @@ public class JWTAuthenticationService {
         nameCookie.setPath(cookiePath);
         nameCookie.setMaxAge(cookieExpirySeconnds);
 
-        Cookie pictureCookie = new Cookie(FULL_NAME, user.getPicture());
+        Cookie pictureCookie = new Cookie(PICTURE, user.getPicture());
         pictureCookie.setPath(cookiePath);
         pictureCookie.setMaxAge(cookieExpirySeconnds);
 
         response.addCookie(cookie);
         response.addCookie(nameCookie);
         response.addCookie(pictureCookie);
-        
+
         return token;
     }
 }
