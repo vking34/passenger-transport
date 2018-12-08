@@ -14,6 +14,7 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
+import java.util.List;
 
 @Component
 public class TicketAsyncImpl implements TicketAsyncTasks {
@@ -29,7 +30,7 @@ public class TicketAsyncImpl implements TicketAsyncTasks {
 
     @Async
     @Override
-    public void insertTicket(String routeRef, TransportSchedule schedule, String transporterRef, Ticket ticket, SeatDetail seatDetail) {
+    public void insertTicket(TransportSchedule schedule, Ticket ticket, SeatDetail seatDetail, List<SeatDetail> seatDetails) {
         Date reservationDate = ticket.getReservationDate();
         ticket.setReservationDate(new Date(reservationDate.getYear(), reservationDate.getMonth(), reservationDate.getDate() + 1));
         ticket.setDateCreated(new Date());
@@ -37,6 +38,10 @@ public class TicketAsyncImpl implements TicketAsyncTasks {
         ticketRepository.insert(ticket);
         seatDetail.setAvailableSeats(seatDetail.getAvailableSeats() - ticket.getTicketQuantity());
         seatRepository.save(seatDetail);
+        seatDetails.remove(0);
+        for(SeatDetail i: seatDetails){
+            seatRepository.delete(i);
+        }
     }
 
     @Async

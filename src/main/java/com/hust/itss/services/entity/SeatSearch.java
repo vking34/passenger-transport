@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 @Service
 public class SeatSearch {
@@ -23,7 +24,7 @@ public class SeatSearch {
     @Autowired
     private SeatRepository seatRepository;
 
-    public SeatDetail searchByDate(String routeRef, String scheduleRef, Date date){
+    public List<SeatDetail> searchByDate(String routeRef, String scheduleRef, Date date){
         fromDate = new Date(date.getYear(), date.getMonth(), date.getDate(), 0, 0,0);
         toDate = new Date(date.getYear(), date.getMonth(), date.getDate() + 1, 0, 0,0);
         return seatRepository.findOne(routeRef, scheduleRef, fromDate, toDate);

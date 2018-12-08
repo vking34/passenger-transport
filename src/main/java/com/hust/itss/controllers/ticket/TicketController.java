@@ -20,6 +20,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 import java.util.Date;
+import java.util.List;
 
 import static com.hust.itss.constants.request.RequestParams.PAGE;
 import static com.hust.itss.constants.request.RequestParams.PAGE_SIZE;
@@ -92,11 +93,12 @@ public class TicketController {
         if (!DateComparer.afterNow(reservationDate, schedule.getStartingTime()))
             return INVALID_TIME;
 
-        SeatDetail seatDetail = seatSearch.searchByDate(routeRef,scheduleRef, reservationDate);
+        List<SeatDetail> seatDetails = seatSearch.searchByDate(routeRef,scheduleRef, reservationDate);
+        SeatDetail seatDetail = seatDetails.get(0);
         if (seatDetail.getAvailableSeats() < ticket.getTicketQuantity())
             return NOT_ENOUGH_SEATS;
 
-        asyncTasks.insertTicket(routeRef, schedule, transporterRef, ticket, seatDetail);
+        asyncTasks.insertTicket(schedule, ticket, seatDetail, seatDetails);
         return CommonResponse.SUCCESS_RESPONSE;
     }
 

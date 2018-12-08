@@ -9,6 +9,7 @@ import org.springframework.data.mongodb.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.Date;
+import java.util.List;
 
 
 @Repository
@@ -25,7 +26,7 @@ public interface SeatRepository extends MongoRepository<SeatDetail, String>, Sea
 //    Page<SeatAvailability> findSeatAvailabilityByDateAndTransporter(String routeRef, String scheduleRef, String transporterRef, Date date, Pageable pageable);
 
     @Query("{ route_ref : ?0, schedule_ref : ?1, date : { $gte : ?2 , $lte : ?3 }}")
-    SeatDetail findOne(String routeRef, String scheduleRef, Date fromDate, Date toDate);
+    List<SeatDetail> findOne(String routeRef, String scheduleRef, Date fromDate, Date toDate);
 
     @Query("{ route_ref : ?0, schedule_ref : ?1, date : { $gte : ?2 , $lte : ?3 }}")
     Page<SeatDetail> findSeatDetailsByDate(String routeRef, String scheduleRef, Date fromDate, Date toDate, Pageable pageable);

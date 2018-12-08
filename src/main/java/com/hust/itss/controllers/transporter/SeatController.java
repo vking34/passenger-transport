@@ -111,14 +111,14 @@ public class SeatController {
         return seatDetail;
     }
 
-    @GetMapping("/one")
-    SeatDetail findByTransporterAndDate(@RequestParam(value = ROUTE) String routeRef,
-                                              @RequestParam(value = SCHEDULE) String scheduleRef,
-                                              @RequestParam(value = DATE) String dateString) throws ParseException {
-        Date date = DateForm.SIMPLE_DATE_FORMAT.parse(dateString);
-        System.out.println(date);
-        return seatSearch.searchByDate(routeRef, scheduleRef, date);
-    }
+//    @GetMapping("/one")
+//    SeatDetail findByTransporterAndDate(@RequestParam(value = ROUTE) String routeRef,
+//                                              @RequestParam(value = SCHEDULE) String scheduleRef,
+//                                              @RequestParam(value = DATE) String dateString) throws ParseException {
+//        Date date = DateForm.SIMPLE_DATE_FORMAT.parse(dateString);
+//        System.out.println(date);
+//        return seatSearch.searchByDate(routeRef, scheduleRef, date);
+//    }
 
     @GetMapping("/many")
     Page<SeatDetail> seatDetailPage (@RequestParam(value = ROUTE) String routeRef,
