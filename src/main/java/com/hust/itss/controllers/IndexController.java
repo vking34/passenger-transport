@@ -17,13 +17,13 @@ import static com.hust.itss.constants.security.RoleContants.*;
 public class IndexController {
     @GetMapping
     public String getIndex(@CookieValue(value = JWTAuthenticationService.JWT_COOKIE_NAME, required = false) String token, Model model){
-        System.out.println("GET: index with token: " + token);
+//        System.out.println("GET: index with token: " + token);
         if(token != null){
             String role = Jwts.parser().setSigningKey(SecurityContants.SECRET_KEY)
                     .parseClaimsJws(token)
                     .getBody()
                     .getAudience();
-            System.out.println("role : " + role);
+//            System.out.println("role : " + role);
             switch (role) {
                 case ADMIN:
                     return "redirect:/admin";

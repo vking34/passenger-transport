@@ -7,23 +7,31 @@ import java.util.List;
 
 public class PageRequestCreation {
 
+    public static PageRequest getSimplePageRequest(Integer page, Integer pageSize){
+        if(page == null)
+            page = 0;
+        if(pageSize == null)
+            pageSize = 5;
+        return PageRequest.of(page, pageSize);
+    }
+
     public static PageRequest getPageRequest(Integer page, Integer pageSize, String sort, String direct, List fields){
         PageRequest pageRequest;
         if(page == null)
-            page = 1;
+            page = 0;
         if(pageSize == null)
-            pageSize = 10;
+            pageSize = 5;
 
         if(fields.contains(sort))
         {
             if(direct.equals("DESC"))
-                pageRequest = PageRequest.of(page - 1, pageSize, Sort.by(sort).descending());
+                pageRequest = PageRequest.of(page , pageSize, Sort.by(sort).descending());
             else {
-                pageRequest = PageRequest.of(page - 1, pageSize, Sort.by(sort).ascending());
+                pageRequest = PageRequest.of(page, pageSize, Sort.by(sort).ascending());
             }
         }
         else {
-            pageRequest = PageRequest.of(page- 1, pageSize);
+            pageRequest = PageRequest.of(page, pageSize);
         }
 
         return pageRequest;
@@ -33,19 +41,19 @@ public class PageRequestCreation {
     {
         PageRequest pageRequest;
         if(page == null)
-            page = 1;
+            page = 0;
         if(pageSize == null)
-            pageSize = 10;
+            pageSize = 5;
         if (direct != null)
         {
             if( direct.equals("DESC"))
-                pageRequest = PageRequest.of(page - 1, pageSize, Sort.by(sort).descending());
+                pageRequest = PageRequest.of(page, pageSize, Sort.by(sort).descending());
             else {
-                pageRequest = PageRequest.of(page - 1, pageSize, Sort.by(sort).ascending());
+                pageRequest = PageRequest.of(page, pageSize, Sort.by(sort).ascending());
             }
         }
         else {
-            pageRequest = PageRequest.of(page-1, pageSize);
+            pageRequest = PageRequest.of(page, pageSize);
         }
         return pageRequest;
     }

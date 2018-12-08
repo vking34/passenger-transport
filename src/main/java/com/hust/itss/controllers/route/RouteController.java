@@ -36,10 +36,12 @@ public class RouteController {
     @GetMapping
     Page<Route> getRoutes(@RequestParam(value = "page", required = false) Integer page,
                           @RequestParam(value = "page_size", required = false) Integer pageSize,
+                          @RequestParam(value = "search", required = false) String searchString,
                           @RequestParam(value = "sort", required = false) String sort,
                           @RequestParam(value = "direct", required = false) String direct){
-        System.out.println("GET routes");
-         return routeRepository.findAll(PageRequestCreation.getPageRequest(page, pageSize, sort, direct, RequestParams.ROUTE_PARAMS));
+        if (searchString != null)
+            return routeRepository.searchRoute(searchString, PageRequestCreation.getSimplePageRequest(page, pageSize));
+        return routeRepository.findAll(PageRequestCreation.getPageRequest(page, pageSize, sort, direct, RequestParams.ROUTE_PARAMS));
     }
 
     @GetMapping("/details")
