@@ -47,10 +47,12 @@ public class SysUser {
 
     @Field("first_name")
     @Length(max = 100)
+    @JsonIgnore
     private String firstName;
 
     @Field("last_name")
     @Length(max = 100)
+    @JsonIgnore
     private String lastName;
 
     @Field("full_name")
@@ -61,6 +63,7 @@ public class SysUser {
     @URL
     @Field("link")
     @Length(max = 500)
+    @JsonIgnore
     private String link;
 
     @Field("picture")
