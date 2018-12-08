@@ -100,6 +100,13 @@ public class TicketController {
         return CommonResponse.SUCCESS_RESPONSE;
     }
 
+    @GetMapping("/history/{clientId}")
+    public Page<Ticket> getTicketHistory(@PathVariable String clientId,
+                                         @RequestParam(value = "page", required = false) Integer page,
+                                         @RequestParam(value = "page_size", required = false) Integer pageSize){
+        return ticketRepository.findTicketsByClientId(clientId, PageRequestCreation.getSimplePageRequest(page, pageSize));
+    }
+
     @DeleteMapping
     Response deleteTicket(@RequestParam String id){
         Ticket ticket = ticketRepository.findTicketById(id);
