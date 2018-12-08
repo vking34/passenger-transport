@@ -20,8 +20,8 @@ import java.io.IOException;
 public class JWTAuthenticationService {
 
     public static final String JWT_COOKIE_NAME = "TRANSPORT-JWT";
-    private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
-    private TokenResponse tokenResponse = new TokenResponse(null);
+    public static final String FULL_NAME = "full_name";
+    public static final String PICTURE = "picture";
 
     @Autowired
     private JwtUtils jwtUtils;
@@ -40,14 +40,22 @@ public class JWTAuthenticationService {
 //        CookieUtils.deleteCookie(request, response, "JSESSIONID" ,cookieOverHttpsOnly);
 
         String token = jwtUtils.createTokenForUser(user);
-        tokenResponse.setToken(token);
-        tokenResponse.setSysUser(user);
-        String cookieValue = OBJECT_MAPPER.writeValueAsString(tokenResponse);
-        Cookie cookie = new Cookie(JWT_COOKIE_NAME, cookieValue);
+        Cookie cookie = new Cookie(JWT_COOKIE_NAME, token);
         cookie.setPath(cookiePath);
         cookie.setMaxAge(cookieExpirySeconnds);
 
+        Cookie nameCookie = new Cookie(FULL_NAME, user.getFullName());
+        nameCookie.setPath(cookiePath);
+        nameCookie.setMaxAge(cookieExpirySeconnds);
+
+        Cookie pictureCookie = new Cookie(FULL_NAME, user.getPicture());
+        pictureCookie.setPath(cookiePath);
+        pictureCookie.setMaxAge(cookieExpirySeconnds);
+
         response.addCookie(cookie);
+        response.addCookie(nameCookie);
+        response.addCookie(pictureCookie);
+        
         return token;
     }
 }
