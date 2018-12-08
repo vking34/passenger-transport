@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="480b1060-755d-401b-8103-c7b27278b53b" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hust/itss/configs/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hust/itss/configs/WebSecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hust/itss/services/auth/JWTAuthenticationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hust/itss/services/auth/JWTAuthenticationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hust/itss/services/filter/JWTAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hust/itss/services/filter/JWTAuthenticationFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/1.3f0b2299.chunk.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/main.a2ecb327.chunk.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/login.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -38,8 +43,8 @@
             <file leaf-file-name="JWTAuthenticationFilter.java" pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/services/filter/JWTAuthenticationFilter.java">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="497">
-                    <caret line="58" column="166" lean-forward="true" selection-start-line="58" selection-start-column="166" selection-end-line="58" selection-end-column="184" />
+                  <state relative-caret-position="617">
+                    <caret line="64" lean-forward="true" selection-start-line="64" selection-end-line="64" />
                     <folding>
                       <element signature="imports" expanded="true" />
                     </folding>
@@ -66,14 +71,32 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="JWTAuthenticationService.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="JWTAuthenticationService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/services/auth/JWTAuthenticationService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="415">
-              <caret line="57" column="8" selection-start-line="57" selection-start-column="8" selection-end-line="57" selection-end-column="8" />
+            <state relative-caret-position="461">
+              <caret line="60" selection-start-line="60" selection-end-line="60" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WebSecurityConfig.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/configs/WebSecurityConfig.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="129" column="88" selection-start-line="129" selection-start-column="88" selection-end-line="129" selection-end-column="88" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="login.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/login.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="400">
+              <caret line="20" column="7" lean-forward="true" selection-start-line="20" selection-start-column="7" selection-end-line="20" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -156,7 +179,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/models/response/TokenResponse.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/constants/request/RequestParams.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/user/ClientController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/configs/WebSecurityConfig.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/user/MeController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/services/filter/JWTAuthorizationFilter.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/client.html" />
@@ -166,7 +188,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/utils/comparer/DateComparer.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/repositories/transporter/SeatRepositoryCustom.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/models/schedule/TransportSchedule.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/services/filter/JWTAuthenticationFilter.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/repositories/schedule/TransportScheduleRepositoryImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/repositories/transporter/SeatRepositoryImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/models/transporter/SeatAvailability.java" />
@@ -183,12 +204,14 @@
         <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/utils/request/PageRequestCreation.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/repositories/route/RouteRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/route/RouteController.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/login.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/IndexController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/repositories/ticket/TicketRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/ticket/TicketController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/models/user/SysUser.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/login.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/services/auth/JWTAuthenticationService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/configs/WebSecurityConfig.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/services/filter/JWTAuthenticationFilter.java" />
       </list>
     </option>
   </component>
@@ -997,7 +1020,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="501867000" />
+    <option name="totallyTimeSpent" value="503060000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1132,13 +1155,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/org/mongodb/bson/3.6.4/bson-3.6.4.jar!/org/bson/types/ObjectId.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="106" column="11" selection-start-line="106" selection-start-column="11" selection-end-line="106" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/utils/serializer/ListObjectIdSerializer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="320">
@@ -1431,13 +1447,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="20" column="7" lean-forward="true" selection-start-line="20" selection-start-column="7" selection-end-line="20" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/repositories/ticket/TicketRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
@@ -1452,16 +1461,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/services/filter/JWTAuthenticationFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="497">
-          <caret line="58" column="166" lean-forward="true" selection-start-line="58" selection-start-column="166" selection-end-line="58" selection-end-column="184" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/models/user/SysUser.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="320">
@@ -1469,10 +1468,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="20" column="7" lean-forward="true" selection-start-line="20" selection-start-column="7" selection-end-line="20" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/services/auth/JWTAuthenticationService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="415">
-          <caret line="57" column="8" selection-start-line="57" selection-start-column="8" selection-end-line="57" selection-end-column="8" />
+        <state relative-caret-position="461">
+          <caret line="60" selection-start-line="60" selection-end-line="60" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/configs/WebSecurityConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="129" column="88" selection-start-line="129" selection-start-column="88" selection-end-line="129" selection-end-column="88" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/services/filter/JWTAuthenticationFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="617">
+          <caret line="64" lean-forward="true" selection-start-line="64" selection-end-line="64" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

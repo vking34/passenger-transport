@@ -35,26 +35,29 @@ public class JWTAuthenticationService {
     @Value("${security.oauth2.cookieOverHttpsOnly}")
     private boolean cookieOverHttpsOnly;
 
-    public String setAuthenticationData(HttpServletRequest request, HttpServletResponse response, SysUser user) throws IOException , ServletException {
+    public String setAuthenticationData(HttpServletRequest request, HttpServletResponse response, SysUser user, Boolean isOAuth) throws IOException , ServletException {
         CookieUtils.deleteCookie(request, response, HttpCookieOAuth2AuthorizationRequestRepository.COOKIE_NAME, cookieOverHttpsOnly);
 //        CookieUtils.deleteCookie(request, response, "JSESSIONID" ,cookieOverHttpsOnly);
 
         String token = jwtUtils.createTokenForUser(user);
+
         Cookie cookie = new Cookie(JWT_COOKIE_NAME, token);
         cookie.setPath(cookiePath);
         cookie.setMaxAge(cookieExpirySeconnds);
-
-        Cookie nameCookie = new Cookie(FULL_NAME, user.getFullName());
-        nameCookie.setPath(cookiePath);
-        nameCookie.setMaxAge(cookieExpirySeconnds);
-
-        Cookie pictureCookie = new Cookie(PICTURE, user.getPicture());
-        pictureCookie.setPath(cookiePath);
-        pictureCookie.setMaxAge(cookieExpirySeconnds);
-
         response.addCookie(cookie);
-        response.addCookie(nameCookie);
-        response.addCookie(pictureCookie);
+
+        if (isOAuth){
+            Cookie nameCookie = new Cookie(FULL_NAME, user.getFullName());
+            nameCookie.setPath(cookiePath);
+            nameCookie.setMaxAge(cookieExpirySeconnds);
+
+            Cookie pictureCookie = new Cookie(PICTURE, user.getPicture());
+            pictureCookie.setPath(cookiePath);
+            pictureCookie.setMaxAge(cookieExpirySeconnds);
+
+            response.addCookie(nameCookie);
+            response.addCookie(pictureCookie);
+        }
 
         return token;
     }

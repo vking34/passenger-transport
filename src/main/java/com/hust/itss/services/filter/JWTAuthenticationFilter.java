@@ -61,7 +61,7 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
         String username = user.getUsername();
 
         SysUser sysUser = sysUserRepository.findSysUserByUsername(username);
-        String token = jwtAuthenticationService.setAuthenticationData(request, response, sysUser);
+        String token = jwtAuthenticationService.setAuthenticationData(request, response, sysUser, false);
 
         SUCCESS_RESPONSE.setToken(token);
         SUCCESS_RESPONSE.setSysUser(sysUser);
