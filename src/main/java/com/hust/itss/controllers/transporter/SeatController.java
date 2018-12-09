@@ -57,15 +57,15 @@ public class SeatController {
 
 
     @GetMapping
-    Page<SeatDetail> getSeatDetails(@RequestParam(value = "route") String routeRef,
-                                    @RequestParam(value = "schedule") String scheduleRef,
-                                    @RequestParam(value = "date") String dateString) throws ParseException {
+    Page<SeatDetail> getSeatDetails(@RequestParam(value = "route", required = false) String routeRef,
+                                    @RequestParam(value = "schedule", required = false) String scheduleRef,
+                                    @RequestParam(value = "date", required = false) String dateString) throws ParseException {
         System.out.println("GET SEAT");
         Page<SeatDetail> seatDetailPage;
 
-//        Route route = routeRepository.findRouteById(routeRef);
-//        if (route == null)
-//            return EMPTY_PAGE;
+        Route route = routeRepository.findRouteById(routeRef);
+        if (route == null)
+            return EMPTY_PAGE;
 //
 //        boolean isFound = false;
 //
@@ -103,6 +103,11 @@ public class SeatController {
         }
 
         return seatDetailPage;
+    }
+
+    @GetMapping("?")
+    Page<SeatDetail> getEmptyPage(){
+        return EMPTY_PAGE;
     }
 
     @GetMapping("/{id}")

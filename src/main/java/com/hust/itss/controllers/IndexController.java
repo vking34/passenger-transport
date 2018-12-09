@@ -59,20 +59,10 @@ public class IndexController {
         return "admin";
     }
 
-    @GetMapping("/driver")
-    public String getDriverPage(@CookieValue(value = JWTAuthenticationService.JWT_COOKIE_NAME) String token, Model model){
-        if (token == null){
-            return "redirect:/login";
-        }
-        return "driver";
-    }
+    @GetMapping("/home")
+    public String getDriverPage( Model model){
 
-    @GetMapping("/assistant")
-    public String getAssistantPage(@CookieValue(value = JWTAuthenticationService.JWT_COOKIE_NAME) String token, Model model){
-        if (token == null){
-            return "redirect:/login";
-        }
-        return "assistant";
+        return "index";
     }
 
     @GetMapping("/client")
