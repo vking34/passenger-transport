@@ -60,8 +60,15 @@ public class IndexController {
     }
 
     @GetMapping("/home")
-    public String getDriverPage( Model model){
-
+    public String getDriverPage(@CookieValue(value = JWTAuthenticationService.JWT_COOKIE_NAME, required = false) String token, Model model){
+        if(token != null){
+            String role = Jwts.parser().setSigningKey(SecurityContants.SECRET_KEY)
+                    .parseClaimsJws(token)
+                    .getBody()
+                    .getAudience();
+            if(role.equals(USER))
+                return "client";
+        }
         return "index";
     }
 
