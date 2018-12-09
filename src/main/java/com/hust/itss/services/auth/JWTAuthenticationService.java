@@ -20,8 +20,14 @@ import java.io.IOException;
 public class JWTAuthenticationService {
 
     public static final String JWT_COOKIE_NAME = "TRANSPORT-JWT";
-    public static final String FULL_NAME = "full_name";
-    public static final String PICTURE = "picture";
+    private static final String FULL_NAME = "full_name";
+    private static final String PICTURE = "picture";
+    private static final String ID = "ID";
+
+    private Cookie cookie;
+    private Cookie idCookie;
+    private Cookie nameCookie;
+    private Cookie pictureCookie;
 
     @Autowired
     private JwtUtils jwtUtils;
@@ -41,22 +47,28 @@ public class JWTAuthenticationService {
 
         String token = jwtUtils.createTokenForUser(user);
 
-        Cookie cookie = new Cookie(JWT_COOKIE_NAME, token);
+        cookie = new Cookie(JWT_COOKIE_NAME, token);
         cookie.setPath(cookiePath);
         cookie.setMaxAge(cookieExpirySeconnds);
         response.addCookie(cookie);
 
         if (isOAuth){
-            Cookie nameCookie = new Cookie(FULL_NAME, user.getFirstName() + "_" + user.getLastName());
+            idCookie = new Cookie(ID, user.getId());
+            idCookie.setPath(cookiePath);
+            idCookie.setMaxAge(cookieExpirySeconnds);
+
+            String fullname = user.getFullName().replace(' ', '_');
+            nameCookie = new Cookie(FULL_NAME, fullname);
             nameCookie.setPath(cookiePath);
             nameCookie.setMaxAge(cookieExpirySeconnds);
 
-            Cookie pictureCookie = new Cookie(PICTURE, user.getPicture());
+            pictureCookie = new Cookie(PICTURE, user.getPicture());
             pictureCookie.setPath(cookiePath);
             pictureCookie.setMaxAge(cookieExpirySeconnds);
 
             response.addCookie(nameCookie);
             response.addCookie(pictureCookie);
+            response.addCookie(idCookie);
         }
 
         return token;
