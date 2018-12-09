@@ -31,6 +31,9 @@ public class Transporter {
     @NonNull
     private String model;
 
+    @Field("picture")
+    private String picture;
+
     @Field("branch")
     private String branch;
 
