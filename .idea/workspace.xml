@@ -3,11 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="480b1060-755d-401b-8103-c7b27278b53b" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/IndexController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/IndexController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/transporter/SeatController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/transporter/SeatController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/user/main.user.chunk.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/user/main.user.chunk.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/user/user.chunk.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/user/user.chunk.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/client.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/client.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/login.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -46,8 +44,8 @@
             <file leaf-file-name="client.html" pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/src/main/resources/templates/client.html">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="540">
-                    <caret line="27" column="7" selection-start-line="27" selection-start-column="7" selection-end-line="27" selection-end-column="7" />
+                  <state relative-caret-position="300">
+                    <caret line="15" column="7" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
                   </state>
                 </provider>
               </entry>
@@ -83,19 +81,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="login.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/resources/templates/login.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="3" column="56" selection-start-line="3" selection-start-column="56" selection-end-line="3" selection-end-column="56" />
+            <state relative-caret-position="400">
+              <caret line="20" column="7" selection-start-line="20" selection-start-column="7" selection-end-line="20" selection-end-column="7" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SeatController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SeatController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/transporter/SeatController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
+            <state relative-caret-position="355">
               <caret line="67" column="30" selection-start-line="67" selection-start-column="30" selection-end-line="67" selection-end-column="30" />
               <folding>
                 <element signature="e#4007#4008#0" expanded="true" />
@@ -207,9 +205,9 @@
         <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/models/transporter/Transporter.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/index.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/IndexController.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/client.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/login.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/transporter/SeatController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/client.html" />
       </list>
     </option>
   </component>
@@ -965,7 +963,7 @@
       <workItem from="1544142224845" duration="6180000" />
       <workItem from="1544230946295" duration="4914000" />
       <workItem from="1544326277489" duration="7305000" />
-      <workItem from="1544344353842" duration="6319000" />
+      <workItem from="1544344353842" duration="7364000" />
     </task>
     <servers />
   </component>
@@ -1002,7 +1000,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="521937000" />
+    <option name="totallyTimeSpent" value="522982000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1015,6 +1013,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1920" height="1053" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" weight="0.32870865" />
@@ -1034,11 +1033,11 @@
       <window_info anchor="bottom" id="Java Enterprise" order="8" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.34282586" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.34282586" />
       <window_info anchor="bottom" id="Spring" order="7" weight="0.32968238" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info anchor="bottom" id="Problems" order="8" weight="0.32968238" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49625188" visible="true" weight="0.20245726" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49625188" visible="true" weight="0.20245726" />
       <window_info anchor="right" id="Bean Validation" order="4" weight="0.32959402" />
       <window_info id="Web" order="6" side_tool="true" />
       <window_info anchor="right" id="Theme Preview" order="3" />
@@ -1418,13 +1417,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/client.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="27" column="7" selection-start-line="27" selection-start-column="7" selection-end-line="27" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="20">
@@ -1432,21 +1424,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="3" column="56" selection-start-line="3" selection-start-column="56" selection-end-line="3" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/transporter/SeatController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
+        <state relative-caret-position="355">
           <caret line="67" column="30" selection-start-line="67" selection-start-column="30" selection-end-line="67" selection-end-column="30" />
           <folding>
             <element signature="e#4007#4008#0" expanded="true" />
             <element signature="e#4039#4040#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/client.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="15" column="7" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="20" column="7" selection-start-line="20" selection-start-column="7" selection-end-line="20" selection-end-column="7" />
         </state>
       </provider>
     </entry>
