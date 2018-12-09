@@ -22,7 +22,7 @@ public class JWTAuthenticationService {
     public static final String JWT_COOKIE_NAME = "TRANSPORT-JWT";
     private static final String FULL_NAME = "full_name";
     private static final String PICTURE = "picture";
-    private static final String ID = "ID";
+    private static final String ID = "id";
 
     private Cookie cookie;
     private Cookie idCookie;
