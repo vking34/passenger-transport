@@ -60,11 +60,11 @@ public class SysUser {
     @JsonProperty("full_name")
     private String fullName;
 
-    @URL
-    @Field("link")
-    @Length(max = 500)
-    @JsonIgnore
-    private String link;
+//    @URL
+//    @Field("link")
+//    @Length(max = 500)
+//    @JsonIgnore
+//    private String link;
 
     @Field("picture")
     @Length(max = 500)
@@ -100,7 +100,7 @@ public class SysUser {
     public SysUser() {
     }
 
-    public SysUser(String username, String email, String password, String role, boolean active, String firstName, String lastName, String fullName,@URL String link, @Length(max = 500) String picture, @Length(min = 1, max = 255) String authenticationServiceId, AuthenticationProvider authProvider, LocalDateTime firstLogon) {
+    public SysUser(String username, String email, String password, String role, boolean active, String firstName, String lastName, String fullName, @Length(max = 500) String picture, @Length(min = 1, max = 255) String authenticationServiceId, AuthenticationProvider authProvider, LocalDateTime firstLogon) {
         this.username = username;
         this.email = email;
         this.password = password;
@@ -109,7 +109,7 @@ public class SysUser {
         this.firstName = firstName;
         this.lastName = lastName;
         this.fullName = fullName;
-        this.link = link;
+//        this.link = link;
         this.picture = picture;
         this.authenticationServiceId = authenticationServiceId;
         this.authProvider = authProvider;

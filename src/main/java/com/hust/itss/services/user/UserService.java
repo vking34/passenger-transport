@@ -14,12 +14,13 @@ import java.util.Optional;
 @Service
 public class UserService {
 
-    private final SysUserRepository sysUserRepository;
+    @Autowired
+    private UpdateUserAsync updateUserAsync;
+
     private final Oauth2AuthenticationUtils oauthUtils;
 
     @Autowired
-    public UserService(SysUserRepository sysUserRepository, Oauth2AuthenticationUtils oauth2AuthenticationUtils){
-        this.sysUserRepository = sysUserRepository;
+    public UserService(Oauth2AuthenticationUtils oauth2AuthenticationUtils){
         this.oauthUtils = oauth2AuthenticationUtils;
     }
 
@@ -50,7 +51,7 @@ public class UserService {
             }
         }
         if (update)
-            sysUserRepository.save(user);
+            updateUserAsync.save(user);
         return user;
     }
 
@@ -73,7 +74,7 @@ public class UserService {
             }
         }
 
-        sysUserRepository.insert(user);
+        updateUserAsync.insert(user);
         return user;
     }
 }

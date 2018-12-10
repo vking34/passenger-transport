@@ -124,7 +124,6 @@ class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         @Override
         public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
                                             Authentication authentication) throws IOException, ServletException {
-            System.out.println("On OAuth2 Success : " + authentication);
             OAuth2AuthenticationToken auth2 = (OAuth2AuthenticationToken) authentication;
             SysUser user = userService.createOrUpdateUser(auth2);
             jwtAuthenticationService.setAuthenticationData(request, response, user, true);
