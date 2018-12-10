@@ -17,6 +17,9 @@ public class UserService {
     @Autowired
     private UpdateUserAsync updateUserAsync;
 
+    @Autowired
+    private SysUserRepository userRepository;
+
     private final Oauth2AuthenticationUtils oauthUtils;
 
     @Autowired
@@ -74,7 +77,7 @@ public class UserService {
             }
         }
 
-        updateUserAsync.insert(user);
+        userRepository.insert(user);
         return user;
     }
 }
