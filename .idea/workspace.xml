@@ -3,7 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="480b1060-755d-401b-8103-c7b27278b53b" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hust/itss/configs/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hust/itss/configs/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hust/itss/constants/request/RequestParams.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hust/itss/constants/request/RequestParams.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hust/itss/constants/response/ErrorResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hust/itss/constants/response/ErrorResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/route/RouteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/route/RouteController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hust/itss/utils/comparer/DateComparer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hust/itss/utils/comparer/DateComparer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/hust/itss/models/user/UserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/hust/itss/models/user/UserTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -39,65 +43,52 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="login.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/login.html">
+      <file leaf-file-name="DateComparerTest.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/hust/itss/utils/comparer/DateComparerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret line="18" column="22" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="admin.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/admin.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="640">
-              <caret line="32" column="7" selection-start-line="32" selection-start-column="7" selection-end-line="32" selection-end-column="7" />
-              <folding>
-                <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SocialAuthUtils.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/utils/auth/SocialAuthUtils.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1580">
-              <caret line="86" column="27" selection-start-line="86" selection-start-column="17" selection-end-line="86" selection-end-column="27" />
+            <state relative-caret-position="414">
+              <caret line="24" column="5" lean-forward="true" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#193#194#0" expanded="true" />
+                <element signature="e#250#251#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/services/user/UserService.java">
+      <file leaf-file-name="DateComparer.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/utils/comparer/DateComparer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1400">
-              <caret line="79" column="36" selection-start-line="79" selection-start-column="36" selection-end-line="79" selection-end-column="36" />
+            <state relative-caret-position="480">
+              <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="client.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/client.html">
+      <file leaf-file-name="TicketController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/ticket/TicketController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="18" column="21" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
+            <state relative-caret-position="407">
+              <caret line="92" column="19" selection-start-line="92" selection-start-column="19" selection-end-line="92" selection-end-column="19" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WebSecurityConfig.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/configs/WebSecurityConfig.java">
+      <file leaf-file-name="RouteAsyncTasks.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/route/RouteAsyncTasks.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="744">
-              <caret line="147" column="61" selection-start-line="147" selection-start-column="61" selection-end-line="147" selection-end-column="61" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="100">
+              <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RouteAsyncImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/route/RouteAsyncImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="100">
+              <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -108,9 +99,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
-        <option value="JUnit4 Test Class" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="JUnit4 Test Class" />
       </list>
     </option>
   </component>
@@ -149,22 +140,18 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/models/response/Response.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/models/user/Employee.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/models/user/Driver.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/repositories/user/EmployeeRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/user/EmployeeController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/repositories/route/RouteRepositoryImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/repositories/route/RouteRepositoryCustom.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/models/response/TokenResponse.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/constants/request/RequestParams.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/user/ClientController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/user/MeController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/services/filter/JWTAuthorizationFilter.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/models/route/Route.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/route/RouteAsyncImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/utils/deserializer/DateDeserializer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/utils/comparer/DateComparer.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/repositories/transporter/SeatRepositoryCustom.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/models/schedule/TransportSchedule.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/repositories/schedule/TransportScheduleRepositoryImpl.java" />
@@ -174,10 +161,8 @@
         <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/transporter/SeatAsyncImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/models/transporter/SeatDetail.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/models/ticket/TicketForm.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/constants/response/ErrorResponse.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/utils/request/PageRequestCreation.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/repositories/route/RouteRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/route/RouteController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/repositories/ticket/TicketRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/services/filter/JWTAuthenticationFilter.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/repositories/transporter/SeatRepository.java" />
@@ -200,6 +185,12 @@
         <option value="$PROJECT_DIR$/src/main/resources/templates/login.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/admin.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/configs/WebSecurityConfig.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/constants/request/RequestParams.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/constants/response/ErrorResponse.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/route/RouteController.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/hust/itss/models/user/UserTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/hust/itss/utils/comparer/DateComparerTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hust/itss/utils/comparer/DateComparer.java" />
       </list>
     </option>
   </component>
@@ -220,9 +211,9 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1920" />
-    <option name="width" value="930" />
-    <option name="height" value="793" />
+    <option name="y" value="27" />
+    <option name="width" value="920" />
+    <option name="height" value="795" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
@@ -232,8 +223,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -293,7 +282,7 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="itss" type="462c0819:PsiDirectoryNode" />
               <item name="controllers" type="462c0819:PsiDirectoryNode" />
-              <item name="transporter" type="462c0819:PsiDirectoryNode" />
+              <item name="route" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="itss" type="b2602c69:ProjectViewProjectNode" />
@@ -303,16 +292,6 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="itss" type="462c0819:PsiDirectoryNode" />
               <item name="models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="itss" type="b2602c69:ProjectViewProjectNode" />
-              <item name="itss" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="itss" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="itss" type="b2602c69:ProjectViewProjectNode" />
@@ -330,15 +309,6 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="itss" type="462c0819:PsiDirectoryNode" />
-              <item name="services" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="itss" type="b2602c69:ProjectViewProjectNode" />
-              <item name="itss" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="itss" type="462c0819:PsiDirectoryNode" />
               <item name="utils" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -349,27 +319,54 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="itss" type="462c0819:PsiDirectoryNode" />
               <item name="utils" type="462c0819:PsiDirectoryNode" />
-              <item name="auth" type="462c0819:PsiDirectoryNode" />
+              <item name="comparer" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="itss" type="b2602c69:ProjectViewProjectNode" />
               <item name="itss" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="itss" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
+              <item name="request" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="itss" type="b2602c69:ProjectViewProjectNode" />
               <item name="itss" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="itss" type="b2602c69:ProjectViewProjectNode" />
+              <item name="itss" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="itss" type="b2602c69:ProjectViewProjectNode" />
+              <item name="itss" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="itss" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="itss" type="b2602c69:ProjectViewProjectNode" />
+              <item name="itss" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="itss" type="462c0819:PsiDirectoryNode" />
+              <item name="user" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="AndroidView" />
     </panes>
   </component>
@@ -395,12 +392,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.hust.itss.utils.comparer" />
       <recent name="com.hust.itss.models.user" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/resources/static" />
-      <recent name="$PROJECT_DIR$/src/main/resources/templates" />
-      <recent name="$PROJECT_DIR$/src/main/resources" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.hust.itss.constants.auth" />
@@ -409,14 +402,19 @@
       <recent name="com.hust.itss.constants.database" />
       <recent name="com.hust.itss.constants.response" />
     </key>
-    <key name="CreateTestDialog.Recents.Supers">
-      <recent name="" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources/static/css" />
       <recent name="$PROJECT_DIR$/src/main/resources/static/js" />
       <recent name="$PROJECT_DIR$/src/main/resources/static/images" />
       <recent name="$PROJECT_DIR$/src/main/resources/static/static/media" />
+      <recent name="$PROJECT_DIR$/src/main/resources" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/static" />
+      <recent name="$PROJECT_DIR$/src/main/resources/templates" />
       <recent name="$PROJECT_DIR$/src/main/resources" />
     </key>
   </component>
@@ -432,12 +430,35 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.ItssApplication">
+  <component name="RunManager" selected="JUnit.DateComparerTest">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    </configuration>
+    <configuration name="DateComparerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="itss" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.hust.itss.utils.comparer.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.hust.itss.utils.comparer" />
+      <option name="MAIN_CLASS_NAME" value="com.hust.itss.utils.comparer.DateComparerTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
     </configuration>
     <configuration name="UserTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="itss" />
@@ -580,9 +601,11 @@
       <item itemvalue="JUnit.UserTest.setPhoneNumber" />
       <item itemvalue="JUnit.UserTest.setUser" />
       <item itemvalue="JUnit.UserTest" />
+      <item itemvalue="JUnit.DateComparerTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.DateComparerTest" />
         <item itemvalue="JUnit.UserTest" />
         <item itemvalue="JUnit.UserTest.setUser" />
         <item itemvalue="JUnit.UserTest.setPhoneNumber" />
@@ -732,44 +755,45 @@
       <workItem from="1544358748839" duration="1480000" />
       <workItem from="1544362967935" duration="2388000" />
       <workItem from="1544451823614" duration="4400000" />
-      <workItem from="1544578680846" duration="1133000" />
+      <workItem from="1544578680846" duration="3925000" />
+      <workItem from="1544604690078" duration="5413000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="UserTest - 2018.11.27 at 10h 14m 03s.xml">
-      <configuration name="UserTest" configurationId="JUnit" />
+    <history-entry file="DateComparerTest - 2018.12.12 at 22h 18m 38s.xml">
+      <configuration name="DateComparerTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UserTest - 2018.11.27 at 10h 18m 49s.xml">
-      <configuration name="UserTest" configurationId="JUnit" />
+    <history-entry file="DateComparerTest - 2018.12.12 at 22h 19m 45s.xml">
+      <configuration name="DateComparerTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UserTest - 2018.11.27 at 10h 19m 55s.xml">
-      <configuration name="UserTest" configurationId="JUnit" />
+    <history-entry file="DateComparerTest - 2018.12.12 at 22h 21m 31s.xml">
+      <configuration name="DateComparerTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UserTest_setUser - 2018.11.27 at 10h 20m 08s.xml">
-      <configuration name="UserTest.setUser" configurationId="JUnit" />
+    <history-entry file="DateComparerTest - 2018.12.12 at 22h 21m 58s.xml">
+      <configuration name="DateComparerTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UserTest_setUser - 2018.11.27 at 10h 20m 31s.xml">
-      <configuration name="UserTest.setUser" configurationId="JUnit" />
+    <history-entry file="DateComparerTest - 2018.12.12 at 22h 25m 32s.xml">
+      <configuration name="DateComparerTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UserTest - 2018.11.27 at 10h 25m 04s.xml">
-      <configuration name="UserTest" configurationId="JUnit" />
+    <history-entry file="DateComparerTest - 2018.12.12 at 22h 25m 59s.xml">
+      <configuration name="DateComparerTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UserTest - 2018.11.27 at 10h 26m 06s.xml">
-      <configuration name="UserTest" configurationId="JUnit" />
+    <history-entry file="DateComparerTest - 2018.12.12 at 22h 26m 34s.xml">
+      <configuration name="DateComparerTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UserTest - 2018.11.27 at 10h 27m 44s.xml">
-      <configuration name="UserTest" configurationId="JUnit" />
+    <history-entry file="DateComparerTest - 2018.12.12 at 22h 27m 20s.xml">
+      <configuration name="DateComparerTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UserTest - 2018.11.27 at 10h 35m 55s.xml">
-      <configuration name="UserTest" configurationId="JUnit" />
+    <history-entry file="DateComparerTest - 2018.12.12 at 22h 27m 23s.xml">
+      <configuration name="DateComparerTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UserTest - 2018.11.29 at 11h 08m 20s.xml">
-      <configuration name="UserTest" configurationId="JUnit" />
+    <history-entry file="DateComparerTest - 2018.12.12 at 22h 27m 29s.xml">
+      <configuration name="DateComparerTest" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="534139000" />
+    <option name="totallyTimeSpent" value="542344000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -781,7 +805,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1920" y="0" width="1920" height="1080" extended-state="6" />
+    <frame x="0" y="27" width="1920" height="1053" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
@@ -796,16 +820,17 @@
       <window_info id="UI Designer" order="5" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39868566" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32968238" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.2694414" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="bottom" id="Java Enterprise" order="8" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32201535" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.28806135" />
       <window_info anchor="bottom" id="Spring" order="7" weight="0.32968238" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info anchor="bottom" id="Problems" order="8" weight="0.32968238" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49625188" visible="true" weight="0.23130342" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49625188" weight="0.21367522" />
       <window_info anchor="right" id="Bean Validation" order="4" weight="0.32959402" />
       <window_info id="Web" order="6" side_tool="true" />
       <window_info anchor="right" id="Theme Preview" order="3" />
@@ -813,7 +838,6 @@
       <window_info anchor="bottom" id="Thumbnails" order="8" weight="0.32968238" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.2694414" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -872,67 +896,17 @@
           <properties />
           <option name="timeStamp" value="2" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-field">
+          <url>file://$PROJECT_DIR$/src/main/java/com/hust/itss/constants/response/ErrorResponse.java</url>
+          <line>22</line>
+          <properties field="INVALID_TIME" class="com.hust.itss.constants.response.ErrorResponse" />
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="4" />
+      <option name="time" value="5" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/models/user/Driver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/user/EmployeeController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="860">
-          <caret line="56" column="43" selection-start-line="56" selection-start-column="43" selection-end-line="56" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/utils/request/PageRequestCreation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="9" column="83" selection-start-line="9" selection-start-column="83" selection-end-line="9" selection-end-column="83" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/repositories/route/RouteRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/repositories/user/EmployeeRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="640">
-          <caret line="38" lean-forward="true" selection-start-line="38" selection-end-line="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/route/RouteController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="103">
-          <caret line="41" column="33" lean-forward="true" selection-start-line="41" selection-start-column="33" selection-end-line="41" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/1.3f0b2299.chunk.js" />
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/css/main.login.chunk.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/iconic/css/material-design-iconic-font.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/auth/AuthenticationController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/repositories/ticket/TicketRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
@@ -979,13 +953,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="218">
           <caret line="12" column="48" selection-start-line="12" selection-start-column="48" selection-end-line="12" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/ticket/TicketController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="407">
-          <caret line="100" column="41" selection-start-line="100" selection-start-column="41" selection-end-line="100" selection-end-column="41" />
         </state>
       </provider>
     </entry>
@@ -1316,20 +1283,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.0.9.RELEASE/spring-web-5.0.9.RELEASE.jar!/org/springframework/web/cors/CorsConfiguration.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1340">
+          <caret line="24" column="50" selection-start-line="24" selection-start-column="50" selection-end-line="24" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/login.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="360">
           <caret line="18" column="22" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/admin.html">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/constants/request/RequestParams.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="640">
-          <caret line="32" column="7" selection-start-line="32" selection-start-column="7" selection-end-line="32" selection-end-column="7" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+        <state>
+          <caret column="8" lean-forward="true" selection-start-column="8" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/constants/response/ErrorResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="13" column="4" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/route/RouteAsyncImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -1340,19 +1325,87 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.0.9.RELEASE/spring-web-5.0.9.RELEASE.jar!/org/springframework/web/cors/CorsConfiguration.class">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/route/RouteController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1340">
-          <caret line="24" column="50" selection-start-line="24" selection-start-column="50" selection-end-line="24" selection-end-column="50" />
+        <state relative-caret-position="60">
+          <caret line="23" column="30" lean-forward="true" selection-start-line="23" selection-start-column="30" selection-end-line="23" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/utils/request/PageRequestCreation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/ticket/TicketController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="407">
+          <caret line="92" column="19" selection-start-line="92" selection-start-column="19" selection-end-line="92" selection-end-column="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/configs/WebSecurityConfig.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="744">
-          <caret line="147" column="61" selection-start-line="147" selection-start-column="61" selection-end-line="147" selection-end-column="61" />
+        <state relative-caret-position="814">
+          <caret line="153" selection-start-line="153" selection-end-line="153" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/admin.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="17" column="7" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/controllers/route/RouteAsyncTasks.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/jdk1.8.0_191/src.zip!/java/util/Date.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="929" column="19" selection-start-line="929" selection-start-column="19" selection-end-line="929" selection-end-column="19" />
+          <folding>
+            <element signature="e#39232#39233#0" expanded="true" />
+            <element signature="e#39292#39293#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/hust/itss/models/user/UserTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hust/itss/utils/comparer/DateComparer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/hust/itss/utils/comparer/DateComparerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="24" column="5" lean-forward="true" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#193#194#0" expanded="true" />
+            <element signature="e#250#251#0" expanded="true" />
           </folding>
         </state>
       </provider>

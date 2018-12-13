@@ -12,6 +12,7 @@ public class RequestParams {
     public static final String PAGE_SIZE = "page_size";
     public static final String SORT = "sort";
     public static final String DIRECT = "direct";
+    public static final String SEARCH = "search";       // string search
 
 //    public static List<String> DIRECTS = new ArrayList<>(Arrays.asList("ASC", "DESC"));
     public static final List<String> TICKET_PARAMS = new ArrayList<>(Arrays.asList("booking_date", "date", "price"));

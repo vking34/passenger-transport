@@ -10,7 +10,6 @@ public class DateComparer {
     private static final Pattern PATTERN = Pattern.compile("\\d+");
 
     public static boolean afterNow(Date date, String timeString){
-
         Matcher matcher = PATTERN.matcher(timeString);
         List<Integer> times = new ArrayList<>();
         while (matcher.find()){
@@ -23,7 +22,7 @@ public class DateComparer {
         }catch (Exception e){
             return false;
         }
-
-        return date.after(new Date());
+        boolean after = date.after(new Date());
+        return after;
     }
 }
