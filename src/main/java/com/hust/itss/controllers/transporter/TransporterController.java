@@ -12,14 +12,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
+import static com.hust.itss.constants.response.ErrorResponse.EXISTING_ENTITY;
+import static com.hust.itss.constants.response.ErrorResponse.MISSING_FIELDS;
+import static com.hust.itss.constants.response.ErrorResponse.TRANSPORTER_NOT_FOUND;
+
 @RestController
 @RequestMapping("/api/transporter")
 public class TransporterController {
-
-    private static final Response MISSING_FIELDS_RESPONSE = new Response(false, 1, "License plate/Model/Branch/Seaters is missing");
-    private static final Response EXISTING_RESPONSE = new Response(false, 2, "Invalid License Plate");
-    private static final Response TRANSPORTER_NOT_FOUND_RESPONSE = new Response(false, 1, "Transporter not found");
-
     @Autowired
     private TransporterRepository transporterRepository;
 
@@ -58,9 +57,9 @@ public class TransporterController {
                 || transporter.getModel() == null
                 || transporter.getBranch() == null
                 || transporter.getSeaters() == null)
-            return MISSING_FIELDS_RESPONSE;
+            return MISSING_FIELDS;
         if (transporterRepository.findTransporterByLicensePlate(licensePlate) != null){
-            return EXISTING_RESPONSE;
+            return EXISTING_ENTITY;
         }
         transporterAsyncTasks.insertTransporter(transporter);
         return CommonResponse.SUCCESS_RESPONSE;
@@ -68,14 +67,16 @@ public class TransporterController {
 
     @PostMapping("/{id}")
     Response updateTransporter(@PathVariable String id, @RequestBody Transporter transporter){
-        Transporter target = transporterRepository.findTransporterById(id);
-        if (target == null)
-            return TRANSPORTER_NOT_FOUND_RESPONSE;
         if (transporter.getLicensePlate() == null
                 || transporter.getModel() == null
                 || transporter.getBranch() == null
                 || transporter.getSeaters() == null)
-            return MISSING_FIELDS_RESPONSE;
+            return MISSING_FIELDS;
+
+        Transporter target = transporterRepository.findTransporterById(id);
+        if (target == null)
+            return TRANSPORTER_NOT_FOUND;
+
         transporterAsyncTasks.updateTransporter(target, transporter);
         return CommonResponse.SUCCESS_RESPONSE;
     }
@@ -83,7 +84,7 @@ public class TransporterController {
     @DeleteMapping("/{id}")
     Response deleteTransporter(@PathVariable String id){
         if (transporterRepository.findTransporterById(id) == null)
-            return TRANSPORTER_NOT_FOUND_RESPONSE;
+            return TRANSPORTER_NOT_FOUND;
         transporterAsyncTasks.deleteTransporter(id);
         return CommonResponse.SUCCESS_RESPONSE;
     }

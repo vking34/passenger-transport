@@ -1,13 +1,13 @@
 package com.hust.itss.constants.request;
 
-//import org.springframework.stereotype.Repository;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 //@Repository
 public class RequestParams {
+
+    // common
     public static final String PAGE = "page";
     public static final String PAGE_SIZE = "page_size";
     public static final String SORT = "sort";
@@ -23,9 +23,14 @@ public class RequestParams {
     public static final List<String> WORK_SCHEDULE_PARAMS = new ArrayList<>(Arrays.asList("starting_time", "ending_time"));
     public static final List<String> TRANSPORT_SCHEDULE_PARAMS = new ArrayList<>(Arrays.asList("starting_time", "ending_time", "price"));
 
-    //
+    // ticket
     public static final String TRANSPORTER = "transporter";
     public static final String DATE = "date";
     public static final String ROUTE = "route";
     public static final String SCHEDULE = "schedule";
+
+    // employee
+    public static final String NAME = "name";
+    public static final String PHONE = "phone";
+    public static final String CITIZEN_ID = "citizen_id";
 }

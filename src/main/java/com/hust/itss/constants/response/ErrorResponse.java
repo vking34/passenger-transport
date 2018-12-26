@@ -23,5 +23,7 @@ public class ErrorResponse {
     public static final Response INVALID_TIME = new Response(false, 506, "Invalid booking time");
     public static final Response NOT_ENOUGH_SEATS = new Response(false, 507, "Not enough seats");
 
+    // Schedule
+    public static final Response TRANSPORT_SCHEDULE_NOT_FOUND = new Response(false, 601, "Transport Schedule not found");
 
 }

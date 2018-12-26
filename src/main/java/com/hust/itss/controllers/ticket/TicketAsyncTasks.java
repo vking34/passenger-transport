@@ -10,6 +10,6 @@ import java.util.List;
 
 @Component
 public interface TicketAsyncTasks {
-    void insertTicket(TransportSchedule schedule, Ticket ticket, SeatDetail seatDetail, List<SeatDetail> seatDetails);
+    void createTicket(TransportSchedule schedule, Ticket ticket, SeatDetail seatDetail, List<SeatDetail> seatDetails);
     void deleteTicket(String id);
 }

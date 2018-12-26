@@ -32,8 +32,8 @@ import static com.hust.itss.constants.request.RequestParams.*;
 @RestController
 @RequestMapping("/api/seat-availability")
 public class SeatController {
-    public static final String SEAT = "available_seats";
-    private static final String LATE_TIME = "23:59PM";
+//    public static final String SEAT = "available_seats";
+//    private static final String LATE_TIME = "23:59PM";
 
     private static final Page<SeatDetail> EMPTY_PAGE = new PageImpl<>(new ArrayList<SeatDetail>());
 
@@ -57,25 +57,25 @@ public class SeatController {
 
 
     @GetMapping
-    Page<SeatDetail> getSeatDetails(@RequestParam(value = "route", required = false) String routeRef,
-                                    @RequestParam(value = "schedule", required = false) String scheduleRef,
-                                    @RequestParam(value = "date", required = false) String dateString) throws ParseException {
+    Page<SeatDetail> getSeatDetails(@RequestParam(value = ROUTE, required = false) String routeRef,
+                                    @RequestParam(value = SCHEDULE, required = false) String scheduleRef,
+                                    @RequestParam(value = DATE, required = false) String dateString) throws ParseException {
         System.out.println("GET SEAT");
         Page<SeatDetail> seatDetailPage;
 
         Route route = routeRepository.findRouteById(routeRef);
         if (route == null)
             return EMPTY_PAGE;
-//
-//        boolean isFound = false;
-//
-//        for(ObjectId schedule : route.getSchedules()){
-//            if (schedule.toHexString().equals(scheduleRef))
-//                isFound = true;
-//        }
-//        if (!isFound)
-//            return EMPTY_PAGE;
-//
+
+        boolean isFound = false;
+
+        for(ObjectId schedule : route.getSchedules()){
+            if (schedule.toHexString().equals(scheduleRef))
+                isFound = true;
+        }
+        if (!isFound)
+            return EMPTY_PAGE;
+
         Date date = null;
         date = DateForm.SIMPLE_DATE_FORMAT.parse(dateString);
 
@@ -115,23 +115,4 @@ public class SeatController {
         SeatDetail seatDetail = seatRepository.findSeatDetailById(id);
         return seatDetail;
     }
-
-//    @GetMapping("/one")
-//    SeatDetail findByTransporterAndDate(@RequestParam(value = ROUTE) String routeRef,
-//                                              @RequestParam(value = SCHEDULE) String scheduleRef,
-//                                              @RequestParam(value = DATE) String dateString) throws ParseException {
-//        Date date = DateForm.SIMPLE_DATE_FORMAT.parse(dateString);
-//        System.out.println(date);
-//        return seatSearch.searchByDate(routeRef, scheduleRef, date);
-//    }
-
-    @GetMapping("/many")
-    Page<SeatDetail> seatDetailPage (@RequestParam(value = ROUTE) String routeRef,
-                                        @RequestParam(value = SCHEDULE) String scheduleRef,
-                                        @RequestParam(value = DATE) String dateString) throws ParseException {
-        Date date = DateForm.SIMPLE_DATE_FORMAT.parse(dateString);
-        System.out.println(date);
-        return seatSearch.searchSeatDetailsByDate(routeRef, scheduleRef, date);
-    }
-
 }

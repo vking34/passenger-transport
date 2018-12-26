@@ -9,10 +9,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import static com.hust.itss.constants.database.CommonPageRequest.DEFAULT_PAGE_REQUEST;
+
 @RestController
 @RequestMapping("/api/user")
 public class SysUserController {
-    private static final PageRequest DEFAULT_PAGE_REQUEST = new PageRequest(0, 10);
 
     @Autowired
     private SysUserRepository sysUserRepository;

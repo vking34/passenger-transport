@@ -10,7 +10,6 @@ import java.security.Principal;
 @RestController
 @RequestMapping("/user")
 public class OauthUserController {
-
     @GetMapping
     public Principal getUser(Principal principal){
         return principal;

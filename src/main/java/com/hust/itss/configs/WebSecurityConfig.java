@@ -1,6 +1,5 @@
 package com.hust.itss.configs;
 
-import com.hust.itss.constants.security.RoleContants;
 import com.hust.itss.constants.request.EntryPoints;
 import com.hust.itss.controllers.auth.CustomLogoutHandler;
 import com.hust.itss.models.user.SysUser;
@@ -37,6 +36,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+
+import static com.hust.itss.constants.security.RoleContants.*;
 
 @Configuration
 @EnableGlobalMethodSecurity(prePostEnabled = true)
@@ -91,19 +92,35 @@ class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
         // filter cookies for actors
         http.authorizeRequests()
-
-                .antMatchers(HttpMethod.GET, "/admin").hasRole(RoleContants.ADMIN)
-                .antMatchers(HttpMethod.GET, "/driver").hasAnyRole(RoleContants.DRIVER, RoleContants.ADMIN)
-                .antMatchers(HttpMethod.GET, "/assistant").hasAnyRole(RoleContants.ASSISTANT, RoleContants.ADMIN)
-                .antMatchers(HttpMethod.GET, "/client").hasAnyRole(RoleContants.CLIENT, RoleContants.USER, RoleContants.ADMIN)
+                .antMatchers(HttpMethod.GET, "/admin").hasRole(ADMIN)
+                .antMatchers(HttpMethod.GET, "/driver").hasAnyRole(DRIVER, ADMIN)
+                .antMatchers(HttpMethod.GET, "/assistant").hasAnyRole(ASSISTANT, ADMIN)
+                .antMatchers(HttpMethod.GET, "/client").hasAnyRole(CLIENT, USER, ADMIN)
                 .and()
                 .addFilter(new CookieAuthorizationFilter(authenticationManager(), customUserDetailService));
 
         // for access token for API
         http.authorizeRequests()
-                .antMatchers(HttpMethod.GET, "/me").hasAnyRole(RoleContants.USER, RoleContants.CLIENT, RoleContants.DRIVER, RoleContants.ASSISTANT, RoleContants.ADMIN)
-//                .antMatchers(HttpMethod.GET,"/api/transporter").hasAnyRole(RoleContants.USER, RoleContants.ADMIN, RoleContants.DRIVER)
-//                .antMatchers(HttpMethod.GET,"/api/employee").hasAnyRole(RoleContants.ADMIN)
+                .antMatchers(HttpMethod.GET, "/me").hasAnyRole(USER, CLIENT, DRIVER, ASSISTANT, ADMIN)
+                // transporter
+                .antMatchers(HttpMethod.GET,"/api/transporter").permitAll()
+                .antMatchers(HttpMethod.POST,"/api/transporter/**").hasAnyRole(USER, ADMIN, DRIVER)
+                .antMatchers(HttpMethod.DELETE,"/api/transporter/**").hasRole(ADMIN)
+
+                // user
+                .antMatchers(HttpMethod.GET,"/api/employee", "/api/client").hasAnyRole(ADMIN)
+                .antMatchers(HttpMethod.POST,"/api/employee/**", "/api/client/**").hasAnyRole(ADMIN,ASSISTANT, DRIVER, USER)
+                .antMatchers(HttpMethod.DELETE,"/api/employee/**").hasRole(ADMIN)
+
+                // route
+                .antMatchers(HttpMethod.GET,"/api/route").permitAll()
+                .antMatchers(HttpMethod.POST,"/api/route/**").hasRole(ADMIN)
+                .antMatchers(HttpMethod.DELETE,"/api/route/**").hasRole(ADMIN)
+
+                // ticket
+                .antMatchers(HttpMethod.GET,"/api/ticket").hasAnyRole(ADMIN, ASSISTANT)
+                .antMatchers(HttpMethod.POST,"/api/route/**").hasAnyRole(ADMIN, ASSISTANT)
+                .antMatchers(HttpMethod.DELETE,"/api/route/**").hasRole(ADMIN)
                 .and()
                 .addFilter(new JWTAuthorizationFilter(authenticationManager(), customUserDetailService))
         ;

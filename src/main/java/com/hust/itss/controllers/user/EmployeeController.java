@@ -15,6 +15,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.*;
 
+import static com.hust.itss.constants.request.RequestParams.*;
+
 @RestController
 @RequestMapping("/api/employee")
 public class EmployeeController {
@@ -30,10 +32,10 @@ public class EmployeeController {
     }
 
     @GetMapping
-    Page<Employee> getEmployees(@RequestParam(value = "page", required = false) Integer page,
-                                @RequestParam(value = "page_size", required = false) Integer pageSize,
-                                @RequestParam(value = "sort", required = false) String sort,
-                                @RequestParam(value = "direct", required = false) String direct){
+    Page<Employee> getEmployees(@RequestParam(value = PAGE, required = false) Integer page,
+                                @RequestParam(value = PAGE_SIZE, required = false) Integer pageSize,
+                                @RequestParam(value = SORT, required = false) String sort,
+                                @RequestParam(value = DIRECT, required = false) String direct){
         return employeeRepository.findAllEmployees(PageRequestCreation.getPageRequest(page, pageSize, sort, direct, RequestParams.USER_PARAMS));
     }
 
@@ -50,18 +52,18 @@ public class EmployeeController {
     }
 
     @GetMapping("/driver")
-    Page<Driver> getDrivers(@RequestParam(value = "page", required = false) Integer page,
-                            @RequestParam(value = "page_size", required = false) Integer pageSize,
-                            @RequestParam(value = "sort", required = false) String sort,
-                            @RequestParam(value = "direct", required = false) String direct){
+    Page<Driver> getDrivers(@RequestParam(value = PAGE, required = false) Integer page,
+                            @RequestParam(value = PAGE_SIZE, required = false) Integer pageSize,
+                            @RequestParam(value = SORT, required = false) String sort,
+                            @RequestParam(value = DIRECT, required = false) String direct){
         return employeeRepository.findAllDrivers(PageRequestCreation.getBasicPageRequest(page, pageSize, sort, direct));
     }
 
     @GetMapping("/assistant")
-    Page<Employee> getAssistants(@RequestParam(value = "page", required = false) Integer page,
-                              @RequestParam(value = "page_size", required = false) Integer pageSize,
-                              @RequestParam(value = "sort", required = false) String sort,
-                              @RequestParam(value = "direct", required = false) String direct){
+    Page<Employee> getAssistants(@RequestParam(value = PAGE, required = false) Integer page,
+                              @RequestParam(value = PAGE_SIZE, required = false) Integer pageSize,
+                              @RequestParam(value = SORT, required = false) String sort,
+                              @RequestParam(value = DIRECT, required = false) String direct){
         return employeeRepository.findAllAssistants(PageRequestCreation.getBasicPageRequest(page, pageSize, sort, direct));
     }
 
@@ -103,11 +105,11 @@ public class EmployeeController {
     }
 
     @GetMapping("/filter")
-    Page<Employee> filterEmployees(@RequestParam(value = "name", required = false) String name,
-                                   @RequestParam(value = "phone", required = false) String phone,
-                                   @RequestParam(value = "page", required = false) Integer page,
-                                   @RequestParam(value = "citizen_id", required = false) String citizenId,
-                                   @RequestParam(value = "page_size", required = false) Integer pageSize){
+    Page<Employee> filterEmployees(@RequestParam(value = NAME, required = false) String name,
+                                   @RequestParam(value = PHONE, required = false) String phone,
+                                   @RequestParam(value = CITIZEN_ID, required = false) String citizenId,
+                                   @RequestParam(value = PAGE, required = false) Integer page,
+                                   @RequestParam(value = PAGE_SIZE, required = false) Integer pageSize){
         if(page == null) page = 1;
         if(pageSize == null) pageSize = 10;
         if(name == null) name = "";

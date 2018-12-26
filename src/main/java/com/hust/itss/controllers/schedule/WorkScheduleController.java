@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
+import static com.hust.itss.constants.request.RequestParams.*;
+
 @RestController
 @RequestMapping("/api/work-schedule")
 public class WorkScheduleController {
@@ -16,10 +18,10 @@ public class WorkScheduleController {
     WorkScheduleRepository workScheduleRepository;
 
     @GetMapping
-    Page<WorkSchedule> getWorkSchedules(@RequestParam(value = "page", required = false) Integer page,
-                                        @RequestParam(value = "page_size", required = false) Integer pageSize,
-                                        @RequestParam(value = "sort", required = false) String sort,
-                                        @RequestParam(value = "direct", required = false) String direct){
+    Page<WorkSchedule> getWorkSchedules(@RequestParam(value = PAGE, required = false) Integer page,
+                                        @RequestParam(value = PAGE_SIZE, required = false) Integer pageSize,
+                                        @RequestParam(value = SORT, required = false) String sort,
+                                        @RequestParam(value = DIRECT, required = false) String direct){
         return workScheduleRepository.findAll(PageRequestCreation.getPageRequest(page,pageSize, sort, direct, RequestParams.WORK_SCHEDULE_PARAMS));
     }
 

@@ -12,21 +12,20 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.*;
 
+import static com.hust.itss.constants.request.RequestParams.*;
+
 @RestController
 @RequestMapping("/api/client")
-public class
-ClientController {
+public class ClientController {
 
     @Autowired
     ClientRepository clientRepository;
 
-
-
     @GetMapping
-    protected Page<Client> getClients(@RequestParam(value = "page", required = false) Integer page,
-                                      @RequestParam(value = "page_size", required = false) Integer pageSize,
-                                      @RequestParam(value = "sort", required = false) String sort,
-                                      @RequestParam(value = "direct", required = false) String direct){
+    protected Page<Client> getClients(@RequestParam(value = PAGE, required = false) Integer page,
+                                      @RequestParam(value = PAGE_SIZE, required = false) Integer pageSize,
+                                      @RequestParam(value = SORT, required = false) String sort,
+                                      @RequestParam(value = DIRECT, required = false) String direct){
         return clientRepository.findAllClients(PageRequestCreation.getPageRequest(page, pageSize, sort, direct, RequestParams.USER_PARAMS));
     }
 
@@ -68,10 +67,10 @@ ClientController {
     }
 
     @GetMapping("/filter")
-    Page<Client> filterClients(@RequestParam(value = "name", required = false) String name,
-                               @RequestParam(value = "phone", required = false) String phone,
-                               @RequestParam(value = "page", required = false) Integer page,
-                               @RequestParam(value = "page_size", required = false) Integer pageSize){
+    Page<Client> filterClients(@RequestParam(value = NAME, required = false) String name,
+                               @RequestParam(value = PHONE, required = false) String phone,
+                               @RequestParam(value = PAGE, required = false) Integer page,
+                               @RequestParam(value = PAGE_SIZE, required = false) Integer pageSize){
         if(page == null) page = 1;
         if(pageSize == null) pageSize = 10;
         if(name == null) name = "";

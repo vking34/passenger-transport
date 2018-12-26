@@ -56,7 +56,7 @@ public class TicketController {
     }
 
     @PostMapping
-    Response requestTicket(@RequestBody Ticket ticket){
+    Response bookingTicket(@RequestBody Ticket ticket){
         String routeRef = ticket.getRoute();
         String scheduleRef = ticket.getSchedule();
         String transporterRef = ticket.getTransporter();
@@ -98,14 +98,14 @@ public class TicketController {
         if (seatDetail.getAvailableSeats() < ticket.getTicketQuantity())
             return NOT_ENOUGH_SEATS;
 
-        asyncTasks.insertTicket(schedule, ticket, seatDetail, seatDetails);
+        asyncTasks.createTicket(schedule, ticket, seatDetail, seatDetails);
         return CommonResponse.SUCCESS_RESPONSE;
     }
 
     @GetMapping("/history/{clientId}")
     public Page<Ticket> getTicketHistory(@PathVariable String clientId,
-                                         @RequestParam(value = "page", required = false) Integer page,
-                                         @RequestParam(value = "page_size", required = false) Integer pageSize){
+                                         @RequestParam(value = PAGE, required = false) Integer page,
+                                         @RequestParam(value = PAGE_SIZE, required = false) Integer pageSize){
         return ticketRepository.findTicketsByClientId(clientId, PageRequestCreation.getSimplePageRequest(page, pageSize));
     }
 
@@ -117,5 +117,4 @@ public class TicketController {
         asyncTasks.deleteTicket(id);
         return CommonResponse.SUCCESS_RESPONSE;
     }
-
 }
